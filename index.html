@@ -798,20 +798,48 @@
         function initProgressSystem() {
             const start = new Date(config.startDate);
             const today = new Date(); 
+            const dateKey = today.toISOString().split('T')[0];
             const diffMs = today - start;
             const diffDays = Math.ceil(Math.max(0, diffMs / (1000 * 60 * 60 * 24)));
             const weekIdx = Math.floor((diffDays - 1) / 7);
 
-            document.getElementById('progress-bar').style.width = `${Math.min(100, (diffDays / 46) * 100)}%`;
-            document.getElementById('progress-week-text').innerText = diffDays <= 4 ? "圣灰礼仪后" : `四旬期第 ${weekIdx + 1} 周`;
-            document.getElementById('progress-text').innerText = `Day ${diffDays} / 46`;
+            let displayDays = Math.max(0, Math.min(diffDays, 46));
+            document.getElementById('progress-bar').style.width = `${(displayDays / 46) * 100}%`;
             
-            let dateKey = today.toISOString().split('T')[0];
+            // 动态生成包含星期几的主日/平日规范名称
+            const daysArr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+            const currentDayName = daysArr[today.getDay()];
+            const weekNames = ["", "一", "二", "三", "四", "五"]; // 对应第1到第5周
+            
+            let weekText = "";
+            if (diffDays <= 4) {
+                // Day 1~4: 圣灰礼仪后的周三至周六
+                weekText = "圣灰礼仪后 " + currentDayName;
+            } else if (diffDays === 40) {
+                // Day 40: 3月29日 圣枝主日
+                weekText = "圣枝主日";
+            } else if (diffDays >= 41 && diffDays <= 46) {
+                // Day 41~46: 圣周的平日
+                weekText = "圣周 " + currentDayName;
+            } else if (diffDays >= 47) {
+                // Day 47及以后: 4月5日 复活瞻礼
+                weekText = "复活瞻礼";
+            } else {
+                // Day 5 到 39 之间：计算这是四旬期第几周 (Day 5 是第一周, Day 12 是第二周...)
+                let litWeek = Math.floor((diffDays + 2) / 7); 
+                let wName = weekNames[litWeek];
+                if (today.getDay() === 0) {
+                    weekText = "四旬期第" + wName + "主日";
+                } else {
+                    weekText = "四旬期第" + wName + "周 " + currentDayName;
+                }
+            }
+            
+            document.getElementById('progress-week-text').innerText = weekText;
+            document.getElementById('progress-text').innerText = `Day ${displayDays} / 46`;
             document.getElementById('today-date-string').innerText = dateKey;
 
-            document.getElementById('milestones-container').innerHTML = config.milestones.map((m, i) => `
-                <div class="milestone-dot w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-violet-500 pointer-events-auto ${diffDays >= m.offset ? 'active-dot' : 'bg-violet-900/40'}"></div>
-            `).join('');
+            document.getElementById('milestones-container').innerHTML = config.milestones.map((m, i) => `<div class="milestone-dot w-4 h-4 rounded-full border-2 border-violet-500 pointer-events-auto ${diffDays >= m.offset ? 'active-dot' : 'bg-violet-900/40'}"></div>`).join('');
 
             const plan = getPlanForDate(dateKey);
             document.getElementById('dynamic-guidance-text').innerText = plan.mentor;
@@ -843,7 +871,6 @@
                     </div>
                 </div>
             `).join('');
-        }
 
         function toggleTask(id, el) {
             const isDone = el.classList.toggle('is-checked');
