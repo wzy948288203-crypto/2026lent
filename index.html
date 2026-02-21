@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2026 善度四旬期与告解圣事深度全指南</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6d28d9">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="四旬期指南">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap');
+        :root { --church-violet: #6d28d9; --church-indigo: #4338ca; --church-emerald: #10b981; }
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #f8f7fc; color: #111827; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+        .font-serif-church { font-family: 'Noto Serif SC', serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .milestone-dot { transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); cursor: pointer; background-color: rgba(139, 92, 246, 0.4); }
+        .active-dot { background-color: white !important; box-shadow: 0 0 15px rgba(255,255,255,0.9); transform: scale(1.35); }
+        .task-item.is-checked { background-color: #f0fdf4 !important; border-color: #86efac !important; }
+        .task-item.is-checked .check-box { background-color: #22c55e !important; border-color: #22c55e !important; }
+        .task-item.is-checked .check-svg { display: block !important; }
+        .exam-item.is-checked { background-color: #eef2ff !important; border-color: #a5b4fc !important; }
+        .exam-item.is-checked .exam-check-box { background-color: #4f46e5 !important; border-color: #4f46e5 !important; }
+        .exam-item.is-checked .exam-check-svg { display: block !important; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .shadow-premium { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); }
+        .station-accent { border-left: 6px solid #4b5563; }
+        .station-accent:hover { border-left-color: #7c3aed; }
+        .conf-nav-active { background-color: #4f46e5 !important; color: white !important; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
+        .prose-church { line-height: 2.2; letter-spacing: 0.01em; }
+    </style>
+</head>
+<body class="pb-32">
+    <div id="loading-screen" class="fixed inset-0 bg-[#f8f7fc] z-[999] flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="w-12 h-12 border-4 border-violet-200 border-t-violet-700 rounded-full animate-spin mb-4"></div>
+        <p class="text-violet-900 font-bold text-sm">正在加载堂区灵修资源...</p>
+    </div>
+
+    <header class="bg-white/90 backdrop-blur-xl border-b sticky top-0 z-[100] pt-safe">
+        <div class="max-w-2xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer group" onclick="showTab('home')">
+                <div class="bg-violet-700 p-2.5 rounded-2xl text-white shadow-lg shadow-violet-200">
+                    <i data-lucide="cross"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-black text-violet-950 leading-none tracking-tight">2026 善度四旬期</h1>
+                    <span class="text-[10px] text-violet-500 uppercase tracking-widest font-bold">堂区深度灵修指南</span>
+                </div>
+            </div>
+            <button onclick="showTab('liturgy')" class="text-xs font-black px-5 py-2.5 rounded-full text-violet-700 bg-violet-50 border border-violet-100 hover:bg-violet-100 transition-all flex items-center gap-2">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i> 百科
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto px-6 py-8">
+        
+        <div id="home" class="tab-content active space-y-8">
+            <div class="bg-gradient-to-br from-violet-800 via-violet-950 to-indigo-950 rounded-[3rem] p-8 text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
+                <div class="flex justify-between items-center mb-10">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-white/10 p-2.5 rounded-xl backdrop-blur-md border border-white/10"><i data-lucide="compass" class="w-5 h-5 text-violet-200"></i></div>
+                        <span id="progress-week-text" class="font-black text-sm tracking-wide">载入进度...</span>
+                    </div>
+                    <span id="progress-text" class="bg-white/20 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/5">Day 0 / 46</span>
+                </div>
+                <div class="relative px-2 mb-16">
+                    <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden shadow-inner">
+                        <div id="progress-bar" class="bg-white h-full rounded-full transition-all duration-1000 shadow-[0_0_20px_rgba(255,255,255,0.6)]" style="width: 0%"></div>
+                    </div>
+                    <div id="milestones-container" class="absolute top-1/2 -translate-y-1/2 w-full left-0 px-0 flex justify-between pointer-events-none"></div>
+                    <div class="absolute w-full flex justify-between mt-6 px-0 text-[8px] font-black opacity-90 leading-tight">
+                        <div class="flex flex-col items-center w-12 -ml-4 text-center"><span>圣灰礼仪</span><span class="opacity-50 mt-0.5">2/18</span></div>
+                        <div class="flex flex-col items-center w-12 text-center"><span>第一主日</span><span class="opacity-50 mt-0.5">2/22</span></div>
+                        <div class="flex flex-col items-center w-12 text-center"><span>第二主日</span><span class="opacity-50 mt-0.5">3/01</span></div>
+                        <div class="flex flex-col items-center w-12 text-center"><span>第三主日</span><span class="opacity-50 mt-0.5">3/08</span></div>
+                        <div class="flex flex-col items-center w-12 text-center"><span>第四主日</span><span class="opacity-50 mt-0.5">3/15</span></div>
+                        <div class="flex flex-col items-center w-12 text-center text-amber-300"><span>第五主日</span><span class="opacity-50 mt-0.5">3/22</span></div>
+                        <div class="flex flex-col items-center w-12 text-red-300"><span>圣枝主日</span><span class="opacity-50 mt-0.5">3/29</span></div>
+                        <div class="flex flex-col items-center w-12 -mr-4 text-yellow-300 text-center"><span>复活瞻礼</span><span class="opacity-50 mt-0.5">4/05</span></div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-end text-[10px] opacity-70 border-t border-white/10 pt-4">
+                    <div><span class="font-bold">2026 四旬期旅程</span></div>
+                    <div class="text-right"><span id="today-date-string" class="text-xs font-black tracking-tighter block">载入中...</span><span class="font-bold uppercase opacity-50 tracking-widest">Today</span></div>
+                </div>
+            </div>
+
+            <div class="bg-amber-50 border border-amber-200 rounded-[2.5rem] p-6 flex gap-5 items-center shadow-sm relative overflow-hidden">
+                <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner"><i data-lucide="bell" class="w-7 h-7 animate-bounce"></i></div>
+                <div class="flex-1 relative z-10">
+                    <h4 class="text-sm font-black text-amber-950 mb-1.5">圣安多尼堂特别通知</h4>
+                    <p class="text-[11px] text-amber-800 leading-relaxed font-bold">四旬期内 <span class="bg-amber-200/50 px-2 py-0.5 rounded text-amber-900 font-black">每周五 15:00</span> 举行拜苦路善功，随后举行弥撒。请信友踊跃参与。</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="showTab('weekly')" class="bg-white p-7 rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+                    <div class="w-16 h-16 rounded-2xl bg-violet-50 text-violet-600 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="layers"></i></div>
+                    <span class="text-sm font-black text-gray-800">每周重点</span>
+                </button>
+                <button onclick="showTab('stations')" class="bg-white p-7 rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+                    <div class="w-16 h-16 rounded-2xl bg-stone-50 text-stone-700 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="milestone"></i></div>
+                    <span class="text-sm font-black text-gray-800">苦路善功</span>
+                </button>
+                <button onclick="showTab('confession')" class="bg-white p-7 rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+                    <div class="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-700 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="heart-handshake"></i></div>
+                    <span class="text-sm font-black text-gray-800">告解圣事</span>
+                </button>
+                <button onclick="showTab('holyweek')" class="bg-white p-7 rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+                    <div class="w-16 h-16 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="flame"></i></div>
+                    <span class="text-sm font-black text-gray-800">圣周指南</span>
+                </button>
+            </div>
+
+            <div class="bg-white rounded-[3rem] p-10 shadow-sm border border-gray-100">
+                <div class="flex justify-between items-center mb-10">
+                    <div class="space-y-1">
+                        <h3 class="text-2xl font-black text-gray-900 tracking-tight">今日修德方案</h3>
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em]">Spiritual Training Plan</p>
+                    </div>
+                    <div class="bg-violet-100 text-violet-700 p-3.5 rounded-2xl cursor-pointer" onclick="alert('勾选的任务将自动保存在您的手机中，即使关闭网页也不会丢失哦！')"><i data-lucide="save" class="w-6 h-6"></i></div>
+                </div>
+                <div class="bg-violet-50 p-7 rounded-[2rem] mb-10 border border-violet-100/50 shadow-inner relative overflow-hidden group">
+                    <div class="absolute -right-4 -top-4 opacity-5 group-hover:rotate-45 transition-transform"><i data-lucide="quote" class="w-24 h-24 text-violet-900"></i></div>
+                    <h5 class="text-[10px] font-black text-violet-400 uppercase tracking-widest mb-3 flex items-center gap-2"><i data-lucide="message-circle" class="w-3.5 h-3.5"></i> 今日灵修指引</h5>
+                    <p id="dynamic-guidance-text" class="text-base text-violet-950 font-bold leading-relaxed italic font-serif-church">载入今日方案...</p>
+                </div>
+                <div id="task-categories" class="space-y-12"></div>
+            </div>
+
+            <footer class="pt-10 pb-4 text-center">
+                <p class="text-[10px] text-gray-400 font-black tracking-widest uppercase mb-1">Produced By</p>
+                <p class="text-xs text-gray-500 font-bold">SAC划向深处小组制作</p>
+                <p class="text-[10px] text-gray-400 mt-2 flex items-center justify-center gap-1"><i data-lucide="shield-check" class="w-3 h-3"></i> 纯静态页面，数据仅保存在您的本地设备</p>
+            </footer>
+        </div>
+
+        <div id="weekly" class="tab-content space-y-10 pb-20">
+            <button onclick="showTab('home')" class="flex items-center text-violet-600 font-black gap-2 mb-4 hover:gap-4 transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i> 返回主页</button>
+            <div class="bg-violet-950 text-white p-12 rounded-[4rem] shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-10 rotate-12 scale-125"><i data-lucide="scroll-text" class="w-48 h-48"></i></div>
+                <h2 class="text-4xl font-black mb-6 tracking-tighter">每周灵修大纲</h2>
+                <p class="text-violet-200 leading-loose text-sm font-medium prose-church">四旬期是一场灵魂由世俗之“奴役”走向天主之“自由”的伟大法行。每周的主日福音都是这一段航程的灯塔。</p>
+            </div>
+            <div id="weekly-list" class="space-y-16 pb-12"></div>
+        </div>
+
+        <div id="stations" class="tab-content space-y-10 pb-20">
+            <button onclick="showTab('home')" class="flex items-center text-stone-700 font-black gap-2 mb-4 hover:gap-4 transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i> 返回主页</button>
+            <div class="bg-stone-900 text-white p-12 rounded-[4rem] shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 p-4 opacity-10"><i data-lucide="cross" class="w-64 h-64"></i></div>
+                <h2 class="text-4xl font-black mb-6 tracking-tighter">拜苦路深度默想</h2>
+                <p class="text-stone-400 text-sm leading-loose italic font-serif-church max-w-lg">“谁若愿意跟随我，该弃绝自己，天天背起自己的十字架跟随我。” (路9:23)</p>
+            </div>
+            <div id="stations-list" class="space-y-12 pb-12"></div>
+        </div>
+
+        <div id="confession" class="tab-content space-y-10 pb-20">
+            <button onclick="showTab('home')" class="flex items-center text-indigo-600 font-black gap-2 mb-4 hover:gap-4 transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i> 返回主页</button>
+            <div class="bg-white p-2 rounded-[2rem] shadow-premium border border-indigo-50 flex items-center gap-1 sticky top-20 z-50 overflow-x-auto no-scrollbar">
+                <button onclick="showConfSub('conf-intro')" class="conf-sub-btn whitespace-nowrap flex-1 py-3 px-6 rounded-full text-xs font-black transition-all conf-nav-active" id="btn-conf-intro">意义</button>
+                <button onclick="showConfSub('conf-prep')" class="conf-sub-btn whitespace-nowrap flex-1 py-3 px-6 rounded-full text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-prep">准备</button>
+                <button onclick="showConfSub('conf-exam')" class="conf-sub-btn whitespace-nowrap flex-1 py-3 px-6 rounded-full text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-exam">省察清单</button>
+                <button onclick="showConfSub('conf-step')" class="conf-sub-btn whitespace-nowrap flex-1 py-3 px-6 rounded-full text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-step">流程</button>
+                <button onclick="showConfSub('conf-prayer')" class="conf-sub-btn whitespace-nowrap flex-1 py-3 px-6 rounded-full text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-prayer">经文</button>
+            </div>
+            <div id="conf-intro" class="conf-section space-y-10"><div class="bg-white p-12 rounded-[4rem] shadow-sm border border-indigo-50 leading-[2.2] font-medium text-gray-700 text-sm prose-church"><div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-3xl flex items-center justify-center mb-8 shadow-inner"><i data-lucide="sparkles" class="w-8 h-8"></i></div><h3 class="text-3xl font-black text-indigo-950 mb-8 tracking-tight">重拾和好的喜乐</h3><p class="mb-6 font-bold text-gray-900">告解圣事是天主慈悲的具体体现。耶稣不仅赦免罪过，更治愈受伤的心灵。</p><ul class="space-y-4 mt-8"><li class="flex gap-4 p-5 bg-indigo-50/50 rounded-2xl border border-indigo-50 items-start"><i data-lucide="check-circle" class="w-6 h-6 text-emerald-500 shrink-0 mt-1"></i><span><b>洗净罪污：</b> 彻底宽赦罪过，重新焕发光辉。</span></li><li class="flex gap-4 p-5 bg-indigo-50/50 rounded-2xl border border-indigo-50 items-start"><i data-lucide="check-circle" class="w-6 h-6 text-emerald-500 shrink-0 mt-1"></i><span><b>确切平安：</b> 亲耳听到‘我赦免你的罪’。</span></li></ul></div></div>
+            <div id="conf-prep" class="conf-section hidden space-y-8"><div class="bg-white p-10 rounded-[3rem] shadow-sm border border-indigo-100"><h3 class="text-2xl font-black text-indigo-950 mb-6 flex items-center gap-3"><i data-lucide="hourglass" class="text-indigo-500"></i> 告解前的预备</h3><div class="space-y-6 prose-church text-sm text-gray-600"><div class="bg-gray-50 p-6 rounded-2xl"><h4>1. 静下心来</h4><p>寻找安静角落，面对仁慈的父亲。</p></div><div class="bg-gray-50 p-6 rounded-2xl"><h4>2. 祈求光照</h4><p>祈求圣神照亮记忆，赐予痛悔的力量。</p></div><div class="bg-gray-50 p-6 rounded-2xl"><h4>3. 诚实面对</h4><p>不要找借口，坦诚说：‘我做了这件事，我很后悔。’</p></div></div></div></div>
+            <div id="conf-exam" class="conf-section hidden space-y-12"><div class="bg-indigo-950 text-white p-10 rounded-[3rem] shadow-xl relative overflow-hidden"><div class="absolute top-0 right-0 p-4 opacity-10 rotate-12"><i data-lucide="clipboard-list" class="w-48 h-48"></i></div><h3 class="text-2xl font-black mb-4 flex items-center gap-3"><i data-lucide="search" class="w-6 h-6 text-indigo-400"></i> 灵魂全备省察</h3><p class="text-[11px] text-indigo-200 leading-loose">点击下方各项可记录到您的“待告明清单”中。这些记录<strong class="text-white">仅保存在您的手机本地</strong>。</p></div><div id="exam-list-container" class="space-y-16"></div></div>
+            <div id="conf-step" class="conf-section hidden space-y-10"><div id="confession-script" class="bg-white p-8 rounded-[3.5rem] border border-indigo-50 space-y-12"></div></div>
+            <div id="conf-prayer" class="conf-section hidden space-y-10"><div class="bg-white p-12 rounded-[4rem] border border-indigo-100 shadow-premium space-y-10" id="prayers-container"></div></div>
+        </div>
+
+        <div id="holyweek" class="tab-content space-y-10 pb-20">
+            <button onclick="showTab('home')" class="flex items-center text-red-600 font-black gap-2 mb-4 hover:gap-4 transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i> 返回主页</button>
+            <div class="bg-red-950 text-white p-12 rounded-[4rem] shadow-2xl relative overflow-hidden">
+                <div class="absolute -left-10 -bottom-10 w-48 h-48 bg-red-500 opacity-20 rounded-full blur-[60px]"></div>
+                <h2 class="text-4xl font-black mb-6 tracking-tighter">圣周深度指南</h2>
+                <p class="text-red-200 leading-[2.2] text-sm font-medium prose-church">逾越节三日庆典是整个救恩史的巅峰。</p>
+            </div>
+            <div id="holyweek-list" class="space-y-12 pb-12"></div>
+        </div>
+
+        <div id="liturgy" class="tab-content space-y-10 pb-20">
+            <button onclick="showTab('home')" class="flex items-center text-amber-600 font-black gap-2 mb-4 hover:gap-4 transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i> 返回主页</button>
+            <div class="bg-amber-100 p-12 rounded-[4rem] border border-amber-200 shadow-inner">
+                <h2 class="text-4xl font-black text-amber-950 mb-6 tracking-tighter">四旬期深度百科</h2>
+            </div>
+            <div id="liturgy-info-list" class="space-y-12 pb-12"></div>
+        </div>
+    </main>
+
+    <div id="exam-footer" class="fixed bottom-10 left-1/2 -translate-x-1/2 w-full max-w-sm px-6 hidden z-[110]">
+        <div class="bg-indigo-950 text-white p-4 rounded-[2.5rem] shadow-2xl flex justify-between items-center border border-indigo-700 ring-4 ring-indigo-900/40">
+            <div class="flex items-center gap-4 pl-2">
+                <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center font-black text-lg border-2 border-indigo-400/30 shadow-inner" id="exam-badge">0</div>
+                <span class="text-[10px] font-black uppercase text-indigo-300 tracking-[0.1em] leading-tight">已记下罪项</span>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="copyConfessionList()" class="text-[10px] bg-indigo-500/20 px-4 py-2 rounded-full font-black hover:bg-indigo-500/40 transition-all border border-indigo-400/30"><i data-lucide="copy" class="w-4 h-4"></i> 复制</button>
+                <button onclick="resetExam()" class="text-[10px] bg-red-500/20 px-4 py-2 rounded-full font-black hover:bg-red-500/40 transition-all border border-red-400/30"><i data-lucide="trash-2" class="w-4 h-4"></i> 清空</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="error-output" class="hidden fixed inset-0 bg-white z-[9999] p-8 overflow-auto text-red-600 font-mono text-sm"></div>
+
+    <script>
+        // 【关键修复 3】全局错误捕获机制，一旦出错，把错误打印在屏幕上，而不是保持白屏
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            document.getElementById('loading-screen').style.display = 'none';
+            const errDiv = document.getElementById('error-output');
+            errDiv.classList.remove('hidden');
+            errDiv.innerHTML += `<p>Error: ${msg} <br>Line: ${lineNo}</p>`;
+            return false;
+        };
+
+        // --- 核心数据 ---
+        const config = { startDate: '2026-02-18', milestones: [{ offset: 0, title: '圣灰礼仪', date: '2/18' }, { offset: 4, title: '第一主日', date: '2/22' }, { offset: 11, title: '第二主日', date: '3/1' }, { offset: 18, title: '第三主日', date: '3/8' }, { offset: 25, title: '第四主日', date: '3/15' }, { offset: 32, title: '第五主日', date: '3/22' }, { offset: 39, title: '圣枝主日', date: '3/29' }, { offset: 46, title: '复活主日', date: '4/5' }] };
+
+        const dailyFullPlan = {
+            "2026-02-18": { mentor: "【圣灰礼仪】灰烬提醒生命的脆弱与复活的新生。请深度默想由尘土走向永恒的逾越。", p: "参与圣灰礼仪弥撒；阅读并默想玛 6:1-6", f: "全守大斋小斋：进一饱餐，禁食肉类及零食", a: "在圣堂慈善箱悄悄放入一笔款项" },
+            "2026-02-19": { mentor: "【旷野初探】耶稣被领入旷野。今日请寻找安静角落，听听灵魂深处的渴求。", p: "练习15分钟绝对静默；诵念天主经5遍", f: "戒绝今日所有的甜味饮品", a: "对遇到的劳动者致以诚挚的感谢" },
+            "2026-02-20": { mentor: "【苦难周五】下午三点是主受难时刻。请陪伴为我舍命的救主。", p: "15:00 参与堂区拜苦路善功与弥撒", f: "守小斋：戒食禽兽肉；禁绝电子娱乐", a: "为一位你有过嫌隙的人默默代祷" },
+            "2026-02-21": { mentor: "【省察日】主不嫌弃罪人。今日请对照指南，为灵魂大扫除。", p: "深度省察，诵念圣咏第51篇", f: "今日不食用甜点，磨练意志", a: "整理家中闲置物，计划捐赠慈善机构" },
+            "2026-02-22": { mentor: "【第一主日】主受试探，用圣言反击。反思：我目前最大的试探是什么？", p: "参与主日大礼弥撒；默想玛 4:1-11", f: "主日不强制斋戒，但应在言语上节制", a: "全心陪伴家人，关闭手机通知" },
+            "2026-02-23": { mentor: "【修德：谦卑】我是无用的仆人。", p: "诵念圣母七苦经；默想圣母的低微", f: "言语斋戒：不发表评价他人的言论", a: "秘密为他人完成一件繁琐的小事" },
+            "2026-02-24": { mentor: "【修德：慷慨】白白得来的，也要白白分施。", p: "为堂区神父代祷；读经15分钟", f: "感官斋戒：不点开娱乐爆料新闻", a: "在工作中多帮助一位新手" },
+            "2026-02-25": { mentor: "【修德：温良】温良的人是有福的。", p: "默想耶稣洗脚；练习呼吸祈祷", f: "言语斋戒：不用冷嘲热讽的语气", a: "为堂区公益项目捐献" },
+            "2026-02-26": { mentor: "【修德：信靠】将焦虑全然托付主手。", p: "圣体前静默20分钟；复述‘耶稣我信靠祢’", f: "物资节制：不看购物软件", a: "向久未联络的朋友问候倾听" },
+            "2026-02-27": { mentor: "【苦难周五】陪伴走在加尔瓦略山上的主。", p: "15:00 参与堂区拜苦路；默想第十一处", f: "大小斋：进一饱餐，禁肉食", a: "为受病苦或失业折磨的人献苦路" },
+            "2026-03-01": { mentor: "【第二主日：显容】在平凡生活中寻找主的荣光。", p: "参与主日弥撒；默想玛 17:1-9", f: "在社交媒体上保持克制", a: "致电远方父母或探望长辈" },
+            "2026-03-08": { mentor: "【第三主日：活水】主啊，请赐我永不干涸的活水。", p: "参与主日弥撒；默想若 4:5-42", f: "减少感官消遣，增加深度阅读", a: "为堂区福传项目提供协助" },
+            "2026-03-15": { mentor: "【第四主日：复明】主，请开启我灵魂的眼。", p: "参与主日弥撒；默想若 9:1-41", f: "喜乐主日，仍保持生活简朴", a: "关注并帮助身边的困难者" },
+            "2026-03-22": { mentor: "【第五主日：复活预兆】主呼唤我们走出罪恶的坟墓。", p: "参与主日弥撒；默想若 11:1-45", f: "立志在复活节前改掉一个恶习", a: "为教友中的病弱临终者祈祷" },
+            "2026-03-29": { mentor: "【圣枝主日】在心中欢迎君王进城。", p: "参与圣枝主日礼仪；圣枝置于苦像旁", f: "停止不必要的社交聚会", a: "原谅一位曾伤害过你的人" },
+            "2026-04-02": { mentor: "【圣周四：最后晚餐】请陪伴山园中的主。", p: "参与建立圣体弥撒；朝拜圣体到深夜", f: "晚餐后保持绝对静默，与主共处", a: "效法基督洗脚，承担卑微家务" },
+            "2026-04-03": { mentor: "【圣周五：救主受难】天主为我而死。", p: "参与受难日礼仪；亲吻苦像伤痕", f: "严守大小斋：禁食肉类", a: "下午三点保持绝对静默" },
+            "2026-04-05": { mentor: "【复活大瞻礼】阿肋路亚！主真的复活了！", p: "参与隆重复活弥撒；重申洗礼誓愿", f: "结束斋戒，分享复活喜乐", a: "将复活喜讯带给邻人" }
+        };
+
+        const weeklyFullData = [
+            { week: "第一周", theme: "旷野与诱惑", focus: "分辨诱惑，操练自制。", scripture: "玛 4:1-11", intro: "跟随耶稣进入旷野。我们要学习用圣言来抵挡‘肉欲、虚荣与权力’这三大诱惑。", days: ["主日：【福音】耶稣在旷野。焦点：识别生命中的‘假神’。","周一：【灵修指引】练习‘识别虚荣’，选择神圣的沉默。","周二：【灵修指引】练习‘物欲节制’，拒绝非必需品。","周三：【灵修指引】练习‘诚实’，在琐事上绝不说谎。","周四：【灵修指引】练习‘代祷’，为深陷网瘾者祈祷。","周五：【受难】参与拜苦路，感受十字架的沉重。","周六：【谦卑】练习‘无名善行’，做好事且不让人知。"] },
+            { week: "第二周", theme: "显容与光荣", focus: "在苦难阴影中仰望真光。", scripture: "玛 17:1-9", intro: "显容是为了告诉门徒：苦难不是终点。我们要练习在琐碎暗淡的生活里，认出基督的荣光。", days: ["主日：【福音】山上显容。焦点：在平凡中认出主的荣光。","周一：【灵修指引】信心操练：沮丧时复述‘主，我相信祢。’","周二：【灵修指引】心境整理：摒弃焦虑杂念，交托给天主。","周三：【灵修指引】分享真光：探望灰心丧志的教友。","周四：【灵修指引】听命练习：顺服一个你不喜欢的善意建议。","周五：【受难】参与拜苦路。默想荣光背后的荆棘。","周六：【渴望】深度自省：我对复活节新生命的渴望真切吗？"] }
+        ];
+
+        const stationsDetailed = [
+            { id: 1, title: "第一处", name: "耶稣判死刑", scripture: "“彼拉多把耶稣交出来钉在十字架上。” (玛27:26)", med: "主，在不义的审判面前祢保持了神圣的静默。求祢治愈我那颗爱面子胜过爱真理的心。", prayer: "主耶稣，求祢赐我勇气，不顾世俗评判为祢作证。阿们。", res: "今日定志：绝不说任何违背良知的辩解之词。" },
+            { id: 2, title: "第二处", name: "耶稣背苦架", scripture: "“耶稣自己背着十字架出来...” (若19:17)", med: "祢没有抱怨，而是以此作为救赎。请教导我带着爱去接纳无法改变的人生重担。", prayer: "主耶稣，请赐我接纳的恩宠，在琐碎中看见希望。阿们。", res: "今日定志：不抱怨遇到的繁琐工作或突发事件。" },
+            { id: 3, title: "第三处", name: "耶稣一跌倒", scripture: "“祂实在承担了我们的疾苦。” (依53:4)", med: "跌倒并不可怕，可怕的是沉溺于绝望。主，当我因罪反复跌倒时，求祢拉我一把。", prayer: "主耶稣，求祢在我软弱时做我支柱，赐我重新站起的坚韧。阿们。", res: "今日定志：针对一个常犯的小毛病进行三次主动克制。" },
+            { id: 4, title: "第四处", name: "耶稣遇圣母", scripture: "“有一把利剑要刺透你的心灵。” (路2:35)", med: "圣母陪伴主走苦路。圣母，请在我的苦路上也陪伴着我。", prayer: "至圣童贞玛利亚，在我灰心时领我走向耶稣。阿们。", res: "今日定志：主动致电父母长辈，并为已故教友祈祷。" },
+            { id: 5, title: "第五处", name: "西满助耶稣", scripture: "“他们叫西满背起十字架，跟在耶稣后面。” (路23:26)", med: "我愿意在小事上分担近人的负担吗？哪怕只是微不足道的杂活。", prayer: "主耶稣，除去我的自私，让我在别人需要时挺身而出。阿们。", res: "今日定志：额外帮家人或同事分担一项琐事。" },
+            { id: 6, title: "第六处", name: "圣妇拭圣面", scripture: "“主，我要寻求祢的面。” (咏27:8)", med: "维罗尼卡印下了爱。面对社会的冷漠，我愿意成为那方温柔的手帕吗？", prayer: "主耶稣，将祢的圣容印在我的灵魂里。阿们。", res: "今日定志：对每一位提供服务的人露出诚挚微笑。" },
+            { id: 7, title: "第七处", name: "耶稣二跌倒", scripture: "“凡是自卑的，必被提升。” (路14:11)", med: "圣德是无数次失败后的坚持。主，求赐我持久的恒心。", prayer: "主耶稣，赐我坚持的恒心，不在修行路上半途而废。阿们。", res: "今日定志：无论多忙，都要高质量完成读经计划。" },
+            { id: 8, title: "第八处", name: "耶稣劝妇女", scripture: "“不要为我哭，应为你们和你们的孩子哭。” (路23:28)", med: "教导我为世界之罪而悔恨，不忽视在死亡边缘挣扎的灵魂。", prayer: "主耶稣，扩大我的心胸，为罪人献上代祷。阿们。", res: "今日定志：戒掉一项娱乐，专心为世界和平代祷。" },
+            { id: 9, title: "第九处", name: "耶稣三跌倒", scripture: "“我的能力在软弱中才全显出来。” (格后12:9)", med: "主是绝望者最后的唯一依恃。求主赐我在绝处依然信靠主恩。", prayer: "主耶稣，在人生的尽头做我的支柱。阿们。", res: "今日定志：在最疲惫发怒的瞬间，先默念‘主，救我。’" },
+            { id: 10, title: "第十处", name: "耶稣被剥衣", scripture: "“他们分了我的衣服，为我的长衣抽了签。” (咏22:19)", med: "求主剥去我的虚荣心和对物质的病态贪恋，让我赤诚见祢。", prayer: "主耶稣，剥去我的虚假，让我诚实承认罪过。阿们。", res: "今日定志：清理一件因贪欲而占有的多余物品。" },
+            { id: 11, title: "第十一处", name: "耶稣钉架上", scripture: "“父啊，宽赦他们吧！因为他们不知道他们做的是什么。” (路23:34)", med: "主在剧痛中选择了宽恕。请拔除我心中不愿原谅他人的钉子。", prayer: "主耶稣，治愈我仇恨的伤疤，赐我原谅他人的力量。阿们。", res: "今日定志：在心中诚挚地对曾伤害我的人说‘我宽恕你’。" },
+            { id: 12, title: "第十二处", name: "耶稣死架上", scripture: "“父啊！我把我的灵魂交托在祢手中。” (路23:46)", med: "天主为我而死。还有什么计较放不下呢？愿祢的死成为我苏醒的起点。", prayer: "主耶稣，愿祢的死亡成为我的新生。阿们。", res: "今日定志：下午3点，面向苦像保持3分钟绝对静默。" },
+            { id: 13, title: "第十三处", name: "耶稣下苦架", scripture: "“若瑟领下了耶稣的遗体。” (路23:50-53)", med: "求主使我在丧恸时，能紧紧靠在圣母怀里，托付主旨。", prayer: "圣母玛利亚，在人生的终点领我回到耶稣怀抱。阿们。", res: "今日定志：诵念经文，为已故恩人及教友祈祷。" },
+            { id: 14, title: "第十四处", name: "耶稣葬于墓", scripture: "“他在坟墓门口滚上一块大石头，就走了。” (玛27:60)", med: "坟墓是复活的摇篮。我在大石头后等待，带着满怀的希望。", prayer: "主耶稣，守护我的信心，预见复活。阿们。", res: "今日定志：写下一件期待在复活节改过的志向存入圣经。" }
+        ];
+
+        const confessionContentData = {
+            examItems: [
+                { cat: "天主十诫", items: [{q:"忽略每日祈祷？迷信算命？把金钱看重于天主？",id:"c1"}, {q:"乱用主名？发虚誓？对圣物不敬？",id:"c2"}, {q:"主日无故缺席弥撒？弥撒中玩手机分心？",id:"c3"}, {q:"不孝敬父母？顶撞长辈？忽略子女信仰？",id:"c4"}, {q:"怀恨他人？伤害他人身体？放纵恶习损健康？",id:"c5"}, {q:"看色情影像？婚外情/手淫？言行轻浮？",id:"c6"}, {q:"偷窃挪用财物？工作偷懒？借不还？嫉妒？",id:"c7"}, {q:"说谎欺骗？诽谤传闲话？泄露隐私？",id:"c8"}] },
+                { cat: "七罪宗", items: [{q:"骄傲、悭吝、迷色",id:"s1"}, {q:"愤怒、贪饕、嫉妒、懒惰",id:"s2"}] }
+            ],
+            steps: [
+                { t: "1. 进场准备", d: "画十字圣号，说：‘请神父降福...’" }, { t: "2. 坦诚告明", d: "诚实说出罪过。完结说：‘还有我省察不到的罪，也求主宽恕。’" }, { t: "3. 教导与补赎", d: "聆听神父劝诫，记住补赎内容。" }, { t: "4. 念痛悔经", d: "神父念赦免经时，低头诚心诵念痛悔经。" }
+            ]
+        };
+
+        const holyWeekPlan = [
+            { day: "圣枝主日 (3/29)", title: "基督受难主日", focus: "欢迎和平之王进城奉献。礼仪由欢呼转入受难福音。", liturgy: "祝圣圣枝、圣枝游行、长篇受难史宣读。", act: "带回圣枝放在家中十字架旁。反思：我是否在口头欢呼主，在行动中却抛弃主？" },
+            { day: "圣周一至三", title: "心灵静默准备期", focus: "心灵大扫除的最后时机。默想救主如何被推向加尔瓦略山。", liturgy: "早晨弥撒，堂区安排全天候告解。", act: "务必在此期间完成圣事性的告解。保持生活环境极简与肃静。" },
+            { day: "圣周四 (4/2)", title: "逾越节三日庆典 (开始)", focus: "‘建立圣体’与‘爱德诫命’。主在此夜为门徒洗脚。", liturgy: "濯足礼；圣体迁往临时祭台；剥除祭台装饰，遮盖圣像。", act: "参与朝拜圣体直到深夜（陪伴山园中的主）。" },
+            { day: "圣周五 (4/3)", title: "救主受难纪念", focus: "十字架上的伟大赎献。天主为人类而死。", liturgy: "全日不举行弥撒。朝拜十字架及领受预圣圣体。严守大小斋。", act: "下午3点绝对静默。在圣堂亲吻主受难的伤痕，反省我罪。" },
+            { day: "圣周六 (4/4)", title: "逾越节守夜礼 (礼仪之母)", focus: "由死亡经过进入生命的时刻。礼仪之母。", liturgy: "祝圣新火、复活宣报、九篇读经、重申洗礼誓愿。", act: "晚上全程参与隆重守夜礼。迎接真光复活，重生为新造的人。" },
+            { day: "复活节 (4/5)", title: "耶稣复活大瞻礼", focus: "死亡被废除了！基督得胜了！这是我们信仰的根基。", liturgy: "欢唱阿肋路亚，弥撒充满白金荣光。", act: "庆祝复活！将这份喜乐带给家人。立志从此活出复活者的光明生活。" }
+        ];
+
+        const encyclopediaData = [
+            { cat: "逾越节奥迹深度介绍", desc: "‘逾越’意为‘经过’。旧约逾越是天主拯救以色列子民。新约中，基督是真正的逾越羔羊，通过四个阶段完成救赎：\n1. 经过自我（圣周四）：空虚自己，建立圣体。\n2. 经过痛苦（圣周五）：走入死亡深渊。\n3. 经过阴府（圣周六）：救拔古圣先贤。\n4. 经过死亡（复活日）：彻底粉碎死亡。\n这也揭示了每个信友必须‘死于旧我’，才能‘活于基督’。" },
+            { cat: "大小斋精准规则", desc: "• 小斋：\n - 时间：四旬期内的每一个周五。\n - 要求：不食禽兽肉。鱼、虾、蛋奶不受限制。\n - 适用：年满14岁至终身。\n• 大斋：\n - 时间：圣灰礼仪日、耶稣受难日（圣周五）。\n - 要求：全日仅进一餐饱食。严禁吃零食。饮水药物不限。\n - 适用：年满18岁至60岁。病弱繁重劳务者可豁免，应以爱德补之。" },
+            { cat: "四旬期与洗礼更新", desc: "四旬期在初期教会的核心是‘圣洗预备期’。对于已领洗的信友，这40天则是‘洗礼誓愿的重新激活’。我们通过克己、祈祷和爱德，准备在复活夜重新宣誓：‘我拒绝魔鬼，我拒绝罪恶，我信赖天主。’ 这是一个生命重生的恩宠时期。" }
+        ];
+
+        // --- 核心渲染与互动 ---
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            const footer = document.getElementById('exam-footer');
+            if(tabId === 'confession') { footer.classList.remove('hidden'); } else { footer.classList.add('hidden'); }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showConfSub(subId) {
+            document.querySelectorAll('.conf-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById(subId).classList.remove('hidden');
+            document.querySelectorAll('.conf-sub-btn').forEach(btn => { btn.classList.remove('conf-nav-active'); btn.classList.add('text-indigo-700', 'bg-white'); });
+            document.getElementById('btn-' + subId).classList.add('conf-nav-active');
+            document.getElementById('btn-' + subId).classList.remove('text-indigo-700', 'bg-white');
+        }
+
+        function getPlanForDate(dateStr) {
+            if(dailyFullPlan[dateStr]) return dailyFullPlan[dateStr];
+            const isFri = new Date(dateStr).getDay() === 5;
+            return { mentor: "在寂静中跟随主，在祈祷中获力量。", p: "阅读并深度默想当日礼仪读经", f: isFri ? "【小斋】今日戒食肉食；禁绝媒体娱乐" : "节制一项感官爱好", a: isFri ? "参与堂区拜苦路" : "今日默默进行一件爱德善功" };
+        }
+
+        function initProgressSystem() {
+            const start = new Date(config.startDate);
+            const today = new Date(); 
+            const dateKey = today.toISOString().split('T')[0];
+            const diffMs = today - start;
+            const diffDays = Math.ceil(Math.max(0, diffMs / (1000 * 60 * 60 * 24)));
+            const weekIdx = Math.floor((diffDays - 1) / 7);
+
+            let displayDays = Math.max(0, Math.min(diffDays, 46));
+            document.getElementById('progress-bar').style.width = `${(displayDays / 46) * 100}%`;
+            document.getElementById('progress-week-text').innerText = diffDays <= 4 ? "圣灰礼仪后" : `四旬期第 ${weekIdx + 1} 周`;
+            document.getElementById('progress-text').innerText = `Day ${displayDays} / 46`;
+            document.getElementById('today-date-string').innerText = dateKey;
+
+            document.getElementById('milestones-container').innerHTML = config.milestones.map((m, i) => `<div class="milestone-dot w-4 h-4 rounded-full border-2 border-violet-500 pointer-events-auto ${diffDays >= m.offset ? 'active-dot' : 'bg-violet-900/40'}"></div>`).join('');
+
+            const plan = getPlanForDate(dateKey);
+            document.getElementById('dynamic-guidance-text').innerText = plan.mentor;
+            renderHomeTasks(plan, dateKey);
+        }
+
+        function renderHomeTasks(plan, dateKey) {
+            const cats = [
+                { n: '祈祷 (Prayer)', i:'book-open', c:'text-purple-600', t:[plan.p, "晚间省察：寻找主赐的三个恩典"] },
+                { n: '斋戒 (Fasting)', i:'coffee', c:'text-indigo-600', t:[plan.f, "言语节制：不抱怨，不说闲话"] },
+                { n: '爱德 (Almsgiving)', i:'heart', c:'text-rose-600', t:[plan.a, "耐心宽恕：对难相处的人保持微笑"] }
+            ];
+            document.getElementById('task-categories').innerHTML = cats.map((cat, cIdx) => `
+                <div class="space-y-4"><h4 class="text-[11px] font-black uppercase tracking-[0.3em] ${cat.c} flex items-center gap-3"><i data-lucide="${cat.i}" class="w-4 h-4"></i> ${cat.n}</h4>
+                    <div class="space-y-3">${cat.t.map((item, tIdx) => {
+                        const taskId = `task_${dateKey}_${cIdx}_${tIdx}`;
+                        const isDone = localStorage.getItem(taskId) === 'true';
+                        return `<div onclick="toggleTask('${taskId}', this)" class="task-item flex items-start gap-5 p-6 rounded-[2.5rem] border ${isDone ? 'is-checked border-green-300' : 'border-gray-100 bg-gray-50/50'} cursor-pointer hover:bg-white transition-all group"><div class="check-box w-7 h-7 rounded-[12px] border-2 border-violet-200 mr-1 flex items-center justify-center bg-white shrink-0 mt-0.5 transition-all"><i data-lucide="check" class="check-svg w-4 h-4 text-white ${isDone ? '' : 'hidden'}"></i></div><span class="text-[14px] font-bold text-gray-800 leading-relaxed group-hover:text-violet-950">${item}</span></div>`;
+                    }).join('')}</div></div>
+            `).join('');
+        }
+
+        function toggleTask(id, el) {
+            const isDone = el.classList.toggle('is-checked');
+            el.querySelector('.check-svg').classList.toggle('hidden');
+            if(isDone) localStorage.setItem(id, 'true'); else localStorage.removeItem(id);
+        }
+
+        function renderWeeklyList() { document.getElementById('weekly-list').innerHTML = weeklyFullData.map(w => `<div class="bg-white p-12 rounded-[4rem] border border-gray-100 shadow-sm relative overflow-hidden group"><div class="absolute -right-10 -top-10 w-32 h-32 bg-violet-50 rounded-full group-hover:scale-150 transition-transform duration-1000"></div><div class="flex items-center justify-between mb-8 border-b border-gray-50 pb-8"><h4 class="text-3xl font-black text-gray-900 tracking-tighter">${w.theme}</h4><span class="text-[10px] bg-violet-100 text-violet-700 px-6 py-2.5 rounded-full font-black uppercase tracking-widest">${w.week}</span></div><div class="mb-10 p-8 bg-violet-50 rounded-[2.5rem] border border-violet-100 relative"><p class="text-sm text-violet-950 font-bold leading-[2.2] italic font-serif-church">“${w.intro}”</p><p class="text-[11px] text-violet-400 mt-6 font-black tracking-widest uppercase flex items-center gap-2"><i data-lucide="bookmark" class="w-3.5 h-3.5"></i> 读经: ${w.scripture}</p></div><div class="bg-stone-50 p-10 rounded-[3rem] border border-stone-100"><h5 class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-8 flex items-center gap-3">本周每日方案</h5><div class="space-y-6">${w.days.map((d, i) => `<div class="text-[13px] text-gray-700 leading-relaxed flex gap-5 p-4 border-b border-white last:border-0 hover:bg-white/50 transition-colors rounded-2xl"><span class="font-black text-violet-400 shrink-0 mt-1">D${i+1}</span><p class="font-medium text-gray-800">${d}</p></div>`).join('')}</div></div></div>`).join(''); }
+        function renderStationsList() { document.getElementById('stations-list').innerHTML = stationsDetailed.map(s => `<div class="bg-white p-12 rounded-[4rem] border border-gray-100 shadow-sm station-accent group transition-all duration-500"><div class="flex justify-between items-center mb-8"><span class="text-[11px] font-black text-stone-400 uppercase tracking-[0.4em]">${s.title}</span><div class="w-14 h-14 rounded-[1.2rem] bg-stone-900 text-white flex items-center justify-center text-lg font-black shadow-xl">${s.id}</div></div><h4 class="text-3xl font-black text-stone-950 mb-6 tracking-tight">${s.name}</h4><div class="p-8 bg-stone-50 rounded-[2.5rem] border border-stone-100 mb-8 font-serif-church italic text-stone-800 text-[15px] leading-[2.5]">${s.scripture}</div><div class="space-y-8"><div class="prose-church"><h5 class="text-[11px] font-black text-stone-300 uppercase tracking-widest mb-3 flex items-center gap-2">神学默想</h5><p class="text-[14px] text-gray-600 font-medium leading-[2.2]">“${s.med}”</p></div><div class="bg-violet-50 p-8 rounded-[2.5rem] border border-violet-100 relative"><strong class="flex items-center gap-3 mb-3 text-[10px] text-violet-700 uppercase tracking-widest font-black"><i data-lucide="target" class="w-4 h-4"></i> 今日定志行动</strong><p class="text-[15px] text-violet-950 font-bold leading-relaxed">${s.res}</p></div><div class="bg-indigo-50/50 p-7 rounded-[2rem] italic text-[12px] text-indigo-700 font-medium leading-loose"><strong>经文祷词：</strong> ${s.prayer}</div></div></div>`).join(''); }
+        function renderHolyWeekPlan() { document.getElementById('holyweek-list').innerHTML = holyWeekPlan.map(h => `<div class="bg-white p-12 rounded-[4rem] border-l-[12px] border-l-red-900 shadow-sm space-y-8 relative overflow-hidden group"><div class="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-150 transition-all duration-1000"><i data-lucide="flame" class="w-32 h-32"></i></div><div class="flex flex-col gap-3"><span class="text-[10px] font-black text-red-700 uppercase tracking-[0.4em] border-2 border-red-100 px-5 py-2 rounded-full w-fit bg-red-50/30">${h.day}</span><h3 class="text-3xl font-black text-red-950 tracking-tighter">${h.title}</h3></div><div class="grid grid-cols-1 gap-6"><div class="p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100"><h5 class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">救赎焦点</h5><p class="text-[14px] text-gray-700 font-medium leading-[2.2]">${h.focus}</p></div><div class="p-8 bg-red-50/50 rounded-[2.5rem] border border-red-100"><h5 class="text-[10px] font-black text-red-800 uppercase tracking-widest mb-3">礼仪环节</h5><p class="text-[14px] text-red-900 font-bold leading-[2.2]">${h.liturgy}</p></div></div><div class="bg-red-900 p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group"><div class="absolute inset-0 bg-red-800 translate-y-full group-hover:translate-y-0 transition-transform duration-700"></div><p class="text-[15px] font-bold leading-loose flex items-start gap-4 italic font-serif-church relative z-10"><i data-lucide="heart" class="w-6 h-6 fill-white text-red-900 mt-1 shrink-0"></i>“${h.act}”</p></div></div>`).join(''); }
+        function renderEncyclopedia() { document.getElementById('liturgy-info-list').innerHTML = encyclopediaData.map(i => `<div class="bg-white p-12 rounded-[4rem] shadow-sm border border-amber-50 group hover:border-amber-300 transition-all duration-500"><h4 class="text-amber-950 font-black text-3xl mb-8 flex items-center gap-6"><span class="w-16 h-16 bg-amber-100 text-amber-700 rounded-3xl flex items-center justify-center shadow-inner group-hover:rotate-12 transition-transform duration-700"><i data-lucide="book-open" class="w-8 h-8"></i></span>${i.cat}</h4><p class="text-[15px] text-gray-600 leading-[2.5] whitespace-pre-line font-medium prose-church">${i.desc}</p></div>`).join(''); }
+        function renderConfData() {
+            document.getElementById('exam-list-container').innerHTML = confessionContentData.examItems.map(section => `<div class="space-y-8"><h4 class="font-black text-indigo-950 text-xl flex items-center gap-4"><span class="w-2 h-8 bg-indigo-600 rounded-full"></span> ${section.cat}</h4><div class="grid grid-cols-1 gap-4">${section.items.map(q => { const isDone = localStorage.getItem(`conf_${q.id}`) === 'true'; return `<div onclick="toggleExamCheck(this, '${q.id}', '${q.q.split('？')[0]}')" class="exam-item flex items-start gap-5 p-6 rounded-[2.5rem] border ${isDone ? 'is-checked' : 'border-gray-100 bg-gray-50/30'} hover:bg-white cursor-pointer transition-all group"><div class="exam-check-box w-8 h-8 rounded-[12px] border-2 border-indigo-200 flex-shrink-0 mt-1 flex items-center justify-center bg-white transition-all"><i data-lucide="check" class="exam-check-svg w-5 h-5 text-white ${isDone ? '' : 'hidden'}"></i></div><p class="text-[14px] text-gray-700 leading-[2.2] font-medium item-text">${q.q}</p></div>`; }).join('')}</div></div>`).join('');
+            document.getElementById('confession-script').innerHTML = confessionContentData.steps.map((s, i) => `<div class="relative pl-14 border-l-4 border-dashed border-indigo-100 pb-10 last:pb-0"><div class="absolute -left-[20px] top-0 w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-base font-black border-4 border-[#f8f7fc]">${i+1}</div><h5 class="font-black text-indigo-950 text-lg mb-3 tracking-tight">${s.t}</h5><div class="bg-gray-50 p-6 rounded-[2rem] text-sm text-gray-600 font-medium leading-relaxed">${s.d}</div></div>`).join('');
+            document.getElementById('prayers-container').innerHTML = `<div class="space-y-4"><h4 class="text-xl font-black text-indigo-950">痛悔经 (白话版)</h4><p class="text-sm leading-loose text-gray-700 bg-indigo-50/50 p-6 rounded-[2rem]">天主，为了我所犯的一切罪过...我决志藉着祢的恩宠，再不敢得罪祢，并躲避犯罪的机会。阿们。</p></div>`;
+            updateExamBadge();
+        }
+
+        function toggleExamCheck(el, id, text) {
+            const isChecked = el.classList.toggle('is-checked');
+            el.querySelector('.exam-check-svg').classList.toggle('hidden');
+            if (isChecked) { localStorage.setItem(`conf_${id}`, 'true'); localStorage.setItem(`conf_text_${id}`, text); } 
+            else { localStorage.removeItem(`conf_${id}`); localStorage.removeItem(`conf_text_${id}`); }
+            updateExamBadge();
+        }
+        function updateExamBadge() { document.getElementById('exam-badge').innerText = document.querySelectorAll('.exam-item.is-checked').length; }
+        function copyConfessionList() {
+            let listText = "【告解备忘录】\n", hasItems = false;
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('conf_text_')) { listText += "• " + localStorage.getItem(key) + "...\n"; hasItems = true; }
+            }
+            if (!hasItems) return alert("您还没有勾选任何条目。");
+            navigator.clipboard.writeText(listText).then(() => alert("已复制！排队办告解时可粘贴到备忘录中查看。"));
+        }
+        function resetExam() {
+            if(confirm("确定要清空吗？")) {
+                let keys = [];
+                for(let i=0; i<localStorage.length; i++) { if(localStorage.key(i).startsWith('conf_')) keys.push(localStorage.key(i)); }
+                keys.forEach(k => localStorage.removeItem(k));
+                renderConfData();
+            }
+        }
+
+        // --- 初始化执行 ---
+        window.onload = () => {
+            try {
+                initProgressSystem();
+                renderWeeklyList();
+                renderStationsList();
+                renderConfData();
+                renderHolyWeekPlan();
+                renderEncyclopedia();
+
+                // 等待页面挂载完成后，初始化图标并移除加载动画
+                if(typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                } else {
+                    // 如果 CDN 被彻底阻断（虽然几率小），至少隐藏 loading 屏
+                    console.warn("Lucide Icons 加载失败，但页面仍可访问");
+                }
+                
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(() => document.getElementById('loading-screen').style.display = 'none', 500);
+
+                // Service Worker 注册 (加入路径安全容错)
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.register('./sw.js').catch(() => console.log('SW 注册受限（非 HTTPS 或路径错误）'));
+                }
+            } catch (error) {
+                // 如果发生任何 JS 错误，强制关闭 loading 屏幕并显示报错
+                document.getElementById('loading-screen').style.display = 'none';
+                throw error; // 触发上方的 window.onerror
+            }
+        };
+    </script>
+</body>
+</html>
