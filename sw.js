@@ -1,5 +1,5 @@
 // 修改版本号，强制客户端更新 Service Worker (每次修改 index.html 后，建议把这里的 v2 改成 v3、v4...)
-const CACHE_NAME = 'lent-guide-2026-v2'; 
+const CACHE_NAME = 'lent-guide-2026-v3'; 
 const urlsToCache = [
   './',
   './index.html',
