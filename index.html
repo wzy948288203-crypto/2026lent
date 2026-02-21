@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>2026 善度四旬期</title>
+    <title>2026 善度四旬期与告解圣事深度全指南</title>
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#6d28d9">
@@ -39,11 +39,11 @@
         .tab-content { display: none; }
         .tab-content.active { 
             display: block; 
-            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         
         @keyframes slideUp { 
-            from { opacity: 0; transform: translateY(20px); } 
+            from { opacity: 0; transform: translateY(15px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
         
@@ -55,7 +55,7 @@
         
         .active-dot { 
             background-color: white !important; 
-            box-shadow: 0 0 15px rgba(255,255,255,0.9); 
+            box-shadow: 0 0 12px rgba(255,255,255,0.9); 
             transform: scale(1.35); 
         }
         
@@ -68,179 +68,184 @@
         .exam-item.is-checked .exam-check-svg { display: block !important; }
         
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .shadow-premium { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); }
-        .station-accent { border-left: 6px solid #4b5563; }
+        .shadow-premium { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); }
+        .station-accent { border-left: 4px solid #4b5563; }
         .station-accent:hover { border-left-color: #7c3aed; }
-        .conf-nav-active { background-color: #4f46e5 !important; color: white !important; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
-        .prose-church { line-height: 2.2; letter-spacing: 0.01em; }
+        .conf-nav-active { background-color: #4f46e5 !important; color: white !important; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); }
+        .prose-church { line-height: 2; letter-spacing: 0.01em; }
     </style>
 </head>
-<body class="pb-32">
+<body class="pb-32 sm:pb-40">
+    <!-- 全局加载遮罩 -->
     <div id="loading-screen" class="fixed inset-0 bg-[#f8f7fc] z-[999] flex flex-col items-center justify-center transition-opacity duration-500">
-        <div class="w-12 h-12 border-4 border-violet-200 border-t-violet-700 rounded-full animate-spin mb-4"></div>
-        <p class="text-violet-900 font-bold text-sm">正在加载堂区灵修资源...</p>
+        <div class="w-10 h-10 border-4 border-violet-200 border-t-violet-700 rounded-full animate-spin mb-4"></div>
+        <p class="text-violet-900 font-bold text-xs sm:text-sm">正在加载堂区灵修资源...</p>
     </div>
 
-    <header class="bg-white/90 backdrop-blur-xl border-b sticky top-0 z-[100] pt-[env(safe-area-inset-top)]">
-        <div class="max-w-2xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- 顶部导航 -->
+    <header class="bg-white/95 backdrop-blur-xl border-b sticky top-0 z-[100] pt-[env(safe-area-inset-top)]">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
             <div class="flex items-center gap-3 cursor-pointer group" onclick="showTab('home')">
-                <div class="bg-violet-700 p-2.5 rounded-2xl text-white shadow-lg shadow-violet-200">
-                    <i data-lucide="cross"></i>
+                <div class="bg-violet-700 p-2 sm:p-2.5 rounded-xl sm:rounded-2xl text-white shadow-md shadow-violet-200">
+                    <i data-lucide="cross" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                 </div>
                 <div>
-                    <h1 class="text-lg font-black text-violet-950 leading-none tracking-tight">2026 善度四旬期</h1>
-                    <span class="text-[10px] text-violet-500 uppercase tracking-widest font-bold">深度灵修与告解全指南</span>
+                    <h1 class="text-base sm:text-lg font-black text-violet-950 leading-none tracking-tight">2026 善度四旬期</h1>
+                    <span class="text-[9px] sm:text-[10px] text-violet-500 uppercase tracking-widest font-bold mt-0.5 block">堂区深度灵修指南</span>
                 </div>
             </div>
-            <button onclick="showTab('liturgy')" class="text-xs font-black px-5 py-2.5 rounded-full text-violet-700 bg-violet-50 border border-violet-100 hover:bg-violet-100 transition-all flex items-center gap-2">
-                <i data-lucide="info" class="w-3.5 h-3.5"></i> 认识四旬期
+            <button onclick="showTab('liturgy')" class="text-[11px] sm:text-xs font-black px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-violet-700 bg-violet-50 border border-violet-100 hover:bg-violet-100 transition-all flex items-center gap-1.5 sm:gap-2">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i> 百科
             </button>
         </div>
     </header>
 
-    <main class="max-w-2xl mx-auto px-6 py-8">
+    <main class="max-w-2xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         
-        <div id="home" class="tab-content active space-y-8">
-            <div class="bg-gradient-to-br from-violet-800 via-violet-950 to-indigo-950 rounded-[3rem] p-8 text-white shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
-                <div class="flex justify-between items-center mb-10">
-                    <div class="flex items-center gap-3">
-                        <div class="bg-white/10 p-2.5 rounded-xl backdrop-blur-md border border-white/10"><i data-lucide="compass" class="w-5 h-5 text-violet-200"></i></div>
-                        <span id="progress-week-text" class="font-black text-sm tracking-wide">载入进度...</span>
+        <!-- ================= 首页模块 ================= -->
+        <div id="home" class="tab-content active space-y-6 sm:space-y-8">
+            <div class="bg-gradient-to-br from-violet-800 via-violet-950 to-indigo-950 rounded-3xl sm:rounded-[3rem] p-6 sm:p-8 text-white shadow-xl sm:shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-32 h-32 sm:w-48 sm:h-48 bg-white/5 rounded-full blur-2xl sm:blur-3xl"></div>
+                <div class="flex justify-between items-center mb-8 sm:mb-10">
+                    <div class="flex items-center gap-2.5 sm:gap-3">
+                        <div class="bg-white/10 p-2 sm:p-2.5 rounded-xl backdrop-blur-md border border-white/10"><i data-lucide="compass" class="w-4 h-4 sm:w-5 sm:h-5 text-violet-200"></i></div>
+                        <span id="progress-week-text" class="font-black text-xs sm:text-sm tracking-wide">载入进度...</span>
                     </div>
-                    <span id="progress-text" class="bg-white/20 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/5">Day 0 / 46</span>
+                    <span id="progress-text" class="bg-white/20 px-3 py-1 sm:px-4 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-widest border border-white/5">Day 0 / 46</span>
                 </div>
-                <div class="relative px-2 mb-16">
-                    <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden shadow-inner">
-                        <div id="progress-bar" class="bg-white h-full rounded-full transition-all duration-1000 shadow-[0_0_20px_rgba(255,255,255,0.6)]" style="width: 0%"></div>
+                <div class="relative px-1 sm:px-2 mb-12 sm:mb-16">
+                    <div class="w-full bg-white/10 rounded-full h-2.5 sm:h-3 overflow-hidden shadow-inner">
+                        <div id="progress-bar" class="bg-white h-full rounded-full transition-all duration-1000 shadow-[0_0_15px_rgba(255,255,255,0.6)] sm:shadow-[0_0_20px_rgba(255,255,255,0.6)]" style="width: 0%"></div>
                     </div>
                     <div id="milestones-container" class="absolute top-1/2 -translate-y-1/2 w-full left-0 px-0 flex justify-between pointer-events-none"></div>
-                    <div class="absolute w-full flex justify-between mt-6 px-0 text-[8px] font-black opacity-90 leading-tight">
-                        <div class="flex flex-col items-center w-12 -ml-4 text-center"><span>圣灰礼仪</span><span class="opacity-50 mt-0.5">2/18</span></div>
-                        <div class="flex flex-col items-center w-12 text-center"><span>第一主日</span><span class="opacity-50 mt-0.5">2/22</span></div>
-                        <div class="flex flex-col items-center w-12 text-center"><span>第二主日</span><span class="opacity-50 mt-0.5">3/01</span></div>
-                        <div class="flex flex-col items-center w-12 text-center"><span>第三主日</span><span class="opacity-50 mt-0.5">3/08</span></div>
-                        <div class="flex flex-col items-center w-12 text-center"><span>第四主日</span><span class="opacity-50 mt-0.5">3/15</span></div>
-                        <div class="flex flex-col items-center w-12 text-center text-amber-300"><span>第五主日</span><span class="opacity-50 mt-0.5">3/22</span></div>
-                        <div class="flex flex-col items-center w-12 text-red-300"><span>圣枝主日</span><span class="opacity-50 mt-0.5">3/29</span></div>
-                        <div class="flex flex-col items-center w-12 -mr-4 text-yellow-300 text-center"><span>复活瞻礼</span><span class="opacity-50 mt-0.5">4/05</span></div>
+                    <div class="absolute w-full flex justify-between mt-5 sm:mt-6 px-0 text-[7px] sm:text-[8px] font-black opacity-90 leading-tight">
+                        <div class="flex flex-col items-center w-10 sm:w-12 -ml-3 sm:-ml-4 text-center"><span>圣灰礼仪</span><span class="opacity-50 mt-0.5">2/18</span></div>
+                        <div class="flex flex-col items-center w-10 sm:w-12 text-center"><span>第一主日</span><span class="opacity-50 mt-0.5">2/22</span></div>
+                        <div class="flex flex-col items-center w-10 sm:w-12 text-center"><span>第二主日</span><span class="opacity-50 mt-0.5">3/01</span></div>
+                        <div class="flex flex-col items-center w-10 sm:w-12 text-center"><span>第三主日</span><span class="opacity-50 mt-0.5">3/08</span></div>
+                        <div class="flex flex-col items-center w-10 sm:w-12 text-center"><span>第四主日</span><span class="opacity-50 mt-0.5">3/15</span></div>
+                        <div class="flex flex-col items-center w-10 sm:w-12 text-center text-amber-300"><span>第五主日</span><span class="opacity-50 mt-0.5">3/22</span></div>
+                        <div class="flex flex-col items-center w-10 sm:w-12 text-red-300"><span>圣枝主日</span><span class="opacity-50 mt-0.5">3/29</span></div>
+                        <div class="flex flex-col items-center w-10 sm:w-12 -mr-3 sm:-mr-4 text-yellow-300 text-center"><span>复活瞻礼</span><span class="opacity-50 mt-0.5">4/05</span></div>
                     </div>
                 </div>
-                <div class="flex justify-between items-end text-[10px] opacity-70 border-t border-white/10 pt-4">
+                <div class="flex justify-between items-end text-[9px] sm:text-[10px] opacity-70 border-t border-white/10 pt-3 sm:pt-4">
                     <div><span class="font-bold">2026 四旬期旅程</span></div>
-                    <div class="text-right"><span id="today-date-string" class="text-xs font-black tracking-tighter block">载入中...</span><span class="font-bold uppercase opacity-50 tracking-widest">Today</span></div>
+                    <div class="text-right"><span id="today-date-string" class="text-[11px] sm:text-xs font-black tracking-tighter block">载入中...</span><span class="font-bold uppercase opacity-50 tracking-widest text-[8px] sm:text-[9px]">Today</span></div>
                 </div>
             </div>
 
-            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 text-center">
-                <p class="text-[10px] text-gray-500 font-bold flex items-center justify-center gap-2">
-                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-                    声明：此为静态网页，您的打卡及告解记录仅保存于本机，请放心使用。
+            <div class="bg-gray-50 border border-gray-200 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center">
+                <p class="text-[9px] sm:text-[10px] text-gray-500 font-bold flex items-center justify-center gap-1.5 sm:gap-2">
+                    <i data-lucide="shield-check" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-500"></i>
+                    声明：此为纯静态网页，您的打卡及告解记录仅保存于本机，请放心使用。
                 </p>
             </div>
 
-            <div class="bg-amber-50 border border-amber-200 rounded-[2.5rem] p-6 flex gap-5 items-center shadow-sm relative overflow-hidden group">
-                <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner">
-                    <i data-lucide="bell" class="w-7 h-7 animate-bounce"></i>
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl sm:rounded-[2.5rem] p-4 sm:p-6 flex gap-4 sm:gap-5 items-center shadow-sm relative overflow-hidden group">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 bg-amber-100 text-amber-700 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner">
+                    <i data-lucide="bell" class="w-5 h-5 sm:w-7 sm:h-7 animate-bounce"></i>
                 </div>
                 <div class="flex-1 relative z-10">
-                    <h4 class="text-sm font-black text-amber-950 mb-1.5">深圳圣安多尼堂特别通知</h4>
-                    <p class="text-[11px] text-amber-800 leading-relaxed font-bold">
-                        四旬期内 <span class="bg-amber-200/50 px-2 py-0.5 rounded text-amber-900 font-black">每周五 15:00</span> 举行拜苦路善功，随后举行弥撒。请信友踊跃参与。
-                    </p>
+                    <h4 class="text-[13px] sm:text-sm font-black text-amber-950 mb-1 sm:mb-1.5">圣安多尼堂特别通知</h4>
+                    <p class="text-[10px] sm:text-[11px] text-amber-800 leading-relaxed font-bold">四旬期内 <span class="bg-amber-200/50 px-1.5 py-0.5 rounded text-amber-900 font-black">每周五 15:00</span> 举行拜苦路善功与弥撒。请信友踊跃参与。</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
-                <button onclick="showTab('weekly')" class="bg-white p-7 rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
-                    <div class="w-16 h-16 rounded-2xl bg-violet-50 text-violet-600 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="layers"></i></div>
-                    <span class="text-sm font-black text-gray-800">每周重点</span>
+            <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                <button onclick="showTab('weekly')" class="bg-white p-5 sm:p-7 rounded-2xl sm:rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-violet-50 text-violet-600 flex items-center justify-center mb-3 sm:mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="layers" class="w-5 h-5 sm:w-6 sm:h-6"></i></div>
+                    <span class="text-[12px] sm:text-sm font-black text-gray-800">每周重点</span>
                 </button>
-                <button onclick="showTab('stations')" class="bg-white p-7 rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
-                    <div class="w-16 h-16 rounded-2xl bg-stone-50 text-stone-700 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="milestone"></i></div>
-                    <span class="text-sm font-black text-gray-800">苦路善功</span>
+                <button onclick="showTab('stations')" class="bg-white p-5 sm:p-7 rounded-2xl sm:rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-stone-50 text-stone-700 flex items-center justify-center mb-3 sm:mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="milestone" class="w-5 h-5 sm:w-6 sm:h-6"></i></div>
+                    <span class="text-[12px] sm:text-sm font-black text-gray-800">苦路善功</span>
                 </button>
-                <button onclick="showTab('confession')" class="bg-white p-7 rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
-                    <div class="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-700 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="heart-handshake"></i></div>
-                    <span class="text-sm font-black text-gray-800">告解圣事</span>
+                <button onclick="showTab('confession')" class="bg-white p-5 sm:p-7 rounded-2xl sm:rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-indigo-50 text-indigo-700 flex items-center justify-center mb-3 sm:mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="heart-handshake" class="w-5 h-5 sm:w-6 sm:h-6"></i></div>
+                    <span class="text-[12px] sm:text-sm font-black text-gray-800">告解圣事</span>
                 </button>
-                <button onclick="showTab('holyweek')" class="bg-white p-7 rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
-                    <div class="w-16 h-16 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="flame"></i></div>
-                    <span class="text-sm font-black text-gray-800">圣周指南</span>
+                <button onclick="showTab('holyweek')" class="bg-white p-5 sm:p-7 rounded-2xl sm:rounded-[2.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mb-3 sm:mb-4 shadow-inner group-hover:scale-110 transition-transform"><i data-lucide="flame" class="w-5 h-5 sm:w-6 sm:h-6"></i></div>
+                    <span class="text-[12px] sm:text-sm font-black text-gray-800">圣周指南</span>
                 </button>
             </div>
 
-            <div class="bg-white rounded-[3rem] p-10 shadow-sm border border-gray-100">
-                <div class="flex justify-between items-center mb-10">
-                    <div class="space-y-1">
-                        <h3 class="text-2xl font-black text-gray-900 tracking-tight">今日修德方案</h3>
-                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em]">Spiritual Training Plan</p>
+            <div class="bg-white rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 shadow-sm border border-gray-100">
+                <div class="flex justify-between items-center mb-6 sm:mb-10">
+                    <div class="space-y-0.5 sm:space-y-1">
+                        <h3 class="text-xl sm:text-2xl font-black text-gray-900 tracking-tight">今日修德方案</h3>
+                        <p class="text-[9px] sm:text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em]">Spiritual Training Plan</p>
                     </div>
-                    <div class="bg-violet-100 text-violet-700 p-3.5 rounded-2xl cursor-pointer" onclick="alert('勾选的任务将自动保存在您的手机中，即使关闭网页也不会丢失哦！')"><i data-lucide="save" class="w-6 h-6"></i></div>
+                    <div class="bg-violet-100 text-violet-700 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl cursor-pointer" onclick="alert('勾选的任务将自动保存在您的手机中，即使关闭网页也不会丢失哦！')"><i data-lucide="save" class="w-4 h-4 sm:w-6 sm:h-6"></i></div>
                 </div>
-                <div class="bg-violet-50 p-7 rounded-[2rem] mb-10 border border-violet-100/50 shadow-inner relative overflow-hidden group">
-                    <div class="absolute -right-4 -top-4 opacity-5 group-hover:rotate-45 transition-transform"><i data-lucide="quote" class="w-24 h-24 text-violet-900"></i></div>
-                    <h5 class="text-[10px] font-black text-violet-400 uppercase tracking-widest mb-3 flex items-center gap-2"><i data-lucide="message-circle" class="w-3.5 h-3.5"></i> 今日灵修指引</h5>
-                    <p id="dynamic-guidance-text" class="text-base text-violet-950 font-bold leading-relaxed italic font-serif-church">载入今日方案...</p>
+                <div class="bg-violet-50 p-5 sm:p-7 rounded-2xl sm:rounded-[2rem] mb-6 sm:mb-10 border border-violet-100/50 shadow-inner relative overflow-hidden group">
+                    <div class="absolute -right-2 -top-2 sm:-right-4 sm:-top-4 opacity-5 group-hover:rotate-45 transition-transform"><i data-lucide="quote" class="w-16 h-16 sm:w-24 sm:h-24 text-violet-900"></i></div>
+                    <h5 class="text-[10px] font-black text-violet-400 uppercase tracking-widest mb-2 sm:mb-3 flex items-center gap-1.5 sm:gap-2"><i data-lucide="message-circle" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> 今日灵修指引</h5>
+                    <p id="dynamic-guidance-text" class="text-sm sm:text-base text-violet-950 font-bold leading-relaxed italic font-serif-church relative z-10">载入今日方案...</p>
                 </div>
-                <div id="task-categories" class="space-y-12"></div>
+                <div id="task-categories" class="space-y-8 sm:space-y-12"></div>
             </div>
 
-            <footer class="pt-10 pb-4 text-center">
-                <p class="text-[10px] text-gray-400 font-black tracking-widest uppercase mb-1">Produced By</p>
-                <p class="text-xs text-gray-500 font-bold">SAC划向深处小组制作</p>
+            <footer class="pt-8 sm:pt-10 pb-4 text-center">
+                <p class="text-[9px] sm:text-[10px] text-gray-400 font-black tracking-widest uppercase mb-1">Produced By</p>
+                <p class="text-[11px] sm:text-xs text-gray-500 font-bold">SAC划向深处小组制作</p>
             </footer>
         </div>
 
-        <div id="weekly" class="tab-content space-y-10 pb-20">
-            <button onclick="showTab('home')" class="flex items-center text-violet-600 font-black gap-2 mb-4 hover:gap-4 transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i> 返回主页</button>
-            <div class="bg-violet-950 text-white p-12 rounded-[4rem] shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-8 opacity-10 rotate-12 scale-125"><i data-lucide="scroll-text" class="w-48 h-48"></i></div>
-                <h2 class="text-4xl font-black mb-6 tracking-tighter">每周灵修大纲</h2>
-                <p class="text-violet-200 leading-loose text-sm font-medium prose-church">四旬期是一场灵魂由世俗之“奴役”走向天主之“自由”的伟大法行。每周的主日福音都是这一段航程的灯塔。</p>
+        <!-- ================= 每周重点 ================= -->
+        <div id="weekly" class="tab-content space-y-6 sm:space-y-10 pb-16 sm:pb-20">
+            <button onclick="showTab('home')" class="flex items-center text-violet-600 font-black text-sm sm:text-base gap-1.5 sm:gap-2 mb-2 sm:mb-4 hover:gap-3 transition-all"><i data-lucide="arrow-left" class="w-4 h-4 sm:w-5 sm:h-5"></i> 返回主页</button>
+            <div class="bg-violet-950 text-white p-8 sm:p-12 rounded-[2rem] sm:rounded-[4rem] shadow-xl sm:shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 sm:p-8 opacity-10 rotate-12 scale-110 sm:scale-125"><i data-lucide="scroll-text" class="w-24 h-24 sm:w-48 sm:h-48"></i></div>
+                <h2 class="text-2xl sm:text-4xl font-black mb-3 sm:mb-6 tracking-tighter relative z-10">每周灵修大纲</h2>
+                <p class="text-violet-200 leading-relaxed sm:leading-loose text-[13px] sm:text-sm font-medium prose-church relative z-10">四旬期是一场灵魂由世俗之“奴役”走向天主之“自由”的伟大法行。每周的主日福音都是这一段航程的灯塔。</p>
             </div>
-            <div id="weekly-list" class="space-y-16 pb-12"></div>
+            <div id="weekly-list" class="space-y-8 sm:space-y-16 pb-8 sm:pb-12"></div>
         </div>
 
-        <div id="stations" class="tab-content space-y-10 pb-20">
-            <button onclick="showTab('home')" class="flex items-center text-stone-700 font-black gap-2 mb-4 hover:gap-4 transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i> 返回主页</button>
-            <div class="bg-stone-900 text-white p-12 rounded-[4rem] shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 p-4 opacity-10"><i data-lucide="cross" class="w-64 h-64"></i></div>
-                <h2 class="text-4xl font-black mb-6 tracking-tighter">拜苦路深度默想</h2>
-                <p class="text-stone-400 text-sm leading-loose italic font-serif-church max-w-lg">“谁若愿意跟随我，该弃绝自己，天天背起自己的十字架跟随我。” (路9:23)</p>
+        <!-- ================= 苦路善功 ================= -->
+        <div id="stations" class="tab-content space-y-6 sm:space-y-10 pb-16 sm:pb-20">
+            <button onclick="showTab('home')" class="flex items-center text-stone-700 font-black text-sm sm:text-base gap-1.5 sm:gap-2 mb-2 sm:mb-4 hover:gap-3 transition-all"><i data-lucide="arrow-left" class="w-4 h-4 sm:w-5 sm:h-5"></i> 返回主页</button>
+            <div class="bg-stone-900 text-white p-8 sm:p-12 rounded-[2rem] sm:rounded-[4rem] shadow-xl sm:shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-6 -bottom-6 sm:-right-10 sm:-bottom-10 p-4 opacity-10"><i data-lucide="cross" class="w-32 h-32 sm:w-64 sm:h-64"></i></div>
+                <h2 class="text-2xl sm:text-4xl font-black mb-3 sm:mb-6 tracking-tighter relative z-10">拜苦路深度默想</h2>
+                <p class="text-stone-400 text-[13px] sm:text-sm leading-relaxed sm:leading-loose italic font-serif-church max-w-lg relative z-10">“谁若愿意跟随我，该弃绝自己，天天背起自己的十字架跟随我。” (路9:23)</p>
             </div>
-            <div id="stations-list" class="space-y-12 pb-12"></div>
+            <div id="stations-list" class="space-y-8 sm:space-y-12 pb-8 sm:pb-12"></div>
         </div>
 
-        <div id="confession" class="tab-content space-y-10 pb-20">
-            <button onclick="showTab('home')" class="flex items-center text-indigo-600 font-black gap-2 mb-4 hover:gap-4 transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i> 返回主页</button>
+        <!-- ================= 告解圣事 ================= -->
+        <div id="confession" class="tab-content space-y-6 sm:space-y-10 pb-20 sm:pb-24">
+            <button onclick="showTab('home')" class="flex items-center text-indigo-600 font-black text-sm sm:text-base gap-1.5 sm:gap-2 mb-2 sm:mb-4 hover:gap-3 transition-all"><i data-lucide="arrow-left" class="w-4 h-4 sm:w-5 sm:h-5"></i> 返回主页</button>
             
-            <div class="bg-white p-2 rounded-[2rem] shadow-premium border border-indigo-50 flex items-center gap-1 sticky top-20 z-50 overflow-x-auto no-scrollbar">
-                <button onclick="showConfSub('conf-intro')" class="conf-sub-btn whitespace-nowrap flex-1 py-3 px-6 rounded-full text-xs font-black transition-all conf-nav-active" id="btn-conf-intro">圣事意义</button>
-                <button onclick="showConfSub('conf-prep')" class="conf-sub-btn whitespace-nowrap flex-1 py-3 px-6 rounded-full text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-prep">告解准备</button>
-                <button onclick="showConfSub('conf-exam')" class="conf-sub-btn whitespace-nowrap flex-1 py-3 px-6 rounded-full text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-exam">详细省察</button>
-                <button onclick="showConfSub('conf-step')" class="conf-sub-btn whitespace-nowrap flex-1 py-3 px-6 rounded-full text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-step">实战流程</button>
-                <button onclick="showConfSub('conf-prayer')" class="conf-sub-btn whitespace-nowrap flex-1 py-3 px-6 rounded-full text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-prayer">常用经文</button>
+            <div class="bg-white p-1.5 sm:p-2 rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-premium border border-indigo-50 flex items-center gap-1 sticky top-16 sm:top-20 z-50 overflow-x-auto no-scrollbar">
+                <button onclick="showConfSub('conf-intro')" class="conf-sub-btn whitespace-nowrap flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-full text-[11px] sm:text-xs font-black transition-all conf-nav-active" id="btn-conf-intro">圣事意义</button>
+                <button onclick="showConfSub('conf-prep')" class="conf-sub-btn whitespace-nowrap flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-full text-[11px] sm:text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-prep">告解准备</button>
+                <button onclick="showConfSub('conf-exam')" class="conf-sub-btn whitespace-nowrap flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-full text-[11px] sm:text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-exam">详细省察</button>
+                <button onclick="showConfSub('conf-step')" class="conf-sub-btn whitespace-nowrap flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-full text-[11px] sm:text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-step">实战流程</button>
+                <button onclick="showConfSub('conf-prayer')" class="conf-sub-btn whitespace-nowrap flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-full text-[11px] sm:text-xs font-black transition-all text-indigo-700 hover:bg-indigo-50" id="btn-conf-prayer">常用经文</button>
             </div>
 
-            <div id="conf-intro" class="conf-section space-y-10">
-                <div class="bg-indigo-600 rounded-[3rem] p-10 text-white text-center shadow-lg relative overflow-hidden">
-                    <i data-lucide="sun" class="w-16 h-16 mx-auto mb-4 opacity-90"></i>
-                    <h2 class="text-3xl font-bold tracking-tight mb-2">和好圣事的恩宠</h2>
-                    <p class="text-indigo-200 text-sm font-medium">天父永远张开双臂，等待儿女归来</p>
+            <!-- 告解: 意义 -->
+            <div id="conf-intro" class="conf-section space-y-6 sm:space-y-10">
+                <div class="bg-indigo-600 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-10 text-white text-center shadow-lg relative overflow-hidden">
+                    <i data-lucide="sun" class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 opacity-90"></i>
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-2">和好圣事的恩宠</h2>
+                    <p class="text-indigo-200 text-xs sm:text-sm font-medium">天父永远张开双臂，等待儿女归来</p>
                 </div>
                 
-                <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100">
-                    <h3 class="font-black text-slate-800 text-xl mb-4 flex items-center gap-3"><i data-lucide="heart" class="text-rose-500 w-6 h-6"></i> 慈悲的拥抱</h3>
-                    <div class="space-y-4 text-slate-600 text-[15px] leading-relaxed font-medium">
+                <div class="bg-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[3rem] shadow-sm border border-slate-100">
+                    <h3 class="font-black text-slate-800 text-lg sm:text-xl mb-3 sm:mb-4 flex items-center gap-2 sm:gap-3"><i data-lucide="heart" class="text-rose-500 w-5 h-5 sm:w-6 sm:h-6"></i> 慈悲的拥抱</h3>
+                    <div class="space-y-3 sm:space-y-4 text-slate-600 text-[14px] sm:text-[15px] leading-relaxed font-medium">
                         <p>告解圣事（又称和好圣事）是天主慈爱的具体表现。耶稣基督作为灵魂的医生，不仅赦免我们的罪过，更治愈我们因罪而受伤的心灵。</p>
                         <p>这不是一种在那位高高在上的法官面前的“审判”，而是并在慈父怀抱中的“重逢”。通过这件圣事，我们与天主和好，与教会团体和好，也与自己和好。</p>
                     </div>
                 </div>
 
-                <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100">
-                    <h3 class="font-black text-slate-800 text-xl mb-4 flex items-center gap-3"><i data-lucide="users" class="text-indigo-500 w-6 h-6"></i> 为什么向神父告罪？</h3>
-                    <div class="space-y-4 text-slate-600 text-[15px] leading-relaxed font-medium">
+                <div class="bg-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[3rem] shadow-sm border border-slate-100">
+                    <h3 class="font-black text-slate-800 text-lg sm:text-xl mb-3 sm:mb-4 flex items-center gap-2 sm:gap-3"><i data-lucide="users" class="text-indigo-500 w-5 h-5 sm:w-6 sm:h-6"></i> 为什么向神父告罪？</h3>
+                    <div class="space-y-3 sm:space-y-4 text-slate-600 text-[14px] sm:text-[15px] leading-relaxed font-medium">
                         <p>很多教友会问：“我为什么不能直接向天主认罪？”</p>
                         <p>其实，当我们在神父面前告明罪过时，神父代表了基督和教会。耶稣复活后对门徒说：“你们赦免谁的罪，就给谁赦免”（若 20:23）。</p>
                         <p>听见神父说“我赦免你的罪”，这是一个<strong class="text-indigo-600">可见的、确定的</strong>恩宠标记，让我们的人性获得真实的平安与释放。</p>
@@ -248,101 +253,119 @@
                 </div>
             </div>
             
-            <div id="conf-prep" class="conf-section hidden space-y-8">
-                <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-indigo-100">
-                    <h3 class="text-2xl font-black text-indigo-950 mb-8 flex items-center gap-3"><i data-lucide="hourglass" class="text-indigo-500 w-7 h-7"></i> 告解前的预备</h3>
-                    <div class="space-y-6 prose-church text-[15px] text-gray-600">
-                        <div class="bg-gray-50 p-6 rounded-[2rem] border border-gray-100">
-                            <h4 class="font-black text-gray-900 mb-2">1. 静下心来</h4>
-                            <p>寻找一个安静的地方（如圣堂的角落），放下所有焦虑。意识到你即将面对的是一位无比仁慈的父亲，而不是一位冷酷的判官。</p>
+            <!-- 告解: 准备 -->
+            <div id="conf-prep" class="conf-section hidden space-y-6 sm:space-y-8">
+                <div class="bg-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[3rem] shadow-sm border border-indigo-100">
+                    <h3 class="text-xl sm:text-2xl font-black text-indigo-950 mb-5 sm:mb-8 flex items-center gap-2.5 sm:gap-3"><i data-lucide="hourglass" class="text-indigo-500 w-6 h-6 sm:w-7 sm:h-7"></i> 告解前的预备</h3>
+                    <div class="space-y-4 sm:space-y-6 prose-church text-[14px] sm:text-[15px] text-gray-600">
+                        <div class="bg-gray-50 p-5 sm:p-6 rounded-2xl sm:rounded-[2rem] border border-gray-100">
+                            <h4 class="font-black text-gray-900 mb-1 sm:mb-2">1. 静下心来</h4>
+                            <p>寻找一个安静的地方，放下所有焦虑。意识到你即将面对的是一位无比仁慈的父亲，而不是一位冷酷的判官。</p>
                         </div>
-                        <div class="bg-gray-50 p-6 rounded-[2rem] border border-gray-100">
-                            <h4 class="font-black text-gray-900 mb-2">2. 祈求光照</h4>
-                            <p>我们往往由于骄傲或习惯而看不清自己的罪。请祈祷：‘圣神，请照亮我的记忆，让我看清冒犯天主的过错，并赐我真心痛悔的力量。’</p>
+                        <div class="bg-gray-50 p-5 sm:p-6 rounded-2xl sm:rounded-[2rem] border border-gray-100">
+                            <h4 class="font-black text-gray-900 mb-1 sm:mb-2">2. 祈求光照</h4>
+                            <p>我们往往由于骄傲或习惯而看不清自己的罪。请祈祷：‘圣神，请照亮我的记忆，让我看清冒犯天主的过错。’</p>
                         </div>
-                        <div class="bg-gray-50 p-6 rounded-[2rem] border border-gray-100">
-                            <h4 class="font-black text-gray-900 mb-2">3. 诚实面对</h4>
-                            <p>参考“详细省察”清单。不要为罪找借口（如‘由于当时太忙’），而要坦诚说：‘我做了这件事，我很后悔。’</p>
+                        <div class="bg-gray-50 p-5 sm:p-6 rounded-2xl sm:rounded-[2rem] border border-gray-100">
+                            <h4 class="font-black text-gray-900 mb-1 sm:mb-2">3. 诚实面对</h4>
+                            <p>参考“详细省察”清单。不要为罪找借口，而要坦诚说：‘我做了这件事，我很后悔。’</p>
                         </div>
-                        <div class="bg-indigo-600 p-8 rounded-[2rem] text-white mt-8 shadow-md">
-                            <h5 class="font-black text-[11px] uppercase tracking-widest mb-4 opacity-70">准备祷词 / Preparation Prayer</h5>
-                            <p class="text-lg italic font-serif-church font-bold leading-[2]">“我主、我神！我承认我多次犯罪，冒犯了祢无限的尊威。现在我靠祢圣宠的帮助，愿意在神父面前诚实告明。求祢宽恕我的罪，并赐我改过的决心。阿们。”</p>
+                        <div class="bg-indigo-600 p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] text-white mt-6 sm:mt-8 shadow-md">
+                            <h5 class="font-black text-[10px] sm:text-[11px] uppercase tracking-widest mb-3 sm:mb-4 opacity-70">准备祷词 / Preparation Prayer</h5>
+                            <p class="text-base sm:text-lg italic font-serif-church font-bold leading-relaxed sm:leading-[2]">“我主、我神！我承认我多次犯罪，冒犯了祢无限的尊威。现在我靠祢圣宠的帮助，愿意在神父面前诚实告明。求祢宽恕我的罪，并赐我改过的决心。阿们。”</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div id="conf-exam" class="conf-section hidden space-y-12">
-                <div class="bg-indigo-950 text-white p-10 rounded-[3rem] shadow-xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 rotate-12"><i data-lucide="clipboard-list" class="w-48 h-48"></i></div>
-                    <h3 class="text-2xl font-black mb-4 flex items-center gap-3 relative z-10"><i data-lucide="search" class="w-6 h-6 text-indigo-400"></i> 灵魂全备省察</h3>
-                    <p class="text-[12px] text-indigo-200 leading-loose relative z-10">点击下方各项可记录到您的“待告明清单”中。这些记录<strong class="text-white">仅保存在您的手机本地</strong>，不会上传。主已知道一切，祂只想听见您的诚实。</p>
+            <!-- 告解: 详细省察 -->
+            <div id="conf-exam" class="conf-section hidden space-y-8 sm:space-y-12">
+                <div class="bg-indigo-950 text-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[3rem] shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 rotate-12"><i data-lucide="clipboard-list" class="w-24 h-24 sm:w-48 sm:h-48"></i></div>
+                    <h3 class="text-xl sm:text-2xl font-black mb-3 sm:mb-4 flex items-center gap-2 sm:gap-3 relative z-10"><i data-lucide="search" class="w-5 h-5 sm:w-6 sm:h-6 text-indigo-400"></i> 灵魂全备省察</h3>
+                    <p class="text-[11px] sm:text-[12px] text-indigo-200 leading-relaxed sm:leading-loose relative z-10">点击下方各项可记录到您的“待告明清单”中。这些记录<strong class="text-white">仅保存在您的手机本地</strong>，不会上传。主已知道一切，祂只想听见您的诚实。</p>
                 </div>
-                <div id="exam-list-container" class="space-y-12"></div>
+                <!-- 渲染容器 -->
+                <div id="exam-list-container" class="space-y-8 sm:space-y-12"></div>
             </div>
 
-            <div id="conf-step" class="conf-section hidden space-y-10">
-                <div id="confession-script" class="bg-white p-10 rounded-[3.5rem] border border-indigo-50 shadow-sm space-y-12"></div>
+            <!-- 告解: 实战流程 -->
+            <div id="conf-step" class="conf-section hidden space-y-6 sm:space-y-10">
+                <div id="confession-script" class="bg-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[3.5rem] border border-indigo-50 shadow-sm space-y-8 sm:space-y-12"></div>
             </div>
 
-            <div id="conf-prayer" class="conf-section hidden space-y-10">
-                <div class="bg-white p-10 rounded-[4rem] border border-indigo-100 shadow-premium" id="prayers-container"></div>
+            <!-- 告解: 常用经文 -->
+            <div id="conf-prayer" class="conf-section hidden space-y-6 sm:space-y-10">
+                <div class="bg-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[4rem] border border-indigo-100 shadow-sm sm:shadow-premium" id="prayers-container"></div>
             </div>
         </div>
 
-        <div id="holyweek" class="tab-content space-y-10 pb-20">
-            <button onclick="showTab('home')" class="flex items-center text-red-600 font-black gap-2 mb-4 hover:gap-4 transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i> 返回主页</button>
-            <div class="bg-red-950 text-white p-12 rounded-[4rem] shadow-2xl relative overflow-hidden">
-                <div class="absolute -left-10 -bottom-10 w-48 h-48 bg-red-500 opacity-20 rounded-full blur-[60px]"></div>
-                <h2 class="text-4xl font-black mb-6 tracking-tighter">圣周深度指南</h2>
-                <p class="text-red-200 leading-[2.2] text-sm font-medium prose-church">逾越节三日庆典是整个救恩史的巅峰。</p>
+        <!-- ================= 圣周指南 ================= -->
+        <div id="holyweek" class="tab-content space-y-6 sm:space-y-10 pb-16 sm:pb-20">
+            <button onclick="showTab('home')" class="flex items-center text-red-600 font-black text-sm sm:text-base gap-1.5 sm:gap-2 mb-2 sm:mb-4 hover:gap-3 transition-all"><i data-lucide="arrow-left" class="w-4 h-4 sm:w-5 sm:h-5"></i> 返回主页</button>
+            <div class="bg-red-950 text-white p-8 sm:p-12 rounded-[2rem] sm:rounded-[4rem] shadow-xl sm:shadow-2xl relative overflow-hidden">
+                <div class="absolute -left-10 -bottom-10 w-32 h-32 sm:w-48 sm:h-48 bg-red-500 opacity-20 rounded-full blur-3xl sm:blur-[60px]"></div>
+                <h2 class="text-2xl sm:text-4xl font-black mb-3 sm:mb-6 tracking-tighter relative z-10">圣周深度指南</h2>
+                <p class="text-red-200 leading-relaxed sm:leading-[2.2] text-[13px] sm:text-sm font-medium prose-church relative z-10">逾越节三日庆典是整个救恩史的巅峰。</p>
             </div>
-            <div id="holyweek-list" class="space-y-12 pb-12"></div>
+            <div id="holyweek-list" class="space-y-8 sm:space-y-12 pb-8 sm:pb-12"></div>
         </div>
 
-        <div id="liturgy" class="tab-content space-y-10 pb-20">
-            <button onclick="showTab('home')" class="flex items-center text-amber-600 font-black gap-2 mb-4 hover:gap-4 transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i> 返回主页</button>
-            <div class="bg-amber-100 p-12 rounded-[4rem] border border-amber-200 shadow-inner">
-                <h2 class="text-4xl font-black text-amber-950 mb-6 tracking-tighter">四旬期深度百科</h2>
-                <p class="text-amber-900/70 text-sm leading-relaxed font-bold italic font-serif-church">探索 40 天旷野旅程背后的神学奥秘与教会传统。</p>
+        <!-- ================= 四旬期百科 ================= -->
+        <div id="liturgy" class="tab-content space-y-6 sm:space-y-10 pb-16 sm:pb-20">
+            <button onclick="showTab('home')" class="flex items-center text-amber-600 font-black text-sm sm:text-base gap-1.5 sm:gap-2 mb-2 sm:mb-4 hover:gap-3 transition-all"><i data-lucide="arrow-left" class="w-4 h-4 sm:w-5 sm:h-5"></i> 返回主页</button>
+            <div class="bg-amber-100 p-8 sm:p-12 rounded-[2rem] sm:rounded-[4rem] border border-amber-200 shadow-inner">
+                <h2 class="text-2xl sm:text-4xl font-black text-amber-950 mb-3 sm:mb-6 tracking-tighter">四旬期深度百科</h2>
+                <p class="text-amber-900/70 text-[12px] sm:text-sm leading-relaxed font-bold italic font-serif-church">探索 40 天旷野旅程背后的神学奥秘与教会传统。</p>
             </div>
-            <div id="liturgy-info-list" class="space-y-12 pb-12"></div>
+            <div id="liturgy-info-list" class="space-y-8 sm:space-y-12 pb-8 sm:pb-12"></div>
         </div>
     </main>
 
-    <div id="exam-footer" class="fixed bottom-10 left-1/2 -translate-x-1/2 w-full max-w-sm px-6 hidden z-[110]">
-        <div class="bg-indigo-950 text-white p-4 rounded-[2.5rem] shadow-2xl flex justify-between items-center border border-indigo-700 ring-4 ring-indigo-900/40">
-            <div class="flex items-center gap-4 pl-2">
-                <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center font-black text-lg border-2 border-indigo-400/30 shadow-inner" id="exam-badge">0</div>
-                <span class="text-[10px] font-black uppercase text-indigo-300 tracking-[0.1em] leading-tight">已记下罪项</span>
+    <!-- ================= 悬浮UI组件 ================= -->
+    
+    <!-- 告解统计底栏 (仅在告解页显示，与名言不冲突) -->
+    <div id="exam-footer" class="fixed bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 w-full max-w-sm px-4 sm:px-6 hidden z-[110] transition-transform duration-500">
+        <div class="bg-indigo-950 text-white p-3 sm:p-4 rounded-full sm:rounded-[2.5rem] shadow-2xl flex justify-between items-center border border-indigo-700 ring-4 ring-indigo-900/40">
+            <div class="flex items-center gap-3 sm:gap-4 pl-2">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-indigo-600 flex items-center justify-center font-black text-base sm:text-lg border border-indigo-400/30 shadow-inner" id="exam-badge">0</div>
+                <span class="text-[9px] sm:text-[10px] font-black uppercase text-indigo-300 tracking-[0.1em] leading-tight">已记下罪项</span>
             </div>
-            <div class="flex gap-2">
-                <button onclick="copyConfessionList()" class="text-[10px] bg-indigo-500/20 px-4 py-2 rounded-full font-black hover:bg-indigo-500/40 transition-all border border-indigo-400/30 flex items-center gap-1.5"><i data-lucide="copy" class="w-3.5 h-3.5"></i> 复制</button>
-                <button onclick="resetExam()" class="text-[10px] bg-red-500/20 px-4 py-2 rounded-full font-black hover:bg-red-500/40 transition-all border border-red-400/30 flex items-center gap-1.5"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i> 清空</button>
+            <div class="flex gap-1.5 sm:gap-2 pr-1">
+                <button onclick="copyConfessionList()" class="text-[10px] bg-indigo-500/20 px-3 py-2 sm:px-4 sm:py-2 rounded-full font-black hover:bg-indigo-500/40 transition-all border border-indigo-400/30 flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> 复制</button>
+                <button onclick="resetExam()" class="text-[10px] bg-red-500/20 px-3 py-2 sm:px-4 sm:py-2 rounded-full font-black hover:bg-red-500/40 transition-all border border-red-400/30 flex items-center gap-1"><i data-lucide="trash-2" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> 清空</button>
             </div>
         </div>
     </div>
 
-    <div id="quote-card" class="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-md px-6 pointer-events-none transition-opacity duration-700 z-[120]">
-        <div class="bg-white/95 backdrop-blur-2xl shadow-premium border border-violet-100 p-6 rounded-[3rem] flex items-center gap-6 pointer-events-auto border-t-8 border-t-violet-700">
-            <div class="bg-violet-700 p-3 rounded-2xl text-white shadow-lg shadow-violet-200 flex-shrink-0"><i data-lucide="sparkles" class="w-5 h-5 animate-pulse"></i></div>
-            <p id="daily-quote" class="text-xs font-black text-violet-950 leading-relaxed italic font-serif-church">“你们应回头改过，信从福音。”</p>
+    <!-- 随机名言悬浮窗 -->
+    <div id="quote-card" class="fixed bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-full max-w-md px-4 sm:px-6 pointer-events-none transition-opacity duration-700 z-[120]">
+        <div class="bg-white/95 backdrop-blur-xl sm:backdrop-blur-2xl shadow-lg sm:shadow-premium border border-violet-100/50 p-4 sm:p-6 rounded-2xl sm:rounded-[3rem] flex items-center gap-4 sm:gap-6 pointer-events-auto border-t-4 sm:border-t-8 border-t-violet-600 sm:border-t-violet-700">
+            <div class="bg-violet-600 sm:bg-violet-700 p-2 sm:p-3 rounded-xl sm:rounded-2xl text-white shadow-md sm:shadow-lg flex-shrink-0">
+                <i data-lucide="sparkles" class="w-4 h-4 sm:w-5 sm:h-5 animate-pulse"></i>
+            </div>
+            <p id="daily-quote" class="text-[11px] sm:text-xs font-black text-violet-950 leading-relaxed italic font-serif-church">“你们应回头改过，信从福音。”</p>
         </div>
     </div>
 
-    <div id="error-output" class="hidden fixed inset-0 bg-white z-[9999] p-8 overflow-auto text-red-600 font-mono text-sm"></div>
+    <!-- 错误捕获显示区 -->
+    <div id="error-output" class="hidden fixed inset-0 bg-white z-[9999] p-6 sm:p-8 overflow-auto text-red-600 font-mono text-xs sm:text-sm"></div>
 
     <script>
-        // 错误捕获显示，避免白屏
+        // 错误捕获逻辑
         window.onerror = function(msg, url, lineNo, columnNo, error) {
-            document.getElementById('loading-screen').style.display = 'none';
+            const ls = document.getElementById('loading-screen');
+            if(ls) ls.style.display = 'none';
             const errDiv = document.getElementById('error-output');
-            errDiv.classList.remove('hidden');
-            errDiv.innerHTML += `<p>Error: ${msg} <br>Line: ${lineNo}</p>`;
+            if(errDiv) {
+                errDiv.classList.remove('hidden');
+                errDiv.innerHTML += `<p>Error: ${msg} <br>Line: ${lineNo}</p>`;
+            }
             return false;
         };
 
-        // ================= 数据字典 =================
+        // ================= 完整深度数据区 =================
+        
         const quotes = [
             "“记住：你原来是尘土，将来仍要归于尘土。”",
             "“斋戒不只是空肚子，更是为了腾出空间给天主。”",
@@ -368,8 +391,7 @@
             ] 
         };
 
-        // 完整展开的 18 天修德计划
-  // 完整展开的 47 天每日修德计划 (2026.02.18 - 2026.04.05)
+        // 完整展开的 47 天修德方案
         const dailyFullPlan = {
             "2026-02-18": { mentor: "【圣灰礼仪】灰烬的记号提醒我们生命的脆弱，也预示复活的新生。今日请深度默想这一场由尘土走向永恒的逾越。", p: "参与圣灰礼仪弥撒；阅读并默想玛窦福音 6:1-6", f: "全守大斋小斋：全日进一饱餐；禁食肉类及零食", a: "在圣堂慈善箱悄悄放入一笔款项，开始为期40天的爱德操练" },
             "2026-02-19": { mentor: "【旷野初探】耶稣被领入旷野。今日请刻意寻找一个物理上的‘安静角落’，听听被世俗掩盖的灵魂渴求。", p: "寻找苦像或圣体前练习15分钟绝对静默；慢诵天主经5遍", f: "戒绝今日所有的甜味饮品，回归纯净白水的简单", a: "对今天遇到的每一个为你服务的劳动者，致以注视眼睛的感谢" },
@@ -520,7 +542,7 @@
             { id: 14, title: "第十四处", name: "耶稣葬于墓", scripture: "“他在坟墓门口滚上一块大石头，就走了。” (玛27:60)", med: "坟墓是复活的摇篮。我在大石头后等待，带着满怀的希望。", prayer: "主耶稣，守护我的信心，预见复活。阿们。", res: "今日定志：写下一件期待在复活节改过的志向存入圣经。" }
         ];
 
-        // 完整展开的、具有嵌套结构的告解省察及流程数据
+        // 完整展开的嵌套省察清单结构
         const confessionContentData = {
             examGroups: [
                 {
@@ -712,45 +734,18 @@
         };
 
         const holyWeekPlan = [
-            { 
-                day: "圣枝主日 (3/29)", title: "基督受难主日", focus: "欢迎和平之王进城奉献。礼仪由欢呼转入受难福音。", 
-                liturgy: "祝圣圣枝、圣枝游行、长篇受难史宣读。", act: "带回圣枝放在家中十字架旁。反思：我是否在口头欢呼主，在行动中却抛弃主？" 
-            },
-            { 
-                day: "圣周一至三", title: "心灵静默准备期", focus: "心灵大扫除的最后时机。默想救主如何被推向加尔瓦略山。", 
-                liturgy: "早晨弥撒，堂区安排全天候告解。", act: "务必在此期间完成圣事性的告解。保持生活环境极简与肃静。" 
-            },
-            { 
-                day: "圣周四 (4/2)", title: "逾越节三日庆典 (开始)", focus: "‘建立圣体’与‘爱德诫命’。主在此夜为门徒洗脚。", 
-                liturgy: "濯足礼；圣体迁往临时祭台；剥除祭台装饰，遮盖圣像。", act: "参与朝拜圣体直到深夜（陪伴山园中的主）。" 
-            },
-            { 
-                day: "圣周五 (4/3)", title: "救主受难纪念", focus: "十字架上的伟大赎献。天主为人类而死。", 
-                liturgy: "全日不举行弥撒。朝拜十字架及领受预圣圣体。严守大小斋。", act: "下午3点绝对静默。在圣堂亲吻主受难的伤痕，反省我罪。" 
-            },
-            { 
-                day: "圣周六 (4/4)", title: "逾越节守夜礼 (礼仪之母)", focus: "由死亡经过进入生命的时刻。礼仪之母。", 
-                liturgy: "祝圣新火、复活宣报、九篇读经、重申洗礼誓愿。", act: "晚上全程参与隆重守夜礼。迎接真光复活，重生为新造的人。" 
-            },
-            { 
-                day: "复活节 (4/5)", title: "耶稣复活大瞻礼", focus: "死亡被废除了！基督得胜了！这是我们信仰的根基。", 
-                liturgy: "欢唱阿肋路亚，弥撒充满白金荣光。", act: "庆祝复活！将这份喜乐带给家人。立志从此活出复活者的光明生活。" 
-            }
+            { day: "圣枝主日 (3/29)", title: "基督受难主日", focus: "欢迎和平之王进城奉献。礼仪由欢呼转入受难福音。", liturgy: "祝圣圣枝、圣枝游行、长篇受难史宣读。", act: "带回圣枝放在家中十字架旁。反思：我是否在口头欢呼主，在行动中却抛弃主？" },
+            { day: "圣周一至三", title: "心灵静默准备期", focus: "心灵大扫除的最后时机。默想救主如何被推向加尔瓦略山。", liturgy: "早晨弥撒，堂区安排全天候告解。", act: "务必在此期间完成圣事性的告解。保持生活环境极简与肃静。" },
+            { day: "圣周四 (4/2)", title: "逾越节三日庆典 (开始)", focus: "‘建立圣体’与‘爱德诫命’。主在此夜为门徒洗脚。", liturgy: "濯足礼；圣体迁往临时祭台；剥除祭台装饰，遮盖圣像。", act: "参与朝拜圣体直到深夜（陪伴山园中的主）。" },
+            { day: "圣周五 (4/3)", title: "救主受难纪念", focus: "十字架上的伟大赎献。天主为人类而死。", liturgy: "全日不举行弥撒。朝拜十字架及领受预圣圣体。严守大小斋。", act: "下午3点绝对静默。在圣堂亲吻主受难的伤痕，反省我罪。" },
+            { day: "圣周六 (4/4)", title: "逾越节守夜礼 (礼仪之母)", focus: "由死亡经过进入生命的时刻。礼仪之母。", liturgy: "祝圣新火、复活宣报、九篇读经、重申洗礼誓愿。", act: "晚上全程参与隆重守夜礼。迎接真光复活，重生为新造的人。" },
+            { day: "复活节 (4/5)", title: "耶稣复活大瞻礼", focus: "死亡被废除了！基督得胜了！这是我们信仰的根基。", liturgy: "欢唱阿肋路亚，弥撒充满白金荣光。", act: "庆祝复活！将这份喜乐带给家人。立志从此活出复活者的光明生活。" }
         ];
 
         const encyclopediaData = [
-            { 
-                cat: "逾越节奥迹深度介绍", 
-                desc: "‘逾越’意为‘经过’。旧约逾越是天主拯救以色列子民。新约中，基督是真正的逾越羔羊，通过四个阶段完成救赎：\n1. 经过自我（圣周四）：空虚自己，建立圣体。\n2. 经过痛苦（圣周五）：走入死亡深渊。\n3. 经过阴府（圣周六）：救拔古圣先贤。\n4. 经过死亡（复活日）：彻底粉碎死亡。\n这也揭示了每个信友必须‘死于旧我’，才能‘活于基督’。" 
-            },
-            { 
-                cat: "大小斋精准规则", 
-                desc: "• 小斋：\n - 时间：四旬期内的每一个周五。\n - 要求：不食禽兽肉。鱼、虾、蛋奶不受限制。\n - 适用：年满14岁至终身。\n• 大斋：\n - 时间：圣灰礼仪日、耶稣受难日（圣周五）。\n - 要求：全日仅进一餐饱食。严禁吃零食。饮水药物不限。\n - 适用：年满18岁至60岁。病弱繁重劳务者可豁免，应以爱德补之。" 
-            },
-            { 
-                cat: "四旬期与洗礼更新", 
-                desc: "四旬期在初期教会的核心是‘圣洗预备期’。对于已领洗的信友，这40天则是‘洗礼誓愿的重新激活’。我们通过克己、祈祷和爱德，准备在复活夜重新宣誓：‘我拒绝魔鬼，我拒绝罪恶，我信赖天主。’ 这是一个生命重生的恩宠时期。" 
-            }
+            { cat: "逾越节奥迹深度介绍", desc: "‘逾越’意为‘经过’。旧约逾越是天主拯救以色列子民。新约中，基督是真正的逾越羔羊，通过四个阶段完成救赎：\n1. 经过自我（圣周四）：空虚自己，建立圣体。\n2. 经过痛苦（圣周五）：走入死亡深渊。\n3. 经过阴府（圣周六）：救拔古圣先贤。\n4. 经过死亡（复活日）：彻底粉碎死亡。\n这也揭示了每个信友必须‘死于旧我’，才能‘活于基督’。" },
+            { cat: "大小斋精准规则", desc: "• 小斋：\n - 时间：四旬期内的每一个周五。\n - 要求：不食禽兽肉。鱼、虾、蛋奶不受限制。\n - 适用：年满14岁至终身。\n• 大斋：\n - 时间：圣灰礼仪日、耶稣受难日（圣周五）。\n - 要求：全日仅进一餐饱食。严禁吃零食。饮水药物不限。\n - 适用：年满18岁至60岁。病弱繁重劳务者可豁免，应以爱德补之。" },
+            { cat: "四旬期与洗礼更新", desc: "四旬期在初期教会的核心是‘圣洗预备期’。对于已领洗的信友，这40天则是‘洗礼誓愿的重新激活’。我们通过克己、祈祷和爱德，准备在复活夜重新宣誓：‘我拒绝魔鬼，我拒绝罪恶，我信赖天主。’ 这是一个生命重生的恩宠时期。" }
         ];
 
         // ================= 渲染与交互 =================
@@ -815,7 +810,7 @@
             document.getElementById('today-date-string').innerText = dateKey;
 
             document.getElementById('milestones-container').innerHTML = config.milestones.map((m, i) => `
-                <div class="milestone-dot w-4 h-4 rounded-full border-2 border-violet-500 pointer-events-auto ${diffDays >= m.offset ? 'active-dot' : 'bg-violet-900/40'}"></div>
+                <div class="milestone-dot w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-violet-500 pointer-events-auto ${diffDays >= m.offset ? 'active-dot' : 'bg-violet-900/40'}"></div>
             `).join('');
 
             const plan = getPlanForDate(dateKey);
@@ -828,20 +823,20 @@
             ];
             
             document.getElementById('task-categories').innerHTML = cats.map((cat, cIdx) => `
-                <div class="space-y-4">
-                    <h4 class="text-[11px] font-black uppercase tracking-[0.3em] ${cat.c} flex items-center gap-3">
-                        <i data-lucide="${cat.i}" class="w-4 h-4"></i> ${cat.n}
+                <div class="space-y-3 sm:space-y-4">
+                    <h4 class="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] ${cat.c} flex items-center gap-2 sm:gap-3">
+                        <i data-lucide="${cat.i}" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i> ${cat.n}
                     </h4>
-                    <div class="space-y-3">
+                    <div class="space-y-2.5 sm:space-y-3">
                         ${cat.t.map((item, tIdx) => {
                             const taskId = `task_${dateKey}_${cIdx}_${tIdx}`;
                             const isDone = localStorage.getItem(taskId) === 'true';
                             return `
-                                <div onclick="toggleTask('${taskId}', this)" class="task-item flex items-start gap-5 p-6 rounded-[2.5rem] border ${isDone ? 'is-checked border-green-300' : 'border-gray-100 bg-gray-50/50'} cursor-pointer hover:bg-white transition-all group">
-                                    <div class="check-box w-7 h-7 rounded-[12px] border-2 border-violet-200 mr-1 flex items-center justify-center bg-white shrink-0 mt-0.5 transition-all">
-                                        <i data-lucide="check" class="check-svg w-4 h-4 text-white ${isDone ? '' : 'hidden'}"></i>
+                                <div onclick="toggleTask('${taskId}', this)" class="task-item flex items-start gap-4 sm:gap-5 p-4 sm:p-6 rounded-2xl sm:rounded-[2.5rem] border ${isDone ? 'is-checked border-green-300' : 'border-gray-100 bg-gray-50/50'} cursor-pointer hover:bg-white transition-all group">
+                                    <div class="check-box w-6 h-6 sm:w-7 sm:h-7 rounded-xl sm:rounded-[12px] border-2 border-violet-200 flex items-center justify-center bg-white flex-shrink-0 mt-0.5 transition-all">
+                                        <i data-lucide="check" class="check-svg w-3.5 h-3.5 sm:w-4 sm:h-4 text-white ${isDone ? '' : 'hidden'}"></i>
                                     </div>
-                                    <span class="text-[14px] font-bold text-gray-800 leading-relaxed group-hover:text-violet-950">${item}</span>
+                                    <span class="text-[13px] sm:text-[14px] font-bold text-gray-800 leading-relaxed group-hover:text-violet-950">${item}</span>
                                 </div>
                             `;
                         }).join('')}
@@ -858,24 +853,24 @@
 
         function renderWeeklyList() { 
             document.getElementById('weekly-list').innerHTML = weeklyFullData.map(w => `
-                <div class="bg-white p-12 rounded-[4rem] border border-gray-100 shadow-sm relative overflow-hidden group">
-                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-violet-50 rounded-full group-hover:scale-150 transition-transform duration-1000"></div>
-                    <div class="flex items-center justify-between mb-8 border-b border-gray-50 pb-8">
-                        <h4 class="text-3xl font-black text-gray-900 tracking-tighter">${w.theme}</h4>
-                        <span class="text-[10px] bg-violet-100 text-violet-700 px-6 py-2.5 rounded-full font-black uppercase tracking-widest">${w.week}</span>
+                <div class="bg-white p-6 sm:p-10 rounded-3xl sm:rounded-[4rem] border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="absolute -right-5 -top-5 sm:-right-10 sm:-top-10 w-24 h-24 sm:w-32 sm:h-32 bg-violet-50 rounded-full group-hover:scale-150 transition-transform duration-1000"></div>
+                    <div class="flex items-center justify-between mb-5 sm:mb-8 border-b border-gray-50 pb-5 sm:pb-8">
+                        <h4 class="text-xl sm:text-3xl font-black text-gray-900 tracking-tighter">${w.theme}</h4>
+                        <span class="text-[9px] sm:text-[10px] bg-violet-100 text-violet-700 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full font-black uppercase tracking-widest">${w.week}</span>
                     </div>
-                    <div class="mb-10 p-8 bg-violet-50 rounded-[2.5rem] border border-violet-100 relative">
-                        <p class="text-sm text-violet-950 font-bold leading-[2.2] italic font-serif-church">“${w.intro}”</p>
-                        <p class="text-[11px] text-violet-400 mt-6 font-black tracking-widest uppercase flex items-center gap-2">
-                            <i data-lucide="bookmark" class="w-3.5 h-3.5"></i> 读经: ${w.scripture}
+                    <div class="mb-6 sm:mb-10 p-5 sm:p-8 bg-violet-50 rounded-2xl sm:rounded-[2.5rem] border border-violet-100 relative">
+                        <p class="text-[12px] sm:text-sm text-violet-950 font-bold leading-relaxed sm:leading-[2.2] italic font-serif-church">“${w.intro}”</p>
+                        <p class="text-[10px] sm:text-[11px] text-violet-400 mt-4 sm:mt-6 font-black tracking-widest uppercase flex items-center gap-1.5 sm:gap-2">
+                            <i data-lucide="bookmark" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> 读经: ${w.scripture}
                         </p>
                     </div>
-                    <div class="bg-stone-50 p-10 rounded-[3rem] border border-stone-100">
-                        <h5 class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-8 flex items-center gap-3">本周每日方案</h5>
-                        <div class="space-y-6">
+                    <div class="bg-stone-50 p-5 sm:p-10 rounded-3xl sm:rounded-[3rem] border border-stone-100">
+                        <h5 class="text-[9px] sm:text-[10px] font-black text-stone-400 uppercase tracking-widest mb-4 sm:mb-8 flex items-center gap-2 sm:gap-3">本周每日方案</h5>
+                        <div class="space-y-4 sm:space-y-6">
                             ${w.days.map((d, i) => `
-                                <div class="text-[13px] text-gray-700 leading-relaxed flex gap-5 p-4 border-b border-white last:border-0 hover:bg-white/50 transition-colors rounded-2xl">
-                                    <span class="font-black text-violet-400 shrink-0 mt-1">D${i+1}</span>
+                                <div class="text-[12px] sm:text-[13px] text-gray-700 leading-relaxed flex gap-3 sm:gap-5 p-3 sm:p-4 border-b border-white last:border-0 hover:bg-white/50 transition-colors rounded-xl sm:rounded-2xl">
+                                    <span class="font-black text-violet-400 flex-shrink-0 mt-0.5 sm:mt-1">D${i+1}</span>
                                     <p class="font-medium text-gray-800">${d}</p>
                                 </div>
                             `).join('')}
@@ -887,27 +882,27 @@
 
         function renderStationsList() { 
             document.getElementById('stations-list').innerHTML = stationsDetailed.map(s => `
-                <div class="bg-white p-12 rounded-[4rem] border border-gray-100 shadow-sm station-accent group transition-all duration-500">
-                    <div class="flex justify-between items-center mb-8">
-                        <span class="text-[11px] font-black text-stone-400 uppercase tracking-[0.4em]">${s.title}</span>
-                        <div class="w-14 h-14 rounded-[1.2rem] bg-stone-900 text-white flex items-center justify-center text-lg font-black shadow-xl">${s.id}</div>
+                <div class="bg-white p-6 sm:p-10 rounded-3xl sm:rounded-[4rem] border border-gray-100 shadow-sm station-accent group transition-all duration-500">
+                    <div class="flex justify-between items-center mb-5 sm:mb-8">
+                        <span class="text-[10px] sm:text-[11px] font-black text-stone-400 uppercase tracking-[0.2em] sm:tracking-[0.4em]">${s.title}</span>
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-[1rem] sm:rounded-[1.2rem] bg-stone-900 text-white flex items-center justify-center text-sm sm:text-lg font-black shadow-xl">${s.id}</div>
                     </div>
-                    <h4 class="text-3xl font-black text-stone-950 mb-6 tracking-tight">${s.name}</h4>
-                    <div class="p-8 bg-stone-50 rounded-[2.5rem] border border-stone-100 mb-8 font-serif-church italic text-stone-800 text-[15px] leading-[2.5] relative">
+                    <h4 class="text-xl sm:text-3xl font-black text-stone-950 mb-4 sm:mb-6 tracking-tight">${s.name}</h4>
+                    <div class="p-5 sm:p-8 bg-stone-50 rounded-2xl sm:rounded-[2.5rem] border border-stone-100 mb-6 sm:mb-8 font-serif-church italic text-stone-800 text-[13px] sm:text-[15px] leading-relaxed sm:leading-[2.5] relative">
                         ${s.scripture}
                     </div>
-                    <div class="space-y-8">
+                    <div class="space-y-5 sm:space-y-8">
                         <div class="prose-church">
-                            <h5 class="text-[11px] font-black text-stone-300 uppercase tracking-widest mb-3 flex items-center gap-2">神学默想</h5>
-                            <p class="text-[14px] text-gray-600 font-medium leading-[2.2]">“${s.med}”</p>
+                            <h5 class="text-[10px] sm:text-[11px] font-black text-stone-300 uppercase tracking-widest mb-2 sm:mb-3 flex items-center gap-1.5 sm:gap-2">神学默想</h5>
+                            <p class="text-[13px] sm:text-[14px] text-gray-600 font-medium leading-[1.8] sm:leading-[2.2]">“${s.med}”</p>
                         </div>
-                        <div class="bg-violet-50 p-8 rounded-[2.5rem] border border-violet-100 relative">
-                            <strong class="flex items-center gap-3 mb-3 text-[10px] text-violet-700 uppercase tracking-widest font-black">
-                                <i data-lucide="target" class="w-4 h-4"></i> 今日定志行动
+                        <div class="bg-violet-50 p-5 sm:p-8 rounded-2xl sm:rounded-[2.5rem] border border-violet-100 relative">
+                            <strong class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 text-[9px] sm:text-[10px] text-violet-700 uppercase tracking-widest font-black">
+                                <i data-lucide="target" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i> 今日定志行动
                             </strong>
-                            <p class="text-[15px] text-violet-950 font-bold leading-relaxed">${s.res}</p>
+                            <p class="text-[13px] sm:text-[15px] text-violet-950 font-bold leading-relaxed">${s.res}</p>
                         </div>
-                        <div class="bg-indigo-50/50 p-7 rounded-[2rem] italic text-[12px] text-indigo-700 font-medium leading-loose">
+                        <div class="bg-indigo-50/50 p-5 sm:p-7 rounded-[1.5rem] sm:rounded-[2rem] italic text-[11px] sm:text-[12px] text-indigo-700 font-medium leading-relaxed sm:leading-loose">
                             <strong>经文祷词：</strong> ${s.prayer}
                         </div>
                     </div>
@@ -917,26 +912,26 @@
 
         function renderHolyWeekPlan() { 
             document.getElementById('holyweek-list').innerHTML = holyWeekPlan.map(h => `
-                <div class="bg-white p-12 rounded-[4rem] border-l-[12px] border-l-red-900 shadow-sm space-y-8 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-150 transition-all duration-1000"><i data-lucide="flame" class="w-32 h-32"></i></div>
-                    <div class="flex flex-col gap-3">
-                        <span class="text-[10px] font-black text-red-700 uppercase tracking-[0.4em] border-2 border-red-100 px-5 py-2 rounded-full w-fit bg-red-50/30">${h.day}</span>
-                        <h3 class="text-3xl font-black text-red-950 tracking-tighter">${h.title}</h3>
+                <div class="bg-white p-6 sm:p-10 rounded-3xl sm:rounded-[4rem] border-l-[8px] sm:border-l-[12px] border-l-red-900 shadow-sm space-y-6 sm:space-y-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 sm:p-8 opacity-5 group-hover:scale-150 transition-all duration-1000"><i data-lucide="flame" class="w-20 h-20 sm:w-32 sm:h-32"></i></div>
+                    <div class="flex flex-col gap-2 sm:gap-3">
+                        <span class="text-[9px] sm:text-[10px] font-black text-red-700 uppercase tracking-[0.2em] sm:tracking-[0.4em] border border-red-100 sm:border-2 px-3 py-1.5 sm:px-5 sm:py-2 rounded-full w-fit bg-red-50/30">${h.day}</span>
+                        <h3 class="text-xl sm:text-3xl font-black text-red-950 tracking-tighter">${h.title}</h3>
                     </div>
-                    <div class="grid grid-cols-1 gap-6">
-                        <div class="p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100">
-                            <h5 class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">救赎焦点 / Mystery</h5>
-                            <p class="text-[14px] text-gray-700 font-medium leading-[2.2]">${h.focus}</p>
+                    <div class="grid grid-cols-1 gap-4 sm:gap-6">
+                        <div class="p-5 sm:p-8 bg-gray-50 rounded-[1.5rem] sm:rounded-[2.5rem] border border-gray-100">
+                            <h5 class="text-[9px] sm:text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 sm:mb-3">救赎焦点 / Mystery</h5>
+                            <p class="text-[13px] sm:text-[14px] text-gray-700 font-medium leading-[1.8] sm:leading-[2.2]">${h.focus}</p>
                         </div>
-                        <div class="p-8 bg-red-50/50 rounded-[2.5rem] border border-red-100">
-                            <h5 class="text-[10px] font-black text-red-800 uppercase tracking-widest mb-3">礼仪环节 / Liturgy</h5>
-                            <p class="text-[14px] text-red-900 font-bold leading-[2.2]">${h.liturgy}</p>
+                        <div class="p-5 sm:p-8 bg-red-50/50 rounded-[1.5rem] sm:rounded-[2.5rem] border border-red-100">
+                            <h5 class="text-[9px] sm:text-[10px] font-black text-red-800 uppercase tracking-widest mb-2 sm:mb-3">礼仪环节 / Liturgy</h5>
+                            <p class="text-[13px] sm:text-[14px] text-red-900 font-bold leading-[1.8] sm:leading-[2.2]">${h.liturgy}</p>
                         </div>
                     </div>
-                    <div class="bg-red-900 p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+                    <div class="bg-red-900 p-6 sm:p-10 rounded-3xl sm:rounded-[3rem] text-white shadow-lg sm:shadow-2xl relative overflow-hidden group">
                         <div class="absolute inset-0 bg-red-800 translate-y-full group-hover:translate-y-0 transition-transform duration-700"></div>
-                        <p class="text-[15px] font-bold leading-loose flex items-start gap-4 italic font-serif-church relative z-10">
-                            <i data-lucide="heart" class="w-6 h-6 fill-white text-red-900 mt-1 shrink-0"></i>
+                        <p class="text-[13px] sm:text-[15px] font-bold leading-relaxed sm:leading-loose flex items-start gap-3 sm:gap-4 italic font-serif-church relative z-10">
+                            <i data-lucide="heart" class="w-4 h-4 sm:w-6 sm:h-6 fill-white text-red-900 mt-1 flex-shrink-0"></i>
                             “${h.act}”
                         </p>
                     </div>
@@ -946,45 +941,44 @@
 
         function renderEncyclopedia() { 
             document.getElementById('liturgy-info-list').innerHTML = encyclopediaData.map(i => `
-                <div class="bg-white p-12 rounded-[4rem] shadow-sm border border-amber-50 group hover:border-amber-300 transition-all duration-500">
-                    <h4 class="text-amber-950 font-black text-3xl mb-8 flex items-center gap-6">
-                        <span class="w-16 h-16 bg-amber-100 text-amber-700 rounded-3xl flex items-center justify-center shadow-inner group-hover:rotate-12 transition-transform duration-700">
-                            <i data-lucide="book-open" class="w-8 h-8"></i>
+                <div class="bg-white p-6 sm:p-10 rounded-3xl sm:rounded-[4rem] shadow-sm border border-amber-50 group hover:border-amber-300 transition-all duration-500">
+                    <h4 class="text-amber-950 font-black text-xl sm:text-3xl mb-5 sm:mb-8 flex items-center gap-3 sm:gap-6">
+                        <span class="w-12 h-12 sm:w-16 sm:h-16 bg-amber-100 text-amber-700 rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-inner group-hover:rotate-12 transition-transform duration-700">
+                            <i data-lucide="book-open" class="w-6 h-6 sm:w-8 sm:h-8"></i>
                         </span>
                         ${i.cat}
                     </h4>
-                    <p class="text-[15px] text-gray-600 leading-[2.5] whitespace-pre-line font-medium prose-church">${i.desc}</p>
+                    <p class="text-[13px] sm:text-[15px] text-gray-600 leading-[1.8] sm:leading-[2.5] whitespace-pre-line font-medium prose-church">${i.desc}</p>
                 </div>
             `).join(''); 
         }
         
-        // 全新：深度渲染嵌套结构的告解数据
         function renderConfData() {
-            // 渲染全备省察清单 (三级嵌套)
+            // 全备省察清单
             document.getElementById('exam-list-container').innerHTML = confessionContentData.examGroups.map(group => `
-                <div class="space-y-10">
-                    <div class="bg-indigo-50 border border-indigo-100 p-8 rounded-[3rem]">
-                        <h3 class="font-black text-indigo-950 text-2xl flex items-center gap-3">
-                            <i data-lucide="book-open" class="w-6 h-6 text-indigo-600"></i> ${group.groupTitle}
+                <div class="space-y-6 sm:space-y-10">
+                    <div class="bg-indigo-50 border border-indigo-100 p-5 sm:p-8 rounded-[2rem] sm:rounded-[3rem]">
+                        <h3 class="font-black text-indigo-950 text-xl sm:text-2xl flex items-center gap-2 sm:gap-3">
+                            <i data-lucide="book-open" class="w-5 h-5 sm:w-6 sm:h-6 text-indigo-600"></i> ${group.groupTitle}
                         </h3>
-                        <p class="text-[13px] text-indigo-800 mt-3 font-medium leading-relaxed">${group.groupDesc}</p>
+                        <p class="text-[12px] sm:text-[13px] text-indigo-800 mt-2 sm:mt-3 font-medium leading-relaxed">${group.groupDesc}</p>
                     </div>
-                    <div class="space-y-10">
+                    <div class="space-y-6 sm:space-y-10">
                         ${group.sections.map(sec => `
-                            <div class="space-y-4">
-                                <h4 class="font-bold text-indigo-900 text-lg flex items-center gap-3 border-b border-indigo-100 pb-3">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+                            <div class="space-y-3 sm:space-y-4">
+                                <h4 class="font-bold text-indigo-900 text-base sm:text-lg flex items-center gap-2 sm:gap-3 border-b border-indigo-100 pb-2 sm:pb-3">
+                                    <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-indigo-500"></span>
                                     ${sec.subtitle}
                                 </h4>
-                                <div class="grid grid-cols-1 gap-3">
+                                <div class="grid grid-cols-1 gap-2.5 sm:gap-3">
                                     ${sec.items.map(q => {
                                         const isDone = localStorage.getItem('conf_'+q.id) === 'true';
                                         return `
-                                            <div onclick="toggleExamCheck(this, '${q.id}')" data-text="${q.q}" class="exam-item flex items-start gap-4 p-5 rounded-[2.5rem] border ${isDone ? 'is-checked border-indigo-300' : 'border-gray-100 bg-white'} hover:bg-indigo-50/60 cursor-pointer transition-all shadow-sm">
-                                                <div class="exam-check-box w-7 h-7 rounded-[10px] border-2 border-indigo-200 flex-shrink-0 mt-0.5 flex items-center justify-center bg-white transition-all">
-                                                    <i data-lucide="check" class="exam-check-svg w-4 h-4 text-white ${isDone ? '' : 'hidden'}"></i>
+                                            <div onclick="toggleExamCheck(this, '${q.id}')" data-text="${q.q}" class="exam-item flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-[2.5rem] border ${isDone ? 'is-checked border-indigo-300' : 'border-gray-100 bg-white'} hover:bg-indigo-50/60 cursor-pointer transition-all shadow-sm">
+                                                <div class="exam-check-box w-6 h-6 sm:w-7 sm:h-7 rounded-[10px] border-2 border-indigo-200 flex-shrink-0 mt-0.5 flex items-center justify-center bg-white transition-all">
+                                                    <i data-lucide="check" class="exam-check-svg w-3.5 h-3.5 sm:w-4 sm:h-4 text-white ${isDone ? '' : 'hidden'}"></i>
                                                 </div>
-                                                <p class="text-[14px] text-gray-700 leading-[1.8] font-medium transition-colors">${q.q}</p>
+                                                <p class="text-[13px] sm:text-[14px] text-gray-700 leading-[1.6] sm:leading-[1.8] font-medium transition-colors">${q.q}</p>
                                             </div>
                                         `;
                                     }).join('')}
@@ -993,45 +987,45 @@
                         `).join('')}
                     </div>
                 </div>
-            `).join('<div class="h-px bg-slate-200 my-16"></div>');
+            `).join('<div class="h-px bg-slate-200 my-10 sm:my-16"></div>');
 
-            // 渲染 6 步实战流程
+            // 6 步实战流程
             document.getElementById('confession-script').innerHTML = confessionContentData.steps.map((s, i) => `
-                <div class="relative pl-14 border-l-4 border-dashed border-indigo-100 pb-10 last:pb-0">
-                    <div class="absolute -left-[20px] top-0 w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-base font-black border-4 border-[#f8f7fc] shadow-md">${i+1}</div>
-                    <h5 class="font-black text-indigo-950 text-xl mb-3 tracking-tight">${s.t}</h5>
-                    <div class="bg-gray-50/80 p-6 rounded-[2rem] text-[14px] text-gray-600 font-medium leading-[2.2] border border-gray-100">${s.d}</div>
+                <div class="relative pl-10 sm:pl-14 border-l-2 sm:border-l-4 border-dashed border-indigo-100 pb-8 sm:pb-10 last:pb-0">
+                    <div class="absolute -left-[15px] sm:-left-[20px] top-0 w-7 h-7 sm:w-9 sm:h-9 rounded-[10px] sm:rounded-xl bg-indigo-600 text-white flex items-center justify-center text-sm sm:text-base font-black border-[3px] sm:border-4 border-[#f8f7fc] shadow-md">${i+1}</div>
+                    <h5 class="font-black text-indigo-950 text-base sm:text-xl mb-2 sm:mb-3 tracking-tight">${s.t}</h5>
+                    <div class="bg-gray-50/80 p-4 sm:p-6 rounded-2xl sm:rounded-[2rem] text-[12px] sm:text-[14px] text-gray-600 font-medium leading-relaxed sm:leading-[2.2] border border-gray-100">${s.d}</div>
                 </div>
             `).join('');
 
-            // 渲染常用经文
+            // 常用经文
             document.getElementById('prayers-container').innerHTML = `
-                <div class="space-y-12">
+                <div class="space-y-8 sm:space-y-12">
                     <div>
-                        <h4 class="text-2xl font-black text-indigo-950 flex items-center gap-4 mb-6">
-                            <span class="w-2.5 h-10 bg-indigo-600 rounded-full"></span> 痛悔经 (传统文言版)
+                        <h4 class="text-xl sm:text-2xl font-black text-indigo-950 flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                            <span class="w-1.5 h-8 sm:w-2.5 sm:h-10 bg-indigo-600 rounded-full"></span> 痛悔经 (传统文言版)
                         </h4>
-                        <div class="bg-indigo-50/60 p-10 rounded-[3rem] border border-indigo-100 relative shadow-inner">
-                            <p class="text-[16px] leading-[2.5] text-slate-700 font-serif-church font-medium mb-4 relative z-10">吾主耶稣，基利斯督，造我养我，救我之主。我重罪人，得罪天主。今特为爱天主在万有之上，专心痛悔，恼恨我罪，决意定改，宁死再不敢得罪天主。望主看你圣苦难之功，可怜我等。阿们。</p>
-                            <span class="text-indigo-400 text-[11px] font-bold uppercase tracking-widest relative z-10">—— 许多老教友使用的传统版本</span>
+                        <div class="bg-indigo-50/60 p-6 sm:p-10 rounded-3xl sm:rounded-[3rem] border border-indigo-100 relative shadow-inner">
+                            <p class="text-[14px] sm:text-[16px] leading-[2] sm:leading-[2.5] text-slate-700 font-serif-church font-medium mb-4 relative z-10">吾主耶稣，基利斯督，造我养我，救我之主。我重罪人，得罪天主。今特为爱天主在万有之上，专心痛悔，恼恨我罪，决意定改，宁死再不敢得罪天主。望主看你圣苦难之功，可怜我等。阿们。</p>
+                            <span class="text-indigo-400 text-[9px] sm:text-[11px] font-bold uppercase tracking-widest relative z-10">—— 许多老教友使用的传统版本</span>
                         </div>
                     </div>
                     
                     <div>
-                        <h4 class="text-2xl font-black text-indigo-500 flex items-center gap-4 mb-6">
-                            <span class="w-2.5 h-10 bg-indigo-400 rounded-full"></span> 痛悔经 (现代白话版)
+                        <h4 class="text-xl sm:text-2xl font-black text-indigo-500 flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                            <span class="w-1.5 h-8 sm:w-2.5 sm:h-10 bg-indigo-400 rounded-full"></span> 痛悔经 (现代白话版)
                         </h4>
-                        <div class="bg-slate-50 p-10 rounded-[3rem] border border-slate-100 relative shadow-inner">
-                            <p class="text-[16px] leading-[2.5] text-slate-700 font-medium mb-4 relative z-10">主，耶稣基督，你是除免世罪的天主羔羊。求你藉着圣神的恩宠，恢复我与圣父间的关系；并在你的血内，洗净我的一切罪污；并为你的光荣，使我重新生活。阿们。</p>
-                            <span class="text-slate-400 text-[11px] font-bold uppercase tracking-widest relative z-10">—— 较通俗易懂的现代版本</span>
+                        <div class="bg-slate-50 p-6 sm:p-10 rounded-3xl sm:rounded-[3rem] border border-slate-100 relative shadow-inner">
+                            <p class="text-[14px] sm:text-[16px] leading-[2] sm:leading-[2.5] text-slate-700 font-medium mb-4 relative z-10">主，耶稣基督，你是除免世罪的天主羔羊。求你藉着圣神的恩宠，恢复我与圣父间的关系；并在你的血内，洗净我的一切罪污；并为你的光荣，使我重新生活。阿们。</p>
+                            <span class="text-slate-400 text-[9px] sm:text-[11px] font-bold uppercase tracking-widest relative z-10">—— 较通俗易懂的现代版本</span>
                         </div>
                     </div>
 
-                    <div class="bg-amber-50 rounded-[2.5rem] p-8 text-amber-800 border border-amber-100 flex gap-5 items-start shadow-sm mt-8">
-                        <i data-lucide="info" class="w-8 h-8 shrink-0 text-amber-500"></i>
+                    <div class="bg-amber-50 rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 text-amber-800 border border-amber-100 flex gap-3 sm:gap-5 items-start shadow-sm mt-6 sm:mt-8">
+                        <i data-lucide="info" class="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0 text-amber-500"></i>
                         <div>
-                            <h5 class="font-black text-[15px] mb-2">温馨提示</h5>
-                            <p class="text-[13px] leading-[2] font-medium">如果您背不出《痛悔经》，可以直接对神父说：“神父，我虽然背不出经文，但我真心后悔得罪了天主，求主宽恕。” 或者直接用自己的话表达悔意。</p>
+                            <h5 class="font-black text-[13px] sm:text-[15px] mb-1 sm:mb-2">温馨提示</h5>
+                            <p class="text-[11px] sm:text-[13px] leading-relaxed sm:leading-[2] font-medium">如果您背不出《痛悔经》，可以直接对神父说：“神父，我虽然背不出经文，但我真心后悔得罪了天主，求主宽恕。” 或者直接用自己的话表达悔意。</p>
                         </div>
                     </div>
                 </div>
@@ -1039,7 +1033,6 @@
             updateExamBadge();
         }
 
-        // 告解交互逻辑 (利用 data-text 避免由于标点符号引起的转义报错)
         function toggleExamCheck(el, id) {
             const isChecked = el.classList.toggle('is-checked');
             el.querySelector('.exam-check-svg').classList.toggle('hidden');
@@ -1059,7 +1052,7 @@
         }
         
         function copyConfessionList() {
-            let listText = "【告解备忘录】\n", hasItems = false;
+            let listText = "【告解备忘录】\n\n", hasItems = false;
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i);
                 if (key.startsWith('conf_text_')) { 
@@ -1079,7 +1072,7 @@
                         keys.push(localStorage.key(i)); 
                 }
                 keys.forEach(k => localStorage.removeItem(k));
-                location.reload(); // 刷新以重置所有 UI 状态
+                location.reload(); 
             }
         }
 
