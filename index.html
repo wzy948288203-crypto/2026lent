@@ -17,20 +17,38 @@
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap');
-        :root { --church-violet: #6d28d9; --church-indigo: #4338ca; --church-emerald: #10b981; }
-        body { font-family: 'Noto Sans SC', sans-serif; background-color: #f8f7fc; color: #111827; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+        
+        :root { 
+            --church-violet: #6d28d9; 
+            --church-indigo: #4338ca; 
+            --church-emerald: #10b981; 
+        }
+        
+        body { 
+            font-family: 'Noto Sans SC', sans-serif; 
+            background-color: #f8f7fc; 
+            color: #111827; 
+            scroll-behavior: smooth; 
+            -webkit-tap-highlight-color: transparent; 
+        }
+        
         .font-serif-church { font-family: 'Noto Serif SC', serif; }
+        
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
         .milestone-dot { transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); cursor: pointer; background-color: rgba(139, 92, 246, 0.4); }
         .active-dot { background-color: white !important; box-shadow: 0 0 10px rgba(255,255,255,0.8); transform: scale(1.35); }
+        
         .task-item.is-checked { background-color: #f0fdf4 !important; border-color: #86efac !important; }
         .task-item.is-checked .check-box { background-color: #22c55e !important; border-color: #22c55e !important; }
         .task-item.is-checked .check-svg { display: block !important; }
+        
         .exam-item.is-checked { background-color: #eef2ff !important; border-color: #a5b4fc !important; }
         .exam-item.is-checked .exam-check-box { background-color: #4f46e5 !important; border-color: #4f46e5 !important; }
         .exam-item.is-checked .exam-check-svg { display: block !important; }
+        
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .shadow-premium { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
         .station-accent { border-left: 4px solid #4b5563; }
@@ -40,6 +58,7 @@
     </style>
 </head>
 <body class="pb-40">
+    
     <div id="loading-screen" class="fixed inset-0 bg-[#f8f7fc] z-[999] flex flex-col items-center justify-center transition-opacity duration-500">
         <div class="w-10 h-10 border-4 border-violet-200 border-t-violet-700 rounded-full animate-spin mb-4"></div>
         <p class="text-violet-900 font-bold text-xs">正在加载堂区灵修资源...</p>
@@ -65,6 +84,7 @@
     <main class="max-w-2xl mx-auto px-4 py-6">
         
         <div id="home" class="tab-content active space-y-6">
+            
             <div class="bg-gradient-to-br from-violet-800 via-violet-950 to-indigo-950 rounded-[2rem] p-6 text-white shadow-xl relative overflow-hidden">
                 <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
                 <div class="flex justify-between items-center mb-8">
@@ -99,7 +119,7 @@
             <div class="bg-gray-50 border border-gray-200 rounded-2xl p-3 text-center shadow-sm">
                 <p class="text-[10px] text-gray-500 font-bold flex items-center justify-center gap-1.5">
                     <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500"></i>
-                    纯静态网页，您的打卡记录与告解清单仅保存在本机，请放心使用。
+                    声明：此为纯静态网页，您的打卡记录与告解清单仅保存在本机，绝不上传，请放心使用。
                 </p>
             </div>
 
@@ -107,7 +127,7 @@
                 <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner"><i data-lucide="bell" class="w-6 h-6 animate-bounce"></i></div>
                 <div class="flex-1">
                     <h4 class="text-[13px] font-black text-amber-950 mb-1">深圳圣安多尼堂通知</h4>
-                    <p class="text-[11px] text-amber-800 leading-relaxed font-bold">四旬期内每周五 <span class="bg-amber-200/50 px-1.5 py-0.5 rounded text-amber-900">15:00</span> 举行拜苦路与弥撒。</p>
+                    <p class="text-[11px] text-amber-800 leading-relaxed font-bold">四旬期内每周五 <span class="bg-amber-200/50 px-1.5 py-0.5 rounded text-amber-900">15:00</span> 举行拜苦路善功，随后举行弥撒。请踊跃参与。</p>
                 </div>
             </div>
 
@@ -118,7 +138,7 @@
                 </button>
                 <button onclick="showTab('stations')" class="bg-white p-5 rounded-[1.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-md transition-all">
                     <div class="w-12 h-12 rounded-[14px] bg-stone-50 text-stone-700 flex items-center justify-center mb-3"><i data-lucide="milestone" class="w-6 h-6"></i></div>
-                    <span class="text-[13px] font-black text-gray-800">拜苦路</span>
+                    <span class="text-[13px] font-black text-gray-800">苦路善功</span>
                 </button>
                 <button onclick="showTab('confession')" class="bg-white p-5 rounded-[1.5rem] flex flex-col items-center text-center shadow-sm border border-gray-100 hover:shadow-md transition-all">
                     <div class="w-12 h-12 rounded-[14px] bg-indigo-50 text-indigo-700 flex items-center justify-center mb-3"><i data-lucide="heart-handshake" class="w-6 h-6"></i></div>
@@ -136,7 +156,7 @@
                         <h3 class="text-xl font-black text-gray-900 tracking-tight">今日修德方案</h3>
                         <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-0.5">Spiritual Training</p>
                     </div>
-                    <div class="bg-violet-100 text-violet-700 p-2.5 rounded-[14px]"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
+                    <div class="bg-violet-100 text-violet-700 p-2.5 rounded-[14px]" onclick="alert('勾选的任务将自动保存在您的手机中，即使关闭网页也不会丢失哦！')"><i data-lucide="save" class="w-5 h-5"></i></div>
                 </div>
                 
                 <div class="bg-violet-50 p-5 rounded-3xl mb-8 border border-violet-100/50 relative overflow-hidden">
@@ -158,7 +178,7 @@
             <div class="bg-violet-950 text-white p-8 rounded-[2rem] shadow-xl relative overflow-hidden">
                 <div class="absolute top-0 right-0 p-4 opacity-10 rotate-12"><i data-lucide="scroll-text" class="w-32 h-32"></i></div>
                 <h2 class="text-2xl font-black mb-4 tracking-tighter relative z-10">每周灵修大纲</h2>
-                <p class="text-violet-200 leading-[1.8] text-[13px] font-medium prose-church relative z-10">四旬期是一场灵魂由世俗之“奴役”走向天主之“自由”的伟大法行。每周的主日福音都是这一段航程的灯塔。</p>
+                <p class="text-violet-200 leading-[1.8] text-[13px] font-medium prose-church relative z-10">四旬期是一场灵魂由世俗之“奴役”走向天主之“自由”的伟大法行。每周的主日福音都是这一段航程的灯塔。请通过每周深度的福音背景与生活操练方案，剥离旧我，迎接基督。</p>
             </div>
             <div id="weekly-list" class="space-y-8"></div>
         </div>
@@ -168,7 +188,7 @@
             <div class="bg-stone-900 text-white p-8 rounded-[2rem] shadow-xl relative overflow-hidden">
                 <div class="absolute -right-4 -bottom-4 opacity-10"><i data-lucide="cross" class="w-40 h-40"></i></div>
                 <h2 class="text-2xl font-black mb-4 tracking-tighter relative z-10">拜苦路深度默想</h2>
-                <p class="text-stone-300 text-[13px] leading-[1.8] italic font-serif-church relative z-10">“谁若愿意跟随我，该弃绝自己，天天背起自己的十字架跟随我。” (路9:23)</p>
+                <p class="text-stone-300 text-[13px] leading-[1.8] italic font-serif-church relative z-10">“谁若愿意跟随我，该弃绝自己，天天背起自己的十字架跟随我。” (路9:23)<br>请跟随基督的最后旅程，在每一处读经、默想并立下今日的定志。</p>
             </div>
             <div id="stations-list" class="space-y-8"></div>
         </div>
@@ -214,7 +234,7 @@
             <div id="conf-exam" class="conf-section hidden space-y-8">
                 <div class="bg-indigo-950 text-white p-8 rounded-[2rem] shadow-md relative overflow-hidden">
                     <div class="absolute top-0 right-0 p-2 opacity-10 rotate-12"><i data-lucide="clipboard-list" class="w-32 h-32"></i></div>
-                    <h3 class="text-xl font-black mb-2 relative z-10 flex items-center gap-2"><i data-lucide="search" class="w-5 h-5 text-indigo-400"></i> 详细省察清单</h3>
+                    <h3 class="text-xl font-black mb-2 relative z-10 flex items-center gap-2"><i data-lucide="search" class="w-5 h-5 text-indigo-400"></i> 灵魂全备省察清单</h3>
                     <p class="text-[11px] text-indigo-200 leading-[1.8] relative z-10">点击各项记录到待告明清单（仅存本机）。主已知道一切，祂只想听见您的诚实。</p>
                 </div>
                 <div id="exam-list-container" class="space-y-10"></div>
@@ -234,7 +254,7 @@
             <div class="bg-red-950 text-white p-8 rounded-[2rem] shadow-xl relative overflow-hidden">
                 <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-red-500 opacity-20 rounded-full blur-[40px]"></div>
                 <h2 class="text-2xl font-black mb-3 tracking-tighter relative z-10">圣周深度指南</h2>
-                <p class="text-red-200 leading-[1.8] text-[13px] font-medium prose-church relative z-10">逾越节三日庆典是救恩史巅峰。跟随基督由山园忧闷走上加尔瓦略山。</p>
+                <p class="text-red-200 leading-[1.8] text-[13px] font-medium prose-church relative z-10">逾越节三日庆典是救恩史巅峰。我们将跟随基督由最后的晚餐进入山园的忧闷，经由苦路走上加尔瓦略山，并在第三日见证死亡的终结。</p>
             </div>
             <div id="holyweek-list" class="space-y-8"></div>
         </div>
@@ -243,7 +263,7 @@
             <button onclick="showTab('home')" class="flex items-center text-amber-600 font-black text-sm gap-2 mb-2"><i data-lucide="arrow-left" class="w-4 h-4"></i> 返回主页</button>
             <div class="bg-amber-100 p-8 rounded-[2rem] border border-amber-200 shadow-inner">
                 <h2 class="text-2xl font-black text-amber-950 mb-2 tracking-tighter">四旬期深度百科</h2>
-                <p class="text-amber-900/70 text-[12px] font-bold italic font-serif-church">探索 40 天旷野旅程的神学奥秘。</p>
+                <p class="text-amber-900/70 text-[12px] font-bold italic font-serif-church">探索 40 天旷野旅程背后的神学奥秘与教会传统。</p>
             </div>
             <div id="liturgy-info-list" class="space-y-8"></div>
         </div>
@@ -274,6 +294,7 @@
     <div id="error-output" class="hidden fixed inset-0 bg-white z-[9999] p-8 overflow-auto text-red-600 font-mono text-sm"></div>
 
     <script>
+        // 错误捕获逻辑
         window.onerror = function(msg, url, lineNo, columnNo, error) {
             const ls = document.getElementById('loading-screen');
             if(ls) ls.style.display = 'none';
@@ -285,6 +306,8 @@
             return false;
         };
 
+        // ================= 完整深度数据区 =================
+        
         const quotes = [
             "“记住：你原来是尘土，将来仍要归于尘土。”",
             "“斋戒不只是空肚子，更是为了腾出空间给天主。”",
@@ -296,94 +319,248 @@
             "“基督的受难是爱的极致，我们的悔改是对爱的响应。”"
         ];
 
-        const config = { startDate: '2026-02-18', milestones: [{ offset: 0, title: '圣灰礼仪', date: '2/18' }, { offset: 4, title: '第一主日', date: '2/22' }, { offset: 11, title: '第二主日', date: '3/1' }, { offset: 18, title: '第三主日', date: '3/8' }, { offset: 25, title: '第四主日', date: '3/15' }, { offset: 32, title: '第五主日', date: '3/22' }, { offset: 39, title: '圣枝主日', date: '3/29' }, { offset: 46, title: '复活主日', date: '4/5' }] };
+        const config = { 
+            startDate: '2026-02-18', 
+            milestones: [
+                { offset: 0, title: '圣灰礼仪', date: '2/18' }, 
+                { offset: 4, title: '第一主日', date: '2/22' }, 
+                { offset: 11, title: '第二主日', date: '3/1' }, 
+                { offset: 18, title: '第三主日', date: '3/8' }, 
+                { offset: 25, title: '第四主日', date: '3/15' }, 
+                { offset: 32, title: '第五主日', date: '3/22' }, 
+                { offset: 39, title: '圣枝主日', date: '3/29' }, 
+                { offset: 46, title: '复活主日', date: '4/5' }
+            ] 
+        };
 
+        // 完整还原的 18 天修德方案（融合了初稿与深度版的全部文本）
         const dailyFullPlan = {
-            "2026-02-18": { mentor: "【圣灰礼仪】灰烬的记号提醒我们生命的脆弱，也预示复活的新生。今日请深度默想这一场由尘土走向永恒的逾越。", p: "参与圣灰礼仪弥撒；阅读并默想玛窦福音 6:1-6；晚间安静省察15分钟", f: "全守大斋小斋：全日进一饱餐；禁食肉类及零食", a: "在圣堂慈善箱悄悄放入一笔款项" },
-            "2026-02-19": { mentor: "【旷野初探】耶稣被领入旷野。今日请刻意寻找一个物理上的‘安静角落’，听听被世俗掩盖的灵魂渴求。", p: "寻找苦像前练习15分钟绝对静默；慢诵天主经5遍", f: "戒绝今日所有的甜味饮品，回归白水的简单", a: "对今天遇到的劳动者致以诚挚的感谢" },
-            "2026-02-20": { mentor: "【苦难周五】下午三点是主受难时刻。请暂时放下手中的繁忙，陪伴为我舍命的救主。", p: "15:00 参与圣安多尼堂拜苦路与弥撒", f: "守小斋：禁肉食；斋戒电子媒体感官娱乐", a: "为一位你曾有过嫌隙的邻人默默代祷" },
-            "2026-02-21": { mentor: "【省察日】主不嫌弃罪人。今日请对照指南，为您的灵魂举行一次大扫除。", p: "进行深度省察，准备办告解；读圣咏第51篇", f: "今日不食用甜点，磨练意志", a: "整理家中闲置物品，计划捐赠" },
-            "2026-02-22": { mentor: "【第一主日】主受试探。耶稣用圣言反击。反思：什么是我目前最大的试探？", p: "参与主日弥撒；深度默想玛窦福音 4:1-11", f: "主日不强制禁食，但在网络社交上保持节制", a: "全心陪伴家人，关闭手机通知" },
-            "2026-02-23": { mentor: "【修德日：谦卑】即便你完成了一项伟大的工作，也要在心中说：‘我是无用的仆人’。", p: "诵念圣母七苦经；默想圣母的低微", f: "言语斋戒：今日不发表‘评价他人’的言论", a: "秘密为他人完成一件繁琐的小事" }
+            "2026-02-18": { mentor: "【圣灰礼仪】灰烬的记号提醒我们生命的脆弱，也预示复活的新生。今日请深度默想这一场由尘土走向永恒的逾越。", p: "参与圣灰礼仪弥撒；阅读并默想玛窦福音 6:1-6；晚间安静省察15分钟", f: "全守大斋小斋：全日进一饱餐，另两小餐相加不得多于一餐；禁食肉类及零食", a: "在圣堂慈善箱悄悄放入一笔款项，开始为期40天的爱德操练" },
+            "2026-02-19": { mentor: "【旷野初探】耶稣被领入旷野。今日请刻意寻找一个物理上的‘安静角落’，听听被世俗掩盖的灵魂渴求。", p: "寻找苦像或圣体前练习15分钟绝对静默；诵念天主经5遍（缓慢且专注）", f: "戒绝今日所有的甜味饮品（奶茶/汽水/甜咖啡），尝试回归纯净白水的简单", a: "对今天遇到的每一个由于职责而为你服务的劳动者，致以注视对方眼睛的感谢" },
+            "2026-02-20": { mentor: "【苦难周五】下午三点是主受难时刻。请暂时放下手中的繁忙，跪向十字架，陪伴那位为我舍命的救主。", p: "15:00 准时参与堂区拜苦路善功与随后举行的弥撒", f: "守小斋：戒食一切禽兽肉类；并斋戒今日所有的电子媒体感官娱乐（不刷视频）", a: "为一位你曾有过嫌隙或不愿提及的邻人默默代祷，祈求主赐予和解的种子" },
+            "2026-02-21": { mentor: "【省察日】利未（玛窦）被召唤了。主不嫌弃罪人。今日请对照‘告解全指南’，为您的灵魂举行一次大扫除。", p: "进行深度省察，并尝试在今日或下周初办一次妥当告解；读圣咏第51篇", f: "今日不食用甜点，将饮食欲望控制在最基础的需求上，磨练意志", a: "整理家中三件不需要却长期占有的闲置物，计划捐赠给社会公益机构" },
+            "2026-02-22": { mentor: "【第一主日】主受试探。耶稣用圣言反击。反思：什么是我目前最大的试探？是名望？是享乐？还是控制欲？", p: "参与主日大礼弥撒；深度默想玛窦福音 4:1-11 中主对魔鬼的回答", f: "主日不强制禁食，但应在社交媒体和言语上保持节制，活出属灵的清明", a: "全心陪伴家人或致电远方父母，在这段时间内完全关闭手机通知" },
+            "2026-02-23": { mentor: "【修德日：谦卑】魔鬼诱惑主炫耀神迹。今日即便你完成了一项伟大的工作，也要在心中说：‘我是无用的仆人’。", p: "诵念圣母七苦经一段；默想圣母在隐居纳匝肋时那份不为人知的低微", f: "言语斋戒：今日不发表任何‘评价他人’的言论，即便是事实也不说，只说造就人的话", a: "秘密地为同事、家人或室友完成一件繁琐但必要的小事，绝对不让对方察觉" },
+            "2026-02-24": { mentor: "【修德：慷慨】白白得来的，也要白白分施。", p: "为堂区神父代祷；读经15分钟", f: "感官斋戒：不点开娱乐爆料新闻", a: "在工作中多帮助一位新手" },
+            "2026-02-25": { mentor: "【修德：温良】温良的人是有福的。", p: "默想耶稣洗脚；练习呼吸祈祷", f: "言语斋戒：不用冷嘲热讽的语气", a: "为堂区公益项目捐献" },
+            "2026-02-26": { mentor: "【修德：信靠】将焦虑全然托付主手。", p: "圣体前静默20分钟；复述‘耶稣我信靠祢’", f: "物资节制：不看购物软件", a: "向久未联络的朋友问候倾听" },
+            "2026-02-27": { mentor: "【苦难周五】陪伴走在加尔瓦略山上的主。", p: "15:00 参与堂区拜苦路；默想第十一处", f: "大小斋：进一饱餐，禁肉食", a: "为受病苦或失业折磨的人献苦路" },
+            "2026-03-01": { mentor: "【第二主日：显容】在平凡生活中寻找主的荣光。", p: "参与主日弥撒；默想玛 17:1-9", f: "在社交媒体上保持克制", a: "致电远方父母或探望长辈" },
+            "2026-03-08": { mentor: "【第三主日：活水】主啊，请赐我永不干涸的活水。", p: "参与主日弥撒；默想若 4:5-42", f: "减少感官消遣，增加深度阅读", a: "为堂区福传项目提供协助" },
+            "2026-03-15": { mentor: "【第四主日：复明】主，请开启我灵魂的眼。", p: "参与主日弥撒；默想若 9:1-41", f: "喜乐主日，仍保持生活简朴", a: "关注并帮助身边的困难者" },
+            "2026-03-22": { mentor: "【第五主日：复活预兆】主呼唤我们走出罪恶的坟墓。", p: "参与主日弥撒；默想若 11:1-45", f: "立志在复活节前改掉一个恶习", a: "为教友中的病弱临终者祈祷" },
+            "2026-03-29": { mentor: "【圣枝主日】在心中欢迎君王进城。", p: "参与圣枝主日礼仪；圣枝置于苦像旁", f: "停止不必要的社交聚会", a: "原谅一位曾伤害过你的人" },
+            "2026-04-02": { mentor: "【圣周四：最后晚餐】请陪伴山园中的主。", p: "参与建立圣体弥撒；朝拜圣体到深夜", f: "晚餐后保持绝对静默，与主共处", a: "效法基督洗脚，承担卑微家务" },
+            "2026-04-03": { mentor: "【圣周五：救主受难】天主为我而死。", p: "参与受难日礼仪；亲吻苦像伤痕", f: "严守大小斋：禁食肉类", a: "下午三点保持绝对静默" },
+            "2026-04-05": { mentor: "【复活大瞻礼】阿肋路亚！主真的复活了！", p: "参与隆重复活弥撒；重申洗礼誓愿", f: "结束斋戒，分享复活喜乐", a: "将复活喜讯带给邻人" }
         };
 
         const weeklyFullData = [
-            { week: "第一周", theme: "旷野与诱惑", focus: "分辨诱惑，操练自制。", scripture: "玛 4:1-11", intro: "跟随耶稣进入旷野。我们要学习用圣言来抵挡‘肉欲、虚荣与权力’这三大诱惑。", days: ["主日：【福音】耶稣在旷野。焦点：识别我生命中的‘假神’。","周一：【灵修指引】练习‘识别虚荣’。想炫耀时选择神圣的沉默。","周二：【灵修指引】练习‘物欲节制’。拒绝购买非必需品。","周三：【灵修指引】练习‘诚实’。在琐事上绝不说谎。","周四：【灵修指引】练习‘代祷’。为深陷网瘾者代祷。","周五：【受难】参与拜苦路，感受十字架真实的沉重。","周六：【谦卑】练习‘无名善行’。做好事绝不让对方知道。"] },
-            { week: "第二周", theme: "显容与光荣", focus: "在苦难阴影中仰望真光。", scripture: "玛 17:1-9", intro: "显容是为了告诉门徒：苦难不是终点。我们要练习在琐碎暗淡的生活里，认出基督的荣光。", days: ["主日：【福音】山上显容。在平凡家务中认出主荣光。","周一：【灵修指引】信心操练：遇到沮丧复述‘主我相信祢’。","周二：【灵修指引】心境整理：摒弃焦虑，交还给天主。","周三：【灵修指引】分享真光：探望灰心丧志的教友。","周四：【灵修指引】听命练习：顺服一个你不喜欢的建议。","周五：【受难】参与拜苦路。荣光的背后是荆棘。","周六：【渴望】深度自省：我对新生命的渴望真切吗？"] }
+            { 
+                week: "第一周", theme: "旷野与诱惑", focus: "分辨诱惑，操练自制。", scripture: "玛 4:1-11", 
+                intro: "跟随耶稣进入旷野。我们要学习用圣言来抵挡‘肉欲、虚荣与权力’这三大诱惑。", 
+                days: [
+                    "主日：【福音】耶稣在旷野。焦点：识别我生命中的‘假神’（如金钱、面子）。",
+                    "周一：【灵修指引】今日练习‘识别虚荣’。当你想炫耀成就时，请选择神圣的沉默。",
+                    "周二：【灵修指引】今日练习‘物欲节制’。拒绝购买一件并非生活必需的物品。",
+                    "周三：【灵修指引】今日练习‘诚实’。在琐事上绝不说谎，不为了面子而夸张。",
+                    "周四：【灵修指引】今日练习‘代祷’。为那些深陷网瘾或感官欲望不能自拔者代祷。",
+                    "周五：【受难】参与圣安多尼堂拜苦路。守大小斋。感受十字架真实的沉重。",
+                    "周六：【谦卑】今日练习‘无名善行’。做一件帮助邻里的好事，且绝不让对方知道。"
+                ] 
+            },
+            { 
+                week: "第二周", theme: "显容与光荣", focus: "在苦难阴影中仰望真光。", scripture: "玛 17:1-9", 
+                intro: "显容是为了告诉门徒：苦难不是终点。我们要练习在琐碎暗淡的生活里，认出基督的荣光。", 
+                days: [
+                    "主日：【福音】山上显容。焦点：在平凡的工作与繁琐家务中认出主的荣光。",
+                    "周一：【灵修指引】今日信心操练：遇到让你沮丧的事，立即复述：‘主，我相信祢。’",
+                    "周二：【灵修指引】今日心境整理：摒弃因焦虑产生的杂念，将控制权交还给天主。",
+                    "周三：【灵修指引】今日分享真光：去探望一名感到灰心丧志或久病的教友。",
+                    "周四：【灵修指引】今日听命练习：默想‘听从祂’。顺服一个你不喜欢的善意建议。",
+                    "周五：【受难】参与拜苦路。默想：荣光的背后是荆棘。修德是通向永福的窄路。",
+                    "周六：【渴望】深度自省：我对复活节新生命的渴望是否真切？还是只是例行公事？"
+                ] 
+            }
         ];
 
         const stationsDetailed = [
-            { id: 1, title: "第一处", name: "耶稣判死刑", scripture: "“彼拉多把耶稣交出来钉在十字架上。” (玛27:26)", med: "在不义审判前祢保持静默。求祢治愈我爱面子胜过爱真理的心。", prayer: "主耶稣，赐我勇气不顾世俗评判为祢作证。阿们。", res: "今日绝不说任何违背良知的辩解之词。" },
-            { id: 2, title: "第二处", name: "耶稣背苦架", scripture: "“耶稣自己背着十字架出来...” (若19:17)", med: "祢没有抱怨。请教导我带着爱去接纳无法改变的人生重担。", prayer: "主耶稣，赐我接纳的恩宠，在琐碎中看见希望。阿们。", res: "今日不抱怨遇到的任何繁琐工作或突发事件。" },
-            { id: 3, title: "第三处", name: "耶稣一跌倒", scripture: "“祂实在承担了我们的疾苦。” (依53:4)", med: "跌倒不可怕，可怕的是沉溺绝望。当我反复跌倒时，求祢拉我一把。", prayer: "主耶稣，在我软弱时做我支柱，赐我重新站起的坚韧。阿们。", res: "针对一个最常犯的小毛病，进行三次主动克制。" },
-            { id: 4, title: "第四处", name: "耶稣遇圣母", scripture: "“有一把利剑要刺透你的心灵。” (路2:35)", med: "圣母陪伴主走苦路。圣母，请在我的苦路上也陪伴着我。", prayer: "至圣童贞玛利亚，在我灰心时领我走向耶稣。阿们。", res: "今日主动致电探望父母长辈，并为已故教友祈祷。" },
-            { id: 5, title: "第五处", name: "西满助耶稣", scripture: "“他们叫西满背起十字架，跟在耶稣后面。” (路23:26)", med: "我愿意在小事上分担近人的负担吗？哪怕只是微不足道的杂活。", prayer: "主耶稣，除去我的自私，让我在别人需要时挺身而出。阿们。", res: "今日额外帮家人或同事分担一项本不属于我的琐事。" },
-            { id: 6, title: "第六处", name: "圣妇拭圣面", scripture: "“主，我要寻求祢的面。” (咏27:8)", med: "面对社会的冷漠，我的一点温柔也有永恒价值。我愿成为这方手帕吗？", prayer: "主耶稣，将祢的圣容印在我的灵魂里。阿们。", res: "今日对每一位为你提供服务的人露出最诚挚的微笑。" },
-            { id: 7, title: "第七处", name: "耶稣二跌倒", scripture: "“凡是自卑的，必被提升。” (路14:11)", med: "圣德是无数次失败后的坚持。主，当我因枯燥想放弃时，赐我恒心。", prayer: "主耶稣，赐我坚持的恒心，不在修行路上半途而废。阿们。", res: "不论今日多忙碌，都要高质量完成定下的读经计划。" },
-            { id: 8, title: "第八处", name: "耶稣劝妇女", scripture: "“不要为我哭，应为你们和你们的孩子哭。” (路23:28)", med: "我是否太关注自己的痛，而忽视了他人？教导我为世界之罪悔恨。", prayer: "主耶稣，扩大我的心胸，为罪人献上代祷。阿们。", res: "今日戒掉一项娱乐，专用于为世界和平代祷。" },
-            { id: 9, title: "第九处", name: "耶稣三跌倒", scripture: "“我的能力在软弱中才全显出来。” (格后12:9)", med: "主是绝望者最后的唯一依恃。求主赐我在绝处依然信靠主恩。", prayer: "主耶稣，在人生的尽头做我的支柱。阿们。", res: "在今日最疲惫想发怒的瞬间，先默念：‘主，救我。’" },
-            { id: 10, title: "第十处", name: "耶稣被剥衣", scripture: "“他们分了我的衣服...” (咏22:19)", med: "剥去外物，显露赤诚。求主剥去我爱面子的虚伪及对物质的贪恋。", prayer: "主耶稣，剥去我的虚假，让我诚实承认罪过。阿们。", res: "今日清理掉一件因贪欲而占有的多余物品。" },
-            { id: 11, title: "第十一处", name: "耶稣钉架上", scripture: "“父啊，宽赦他们吧...” (路23:34)", med: "主在剧痛中选择了宽恕。请主今日拔除我心中不愿原谅的钉子。", prayer: "主耶稣，治愈我仇恨的伤疤，赐我原谅他人的力量。阿们。", res: "在心中诚挚地对曾伤害过我的人说：‘我选择宽恕你。’" },
-            { id: 12, title: "第十二处", name: "耶稣死架上", scripture: "“父啊！我把我的灵魂交托在祢手中。” (路23:46)", med: "天主为我而死。还有什么计较放不下呢？愿祢的死成为我苏醒起点。", prayer: "主耶稣，愿祢的死亡成为我的新生。阿们。", res: "今日下午3点，面向苦像保持3分钟绝对静默。" },
-            { id: 13, title: "第十三处", name: "耶稣下苦架", scripture: "“若瑟领下了耶稣的遗体。” (路23:50-53)", med: "求主使我在丧恸时能靠在圣母怀里，学会在寂静中托付主旨。", prayer: "圣母玛利亚，在人生的终点领我回到耶稣怀抱。阿们。", res: "诵念经文，专门为一生中已去世的恩人、教友祈祷。" },
-            { id: 14, title: "第十四处", name: "耶稣葬于墓", scripture: "“他在坟墓门口滚上一块大石头。” (玛27:60)", med: "坟墓不是终点是复活摇篮。我在大石头后等待，带着满怀的希望。", prayer: "主耶稣，守护我的信心，预见复活。阿们。", res: "写下一件期待在复活节改过的志向存入圣经。" }
+            { 
+                id: 1, title: "第一处", name: "耶稣判死刑", 
+                scripture: "“彼拉多为了取悦群众...把耶稣交出来钉在十字架上。” (玛27:26)", 
+                med: "主，在不义的审判面前祢保持了神圣的静默。多少次，我为了保全自己的面子或出于‘合群’的压力，也曾在公义面前保持了错误的沉默？祢的静默不是无能，而是对天父旨意的全然顺服。求祢治愈我那颗爱面子胜过爱真理的心。", 
+                prayer: "主耶稣，求祢赐我勇气，让我在真理受威胁时，能不顾世俗评判为祢作证。阿们。", 
+                res: "今日定志：不论面对多大压力，今日绝不说任何违背良知的辩解之词。" 
+            },
+            { 
+                id: 2, title: "第二处", name: "耶稣背苦架", 
+                scripture: "“耶稣自己背着十字架出来，到了一个地方，名叫髑髅。” (若19:17)", 
+                med: "这根沉重的木梁，压在祢累伤的肩上。我的十字架是什么？是难以相处的同事，还是那无法摆脱的隐疾？祢没有抱怨，而是以此作为救赎。请教导我，如何带着爱去接纳那些我目前无法改变的人生重担。", 
+                prayer: "主耶稣，请赐我接纳的恩宠，让我在每日琐碎的负担里，依然能看见救赎的希望。阿们。", 
+                res: "今日定志：今日不抱怨遇到的任何繁琐工作或不顺心的家庭突发事件。" 
+            },
+            { 
+                id: 3, title: "第三处", name: "耶稣一跌倒", 
+                scripture: "“祂实在承担了我们的疾苦，背负了我们的痛苦。” (依53:4)", 
+                med: "天主的圣子竟然倒在了尘土中。虚弱夺走了祢的体力，但爱支撑着祢的灵魂。跌倒并不可怕，可怕的是倒下后沉溺于绝望而不再渴望站起。主，当我因罪而反复跌倒时，求祢拉我一把。", 
+                prayer: "主耶稣，求祢在我软弱跌倒时做我的支柱，赐我重新站起并诚心悔改的坚韧。阿们。", 
+                res: "今日定志：针对一个我最常犯的小毛病，今日进行三次主动克制练习。" 
+            },
+            { 
+                id: 4, title: "第四处", name: "耶稣遇圣母", 
+                scripture: "“有一把利剑要刺透你的心灵。” (路2:35)", 
+                med: "两个最爱的人，在痛苦中相遇。圣母陪伴主走苦路。圣母，请在我的苦路上也陪伴着我。", 
+                prayer: "至圣童贞玛利亚，求祢在我遭受误解或灰心时，领我走向祢的爱子耶稣。阿们。", 
+                res: "今日定志：今日主动致电或探望父母、长辈，并为已故教友祈祷。" 
+            },
+            { 
+                id: 5, title: "第五处", name: "西满助耶稣", 
+                scripture: "“他们抓住一个名叫西满的，叫他背起十字架，跟在耶稣后面。” (路23:26)", 
+                med: "西满虽是被迫，却分担了救主的重担。我愿意在小事上分担近人的负担吗？哪怕只是多做一点微不足道的杂活。", 
+                prayer: "主耶稣，求祢除去我的自私，让我在别人需要援手时，能毫不犹豫地挺身而出。阿们。", 
+                res: "今日定志：今日额外帮家人或同事分担一项本不属于我的琐事。" 
+            },
+            { 
+                id: 6, title: "第六处", name: "圣妇拭圣面", 
+                scripture: "“主，我要寻求祢的面。” (咏27:8)", 
+                med: "维罗尼卡用爱德的手帕，在圣面上印下了爱。面对社会的冷漠，我的一点温柔也有永恒的价值。我愿意成为这方手帕吗？", 
+                prayer: "主耶稣，求祢将祢的圣容印在我的灵魂里，使我的一举一动都能彰显祢。阿们。", 
+                res: "今日定志：今日对每一位为你提供服务的人露出最诚挚的微笑。" 
+            },
+            { 
+                id: 7, title: "第七处", name: "耶稣二跌倒", 
+                scripture: "“凡是自卑的，必被提升。” (路14:11)", 
+                med: "伤口再次撕裂。这提醒我：圣德是无数次失败后的坚持。主，当我因修行枯燥而想放弃时，求赐我持久的恒心。", 
+                prayer: "主耶稣，求祢赐我坚持的恒心，让我不在漫长的修行道路上中途而废。阿们。", 
+                res: "今日定志：不论今日多忙碌，都要高质量地完成定下的读经计划。" 
+            },
+            { 
+                id: 8, title: "第八处", name: "耶稣劝妇女", 
+                scripture: "“耶路撒冷女子！不要为我哭，应为你们和你们的孩子哭。” (路23:28)", 
+                med: "主，祢自身难保却顾念他人。我是否太关注自己的痛，而忽视了那些在灵性死亡边缘挣扎的灵魂？教导我为世界之罪而悔恨。", 
+                prayer: "主耶稣，求祢扩大我的心胸，使我能体察他人的疾苦，并为罪人献上代祷。阿们。", 
+                res: "今日定志：今日戒掉一项娱乐，将省下的时间专门用于为世界和平代祷。" 
+            },
+            { 
+                id: 9, title: "第九处", name: "耶稣三跌倒", 
+                scripture: "“我的能力在软弱中才全显出来。” (格后12:9)", 
+                med: "就在终点边缘，祢似乎被击垮了。主是绝望者最后的唯一依恃。求主赐我在每一个看起来无望的绝处依然信靠主恩。", 
+                prayer: "主耶稣，在人生的每一个尽头，求祢做我的支柱，让我能走完这段归程。阿们。", 
+                res: "今日定志：在今日最疲惫、最想发怒的瞬间，先默念：‘主，救我。’" 
+            },
+            { 
+                id: 10, title: "第十处", name: "耶稣被剥衣", 
+                scripture: "“他们分了我的衣服，为我的长衣抽了签。” (咏22:19)", 
+                med: "剥去外物，显露赤诚。求主剥去我的虚荣心、爱面子的虚伪、以及对物质过度的病态贪恋。让我赤诚见祢。", 
+                prayer: "主耶稣，求祢剥去我的虚假，让我能以单纯的心，诚实地在圣事前承认罪过。阿们。", 
+                res: "今日定志：今日清理掉一件我不再需要、但一直由于贪欲而占有的多余物品。" 
+            },
+            { 
+                id: 11, title: "第十一处", name: "耶稣钉架上", 
+                scripture: "“父啊，宽赦他们吧！因为他们不知道他们做的是什么。” (路23:34)", 
+                med: "长钉穿过手足。主在剧痛中选择了宽恕。我心中还有那份隐隐作痛、不愿原谅他人的‘钉子’吗？请主今日拔除它。", 
+                prayer: "主耶稣，求祢治愈我因仇恨而留下的伤疤，赐我彻底原谅他人的超自然力量。阿们。", 
+                res: "今日定志：在心中诚挚地对一位曾伤害过我的人说：‘我选择宽恕你。’" 
+            },
+            { 
+                id: 12, title: "第十二处", name: "耶稣死架上", 
+                scripture: "“耶稣大声喊说：‘父啊！我把我的灵魂交托在祢手中。’” (路23:46)", 
+                med: "在静默中注视这份伟大的爱。天主为我而死。还有什么计较放不下呢？主，愿祢的死亡成为我灵魂苏醒的起点。", 
+                prayer: "主耶稣，愿祢的死亡成为我的新生。我愿从此死于旧我，活于基督。阿们。", 
+                res: "今日定志：今日下午3点，面向苦像保持3分钟绝对静默的跪拜朝拜。" 
+            },
+            { 
+                id: 13, title: "第十三处", name: "耶稣下苦架", 
+                scripture: "“有一个人名叫若瑟...他领下了耶稣的遗体。” (路23:50-53)", 
+                med: "圣母怀抱爱子。求主使我在经历人生丧恸时，能紧紧靠在圣母怀里，学会在寂静中托付主旨。", 
+                prayer: "圣母玛利亚，在我人生的终点，请领我回到耶稣基督的慈悲怀抱中。阿们。", 
+                res: "今日定志：诵念一段经文，专门为这一生中已去世的所有恩人、教友祈祷。" 
+            },
+            { 
+                id: 14, title: "第十四处", name: "耶稣葬于墓", 
+                scripture: "“他在坟墓门口滚上一块大石头，就走了。” (玛27:60)", 
+                med: "黑暗中孕育着真光。坟墓不是终点，而是复活的摇篮。我相信复活的承诺。我在大石头后等待，带着满怀的希望。", 
+                prayer: "主耶稣，求祢守护我的信心，让我在每一个无望的墓穴外，都能预见复活。阿们。", 
+                res: "今日定志：在圣号下写下一件我最期待在复活节改过的志向，并存入圣经。" 
+            }
         ];
 
+        // 完整还原的深度省察清单
         const confessionContentData = {
             examItems: [
-                { cat: "天主十诫 (深入省察)", items: [
-                    {q:"第一诫：忽略每日祈祷？迷信算命？把金钱看重于天主？", id:"c1"},
-                    {q:"第二诫：乱用主名？发虚誓？对圣物礼仪不敬？", id:"c2"},
-                    {q:"第三诫：主日无故缺席弥撒？弥撒中玩手机分心？", id:"c3"},
-                    {q:"第四诫：不孝敬父母？顶撞长辈？忽略子女信仰？", id:"c4"},
-                    {q:"第五诫：怀恨他人？伤害身体？教唆堕胎？放纵恶习？", id:"c5"},
-                    {q:"第六九诫：看色情影像？婚外情/手淫？言行轻浮？", id:"c6"},
-                    {q:"第七十诫：偷窃挪用？工作偷懒？借不还？嫉妒？", id:"c7"},
-                    {q:"第八诫：说谎欺骗？诽谤传闲话？泄露隐私？", id:"c8"}
-                ]},
-                { cat: "七罪宗", items: [
-                    {q:"骄傲、悭吝、迷色", id:"s1"},
-                    {q:"愤怒、贪饕、嫉妒、懒惰", id:"s2"}
-                ]}
+                { 
+                    cat: "天主十诫 (深入省察清单)", 
+                    items: [
+                        { q: "第一诫：我是否忽略了每日祈祷？是否参与算命迷信（塔罗、星座决定行动等）？是否把金钱地位看得重于天主？是否故意怀疑天主道理？", id: "c1" },
+                        { q: "第二诫：我是否在愤怒或开玩笑时乱用主名？是否指着天主发虚誓？是否对教堂内圣物、礼仪表现出明显不敬？", id: "c2" },
+                        { q: "第三诫：我是否主日无故缺席全弥撒？弥撒中是否玩手机、分心？主日是否不顾灵魂休息而执着于重体力活？", id: "c3" },
+                        { q: "第四诫：我是否尊重并照顾年老的父母？是否在言辞上顶撞长辈？作为父母，是否忽略了子女的信仰培育和陪伴？", id: "c4" },
+                        { q: "第五诫：我是否怀恨他人？不愿宽恕？是否伤害过他人身体？是否曾教唆或参与堕胎？是否由于放纵恶习损害自身健康？", id: "c5" },
+                        { q: "第六、九诫：我是否观看色情影像？是否有过婚前性行为、婚外情或手淫？言行举止是否轻浮？是否贪恋他人伴侣？", id: "c6" },
+                        { q: "第七、十诫：我是否偷窃、挪用公私财物？工作是否偷懒虚报工时？是否有借不还？是否嫉妒他人的好运而心怀不平？", id: "c7" },
+                        { q: "第八诫：我是否说谎欺骗？是否诽谤他人名誉、在背后传闲话？是否泄露了他人的隐私秘密？是否断章取义地评价他人？", id: "c8" }
+                    ]
+                },
+                { 
+                    cat: "七罪宗：灵魂根源的顽疾", 
+                    items: [
+                        { q: "骄傲：自以为是，看不起人。悭吝：贪得无厌，对穷人铁石心肠。迷色：放纵私欲。", id: "s1" },
+                        { q: "愤怒：充满报复冲动。贪饕：暴饮暴食。嫉妒：见不得别人好。懒惰：荒废光阴。", id: "s2" }
+                    ]
+                }
             ],
             steps: [
-                { t: "1. 进场准备", d: "怀谦卑心。画十字说：‘请神父降福，我罪人愿悔改...’" },
-                { t: "2. 坦诚告明", d: "诚实说出罪过。完结说：‘还有省察不到的罪，求主宽恕。’" },
-                { t: "3. 听劝补赎", d: "聆听劝诫，记住‘补赎’内容（经文或善行）。" },
-                { t: "4. 念痛悔经", d: "神父念赦免经时，低头诚心诵念痛悔经。" },
-                { t: "5. 赦罪平安", d: "神父画十字后答：‘感谢天主。’ 带着新生喜乐走出。" }
+                { t: "1. 进场准备", d: "怀着谦卑的心。画十字圣号，说：‘请神父降福，我罪人愿在教会内悔改。我上次告解是在（大概时间）前。’" },
+                { t: "2. 坦诚告明", d: "诚实说出罪过。对于重大的罪，应说明次数。完结说：‘还有我省察不到的罪，也求主宽恕。’" },
+                { t: "3. 教导与补赎", d: "聆听神父劝诫。记住‘补赎’内容（通常是几遍经文或一件具体的善行）。" },
+                { t: "4. 念痛悔经", d: "神父会请你念痛悔经。这时以最真诚的心诵念。" },
+                { t: "5. 赦罪与平安", d: "神父念赦免经并在你上方画十字。答：‘感谢天主。’ 带着新生的喜乐走出。" }
             ]
         };
 
         const holyWeekPlan = [
-            { day: "圣枝主日 (3/29)", title: "基督受难主日", focus: "欢迎和平之王进城奉献。礼仪由欢呼转入受难福音。", liturgy: "祝圣圣枝、圣枝游行、长篇受难史宣读。", act: "带回圣枝放在家中十字架旁。反思：我在行动中抛弃主了吗？" },
-            { day: "圣周一至三", title: "心灵静默期", focus: "大扫除最后时机。默想救主如何被推向加尔瓦略山。", liturgy: "早晨弥撒，堂区安排全天候告解。", act: "务必在此期间完成圣事告解。保持环境肃静。" },
-            { day: "圣周四 (4/2)", title: "逾越节三日庆典", focus: "建立圣体与爱德诫命。主在此夜为门徒洗脚。", liturgy: "濯足礼；迁圣体；剥除祭台装饰。", act: "朝拜圣体至深夜（陪伴山园中的主）。" },
-            { day: "圣周五 (4/3)", title: "救主受难纪念", focus: "十字架上的伟大赎献。天主为人类而死。", liturgy: "全日无弥撒。朝拜十字架。严守大小斋。", act: "下午3点绝对静默。在圣堂亲吻主受难伤痕。" },
-            { day: "圣周六 (4/4)", title: "逾越节守夜礼", focus: "由死亡经过进入生命的时刻。礼仪之母。", liturgy: "祝圣新火、复活宣报、重申洗礼誓愿。", act: "晚上全程参与守夜礼。迎接真光复活。" },
-            { day: "复活节 (4/5)", title: "耶稣复活瞻礼", focus: "死亡被废除了！基督得胜了！这是信仰根基。", liturgy: "欢唱阿肋路亚，弥撒充满白金荣光。", act: "庆祝复活！立志从此活出光明生活。" }
+            { day: "圣枝主日 (3/29)", title: "基督受难主日", focus: "欢迎和平之王进城奉献。礼仪由欢呼转入受难福音。", liturgy: "祝圣圣枝、圣枝游行、长篇受难史宣读。", act: "带回圣枝放在家中十字架旁。反思：我是否在口头欢呼主，在行动中却抛弃主？" },
+            { day: "圣周一至三", title: "心灵静默准备期", focus: "这是心灵大扫除的最后时机。默想救主如何被一步步推向加尔瓦略山。", liturgy: "早晨弥撒，堂区安排全天候告解。", act: "务必在此期间完成圣事性的告解。保持生活环境极简与肃静。" },
+            { day: "圣周四 (4/2)", title: "逾越节三日庆典 (开始)", focus: "‘建立圣体’与‘爱德诫命’。主耶稣在此夜为门徒洗脚，并献出体血。", liturgy: "濯足礼；圣体迁往临时祭台；剥除祭台装饰，遮盖圣像。", act: "参与朝拜圣体直到深夜（陪伴山园中的主）。感受那份孤独中的大爱。" },
+            { day: "圣周五 (4/3)", title: "救主受难纪念", focus: "十字架上的伟大赎献。天主为人类而死。此时全地黑暗。", liturgy: "全日不举行弥撒。朝拜十字架及领受预圣圣体。严守大小斋。", act: "下午3点绝对静默。在圣堂亲吻主受难的伤痕，反省我罪。" },
+            { day: "圣周六 (4/4)", title: "逾越节守夜礼 (礼仪之母)", focus: "由死亡经过进入生命的时刻。礼仪之母。", liturgy: "祝圣新火、复活宣报、九篇读经、重申洗礼誓愿。", act: "晚上全程参与隆重守夜礼。迎接真光复活，重生为新造的人。" },
+            { day: "复活节 (4/5)", title: "耶稣复活大瞻礼", focus: "死亡被废除了！基督得胜了！这是我们信仰的根基。", liturgy: "欢唱阿肋路亚，弥撒充满白金荣光。", act: "庆祝复活！将这份喜乐带给家人。立志从此活出复活者的光明生活。" }
         ];
 
         const encyclopediaData = [
-            { cat: "逾越节奥迹", desc: "‘逾越’意为‘经过’。旧约是天主拯救子民脱离奴役。新约中，基督是逾越羔羊：\n1. 经过自我（圣周四）：空虚自己建立圣体。\n2. 经过痛苦（圣周五）：走入死亡深渊。\n3. 经过阴府（圣周六）：救拔古圣先贤。\n4. 经过死亡（复活日）：彻底粉碎死亡。" },
-            { cat: "大小斋规则", desc: "• 小斋：每周五。不食禽兽肉。满14岁适用。\n• 大斋：圣灰礼仪日、圣周五。全日仅进一餐饱食，禁零食。满18岁至60岁适用（病弱者可豁免，以爱德补之）。" },
-            { cat: "洗礼更新", desc: "四旬期核心是‘圣洗预备期’。对已领洗信友，则是洗礼誓愿的重新激活。我们通过克己祈祷，准备在复活夜重申：‘我拒绝魔鬼，我信赖天主。’" }
+            { 
+                cat: "逾越节奥迹深度介绍", 
+                desc: "‘逾越’（Pascha）意为‘经过’。旧约逾越是天主‘经过’了涂血的门，拯救以色列子民脱离埃及奴役。新约中，基督是真正的逾越羔羊，祂通过四个阶段完成了我们的救赎：\n1. 经过自我（圣周四）：基督在爱中彻底空虚自己，建立圣体。祂由‘世界’逾越到‘父’那里去。\n2. 经过痛苦（圣周五）：基督作为罪人的替身，走入死亡的深渊。祂以无罪之身经过了死亡的痛苦。\n3. 经过阴府（圣周六）：基督降入死亡的底部，救拔自亚当以来的古圣先贤。这是神圣的守望时刻。\n4. 经过死亡（复活日）：基督彻底粉碎了死亡。死亡不再是终点，而是门径。\n这也揭示了每个信友的生命：必须‘死于旧我’，才能‘活于基督’。" 
+            },
+            { 
+                cat: "大小斋精准规则", 
+                desc: "教会要求信友通过约束身体来唤醒灵魂，磨练意志以专注主言：\n• 小斋 (Abstinence)：\n  - 时间：四旬期内的每一个周五，及全年周五（除重大庆日）。\n  - 要求：不食禽兽肉。鱼、虾、蛋奶不受限制。\n  - 适用：凡年满14岁的教友至终身。\n• 大斋 (Fasting)：\n  - 时间：圣灰礼仪日、耶稣受难日（圣周五）。\n  - 要求：全日仅进一餐饱食。严禁在正餐外进食零食。饮水及药物不限。\n  - 适用：凡年满18岁至60岁的教友。孕妇、病弱、繁重劳务者可豁免，但应以爱德补之。" 
+            },
+            {
+                cat: "四旬期与洗礼更新",
+                desc: "四旬期在初期教会的核心是‘圣洗预备期’。候洗者在这40天中接受最后的考核与教导。对于已领洗的信友，这40天则是‘洗礼誓愿的重新激活’。我们通过克己、祈祷和爱德，洗净生活中的尘垢，准备在复活夜重新宣誓：‘我拒绝魔鬼，我拒绝罪恶，我信赖天主。’ 这是一个生命重生的恩宠时期。"
+            }
         ];
 
+
+        // ================= 核心逻辑与渲染 =================
+        
         function showTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
+            
             const footer = document.getElementById('exam-footer');
             const quote = document.getElementById('quote-card');
             
             if(tabId === 'confession') {
                 footer.classList.remove('hidden');
-                quote.classList.add('hidden'); // 告解页隐藏名言防遮挡
+                quote.classList.add('hidden'); 
             } else {
                 footer.classList.add('hidden');
                 quote.classList.remove('hidden');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            if(typeof lucide !== 'undefined') lucide.createIcons();
         }
 
         function showConfSub(subId) {
@@ -395,12 +572,18 @@
             });
             document.getElementById('btn-' + subId).classList.add('conf-nav-active');
             document.getElementById('btn-' + subId).classList.remove('text-indigo-700');
+            if(typeof lucide !== 'undefined') lucide.createIcons();
         }
 
         function getPlanForDate(dateStr) {
             if(dailyFullPlan[dateStr]) return dailyFullPlan[dateStr];
             const isFri = new Date(dateStr).getDay() === 5;
-            return { mentor: "在寂静中跟随主，在祈祷中获力量。", p: "阅读并深度默想当日礼仪读经", f: isFri ? "【小斋】今日戒食肉食；禁绝媒体娱乐" : "节制一项感官爱好", a: isFri ? "参与堂区拜苦路" : "今日默默进行一件爱德善功" };
+            return { 
+                mentor: "在寂静中，基督正注视着你。今日请在平凡的生活中，彰显信仰的力量。", 
+                p: "阅读并深度默想当日礼仪读经（建议30分钟）", 
+                f: isFri ? "【小斋】今日戒食肉食；禁绝午后甜点" : "节制一项由于无聊而引起的感官爱好", 
+                a: isFri ? "15:00 参与堂区拜苦路与弥撒" : "今日默默进行一件不为人知的爱德善功" 
+            };
         }
 
         function initProgressSystem() {
@@ -413,11 +596,13 @@
 
             let displayDays = Math.max(0, Math.min(diffDays, 46));
             document.getElementById('progress-bar').style.width = `${(displayDays / 46) * 100}%`;
-            document.getElementById('progress-week-text').innerText = diffDays <= 4 ? "圣灰后" : `四旬期第 ${weekIdx + 1} 周`;
+            document.getElementById('progress-week-text').innerText = diffDays <= 4 ? "圣灰礼仪后" : `四旬期第 ${weekIdx + 1} 周`;
             document.getElementById('progress-text').innerText = `Day ${displayDays} / 46`;
             document.getElementById('today-date-string').innerText = dateKey;
 
-            document.getElementById('milestones-container').innerHTML = config.milestones.map((m, i) => `<div class="milestone-dot w-3 h-3 rounded-full border border-violet-500 pointer-events-auto ${diffDays >= m.offset ? 'active-dot' : 'bg-violet-900/40'}"></div>`).join('');
+            document.getElementById('milestones-container').innerHTML = config.milestones.map((m, i) => `
+                <div class="milestone-dot w-3 h-3 rounded-full border border-violet-500 pointer-events-auto ${diffDays >= m.offset ? 'active-dot' : 'bg-violet-900/40'}"></div>
+            `).join('');
 
             const plan = getPlanForDate(dateKey);
             document.getElementById('dynamic-guidance-text').innerText = plan.mentor;
@@ -426,17 +611,28 @@
 
         function renderHomeTasks(plan, dateKey) {
             const cats = [
-                { n: '祈祷 (Prayer)', i:'book-open', c:'text-purple-600', t:[plan.p, "晚间省察：寻找今日三个恩赐"] },
-                { n: '斋戒 (Fasting)', i:'coffee', c:'text-indigo-600', t:[plan.f, "言语节制：不抱怨，不说闲话"] },
-                { n: '爱德 (Almsgiving)', i:'heart', c:'text-rose-600', t:[plan.a, "耐心宽恕：对难相处的人保持微笑"] }
+                { n: '祈祷 (Prayer)', i:'book-open', c:'text-purple-600', t:[plan.p, "晚间意识省察：寻找今日三个恩赐"] },
+                { n: '斋戒 (Fasting)', i:'coffee', c:'text-indigo-600', t:[plan.f, "今日斋戒：不抱怨任何不顺心"] },
+                { n: '爱德 (Almsgiving)', i:'heart', c:'text-rose-600', t:[plan.a, "今日对一位难以忍受者保持耐心"] }
             ];
             document.getElementById('task-categories').innerHTML = cats.map((cat, cIdx) => `
-                <div class="space-y-3"><h4 class="text-[10px] font-black uppercase tracking-[0.2em] ${cat.c} flex items-center gap-2"><i data-lucide="${cat.i}" class="w-3.5 h-3.5"></i> ${cat.n}</h4>
-                    <div class="space-y-2.5">${cat.t.map((item, tIdx) => {
-                        const taskId = `task_${dateKey}_${cIdx}_${tIdx}`;
-                        const isDone = localStorage.getItem(taskId) === 'true';
-                        return `<div onclick="toggleTask('${taskId}', this)" class="task-item flex items-start gap-4 p-4 rounded-[1.2rem] border ${isDone ? 'is-checked border-green-300' : 'border-gray-100 bg-gray-50/50'} cursor-pointer hover:bg-white shadow-sm transition-all"><div class="check-box w-6 h-6 rounded-[10px] border-2 border-violet-200 flex items-center justify-center bg-white shrink-0 mt-0.5"><i data-lucide="check" class="check-svg w-3 h-3 text-white ${isDone ? '' : 'hidden'}"></i></div><span class="text-[13px] font-bold text-gray-800 leading-relaxed">${item}</span></div>`;
-                    }).join('')}</div></div>
+                <div class="space-y-3">
+                    <h4 class="text-[10px] font-black uppercase tracking-[0.2em] ${cat.c} flex items-center gap-2"><i data-lucide="${cat.i}" class="w-3.5 h-3.5"></i> ${cat.n}</h4>
+                    <div class="space-y-2.5">
+                        ${cat.t.map((item, tIdx) => {
+                            const taskId = `task_${dateKey}_${cIdx}_${tIdx}`;
+                            const isDone = localStorage.getItem(taskId) === 'true';
+                            return `
+                                <div onclick="toggleTask('${taskId}', this)" class="task-item flex items-start gap-4 p-4 rounded-[1.2rem] border ${isDone ? 'is-checked border-green-300' : 'border-gray-100 bg-gray-50/50'} cursor-pointer hover:bg-white shadow-sm transition-all">
+                                    <div class="check-box w-6 h-6 rounded-[10px] border-2 border-violet-200 flex items-center justify-center bg-white shrink-0 mt-0.5">
+                                        <i data-lucide="check" class="check-svg w-3 h-3 text-white ${isDone ? '' : 'hidden'}"></i>
+                                    </div>
+                                    <span class="text-[13px] font-bold text-gray-800 leading-relaxed">${item}</span>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
             `).join('');
         }
 
@@ -446,37 +642,165 @@
             if(isDone) localStorage.setItem(id, 'true'); else localStorage.removeItem(id);
         }
 
-        function renderWeeklyList() { document.getElementById('weekly-list').innerHTML = weeklyFullData.map(w => `<div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm relative overflow-hidden"><div class="flex items-center justify-between mb-5 border-b border-gray-50 pb-5"><h4 class="text-xl font-black text-gray-900 tracking-tighter">${w.theme}</h4><span class="text-[9px] bg-violet-100 text-violet-700 px-3 py-1.5 rounded-full font-black uppercase tracking-widest">${w.week}</span></div><div class="mb-6 p-5 bg-violet-50 rounded-[1.5rem] border border-violet-100"><p class="text-[12px] text-violet-950 font-bold leading-[2] italic font-serif-church">“${w.intro}”</p><p class="text-[10px] text-violet-500 mt-3 font-black tracking-widest flex items-center gap-1.5"><i data-lucide="bookmark" class="w-3 h-3"></i> 读经: ${w.scripture}</p></div><div class="bg-stone-50 p-5 rounded-[1.5rem] border border-stone-100"><h5 class="text-[9px] font-black text-stone-400 uppercase tracking-widest mb-4">本周每日方案</h5><div class="space-y-3">${w.days.map((d, i) => `<div class="text-[12px] text-gray-700 leading-relaxed flex gap-3"><span class="font-black text-violet-400 shrink-0">D${i+1}</span><p class="font-medium">${d}</p></div>`).join('')}</div></div></div>`).join(''); }
-        
-        function renderStationsList() { document.getElementById('stations-list').innerHTML = stationsDetailed.map(s => `<div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm station-accent"><div class="flex justify-between items-center mb-5"><span class="text-[10px] font-black text-stone-400 uppercase tracking-widest">${s.title}</span><div class="w-10 h-10 rounded-[12px] bg-stone-900 text-white flex items-center justify-center text-sm font-black shadow-md">${s.id}</div></div><h4 class="text-xl font-black text-stone-950 mb-4 tracking-tight">${s.name}</h4><div class="p-5 bg-stone-50 rounded-[1.5rem] border border-stone-100 mb-5 font-serif-church italic text-stone-800 text-[13px] leading-[2]">${s.scripture}</div><div class="space-y-5"><div class="prose-church"><h5 class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">神学默想</h5><p class="text-[13px] text-gray-600 font-medium leading-[1.8]">“${s.med}”</p></div><div class="bg-violet-50 p-5 rounded-[1.5rem] border border-violet-100"><strong class="flex items-center gap-2 mb-2 text-[10px] text-violet-700 uppercase tracking-widest font-black"><i data-lucide="target" class="w-3.5 h-3.5"></i> 今日定志行动</strong><p class="text-[13px] text-violet-950 font-bold leading-relaxed">${s.res}</p></div><div class="bg-indigo-50/50 p-4 rounded-[1.2rem] italic text-[11px] text-indigo-700 font-medium leading-relaxed"><strong>经文祷词：</strong> ${s.prayer}</div></div></div>`).join(''); }
-        
-        function renderHolyWeekPlan() { document.getElementById('holyweek-list').innerHTML = holyWeekPlan.map(h => `<div class="bg-white p-6 rounded-[2rem] border-l-[8px] border-l-red-900 shadow-sm space-y-5"><div class="flex flex-col gap-2"><span class="text-[9px] font-black text-red-700 uppercase tracking-widest border border-red-100 px-3 py-1 rounded-full w-fit bg-red-50">${h.day}</span><h3 class="text-xl font-black text-red-950 tracking-tighter">${h.title}</h3></div><div class="space-y-3"><div class="p-5 bg-gray-50 rounded-[1.5rem] border border-gray-100"><h5 class="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-2">焦点</h5><p class="text-[13px] text-gray-700 font-medium leading-[1.8]">${h.focus}</p></div><div class="p-5 bg-red-50/50 rounded-[1.5rem] border border-red-100"><h5 class="text-[9px] font-black text-red-800 uppercase tracking-widest mb-2">礼仪</h5><p class="text-[13px] text-red-900 font-bold leading-[1.8]">${h.liturgy}</p></div></div><div class="bg-red-900 p-6 rounded-[1.5rem] text-white shadow-md"><p class="text-[13px] font-bold leading-relaxed flex items-start gap-3 italic font-serif-church"><i data-lucide="heart" class="w-4 h-4 fill-white text-red-900 mt-1 shrink-0"></i>“${h.act}”</p></div></div>`).join(''); }
-        
-        function renderEncyclopedia() { document.getElementById('liturgy-info-list').innerHTML = encyclopediaData.map(i => `<div class="bg-white p-8 rounded-[2rem] shadow-sm border border-amber-50"><h4 class="text-amber-950 font-black text-xl mb-5 flex items-center gap-3"><span class="w-10 h-10 bg-amber-100 text-amber-700 rounded-[12px] flex items-center justify-center"><i data-lucide="book-open" class="w-5 h-5"></i></span>${i.cat}</h4><p class="text-[13px] text-gray-600 leading-[2] whitespace-pre-line font-medium prose-church">${i.desc}</p></div>`).join(''); }
-        
+        function renderWeeklyList() {
+            document.getElementById('weekly-list').innerHTML = weeklyFullData.map(w => `
+                <div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-5 border-b border-gray-50 pb-5">
+                        <h4 class="text-xl font-black text-gray-900 tracking-tighter">${w.theme}</h4>
+                        <span class="text-[9px] bg-violet-100 text-violet-700 px-3 py-1.5 rounded-full font-black uppercase tracking-widest">${w.week}</span>
+                    </div>
+                    <div class="mb-6 p-5 bg-violet-50 rounded-[1.5rem] border border-violet-100">
+                        <p class="text-[12px] text-violet-950 font-bold leading-[2] italic font-serif-church">“${w.intro}”</p>
+                        <p class="text-[10px] text-violet-500 mt-3 font-black tracking-widest flex items-center gap-1.5"><i data-lucide="bookmark" class="w-3 h-3"></i> 读经: ${w.scripture}</p>
+                    </div>
+                    <div class="bg-stone-50 p-5 rounded-[1.5rem] border border-stone-100">
+                        <h5 class="text-[9px] font-black text-stone-400 uppercase tracking-widest mb-4">本周每日方案</h5>
+                        <div class="space-y-3">
+                            ${w.days.map((d, i) => `
+                                <div class="text-[12px] text-gray-700 leading-relaxed flex gap-3">
+                                    <span class="font-black text-violet-400 shrink-0">D${i+1}</span>
+                                    <p class="font-medium">${d}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderStationsList() {
+            document.getElementById('stations-list').innerHTML = stationsDetailed.map(s => `
+                <div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm station-accent">
+                    <div class="flex justify-between items-center mb-5">
+                        <span class="text-[10px] font-black text-stone-400 uppercase tracking-widest">${s.title}</span>
+                        <div class="w-10 h-10 rounded-[12px] bg-stone-900 text-white flex items-center justify-center text-sm font-black shadow-md">${s.id}</div>
+                    </div>
+                    <h4 class="text-xl font-black text-stone-950 mb-4 tracking-tight">${s.name}</h4>
+                    <div class="p-5 bg-stone-50 rounded-[1.5rem] border border-stone-100 mb-5 font-serif-church italic text-stone-800 text-[13px] leading-[2]">
+                        ${s.scripture}
+                    </div>
+                    <div class="space-y-5">
+                        <div class="prose-church">
+                            <h5 class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">神学默想</h5>
+                            <p class="text-[13px] text-gray-600 font-medium leading-[1.8]">“${s.med}”</p>
+                        </div>
+                        <div class="bg-violet-50 p-5 rounded-[1.5rem] border border-violet-100">
+                            <strong class="flex items-center gap-2 mb-2 text-[10px] text-violet-700 uppercase tracking-widest font-black"><i data-lucide="target" class="w-3.5 h-3.5"></i> 今日定志行动</strong>
+                            <p class="text-[13px] text-violet-950 font-bold leading-relaxed">${s.res}</p>
+                        </div>
+                        <div class="bg-indigo-50/50 p-4 rounded-[1.2rem] italic text-[11px] text-indigo-700 font-medium leading-relaxed">
+                            <strong>经文祷词：</strong> ${s.prayer}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderHolyWeekPlan() {
+            document.getElementById('holyweek-list').innerHTML = holyWeekPlan.map(h => `
+                <div class="bg-white p-6 rounded-[2rem] border-l-[8px] border-l-red-900 shadow-sm space-y-5">
+                    <div class="flex flex-col gap-2">
+                        <span class="text-[9px] font-black text-red-700 uppercase tracking-widest border border-red-100 px-3 py-1 rounded-full w-fit bg-red-50">${h.day}</span>
+                        <h3 class="text-xl font-black text-red-950 tracking-tighter">${h.title}</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="p-5 bg-gray-50 rounded-[1.5rem] border border-gray-100">
+                            <h5 class="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-2">救赎焦点</h5>
+                            <p class="text-[13px] text-gray-700 font-medium leading-[1.8]">${h.focus}</p>
+                        </div>
+                        <div class="p-5 bg-red-50/50 rounded-[1.5rem] border border-red-100">
+                            <h5 class="text-[9px] font-black text-red-800 uppercase tracking-widest mb-2">礼仪环节</h5>
+                            <p class="text-[13px] text-red-900 font-bold leading-[1.8]">${h.liturgy}</p>
+                        </div>
+                    </div>
+                    <div class="bg-red-900 p-6 rounded-[1.5rem] text-white shadow-md">
+                        <p class="text-[13px] font-bold leading-relaxed flex items-start gap-3 italic font-serif-church">
+                            <i data-lucide="heart" class="w-4 h-4 fill-white text-red-900 mt-1 shrink-0"></i>
+                            “${h.act}”
+                        </p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderEncyclopedia() {
+            document.getElementById('liturgy-info-list').innerHTML = encyclopediaData.map(i => `
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-amber-50">
+                    <h4 class="text-amber-950 font-black text-xl mb-5 flex items-center gap-3">
+                        <span class="w-10 h-10 bg-amber-100 text-amber-700 rounded-[12px] flex items-center justify-center"><i data-lucide="book-open" class="w-5 h-5"></i></span>
+                        ${i.cat}
+                    </h4>
+                    <p class="text-[13px] text-gray-600 leading-[2] whitespace-pre-line font-medium prose-church">${i.desc}</p>
+                </div>
+            `).join('');
+        }
+
         function renderConfData() {
-            document.getElementById('exam-list-container').innerHTML = confessionContentData.examItems.map(section => `<div class="space-y-5"><h4 class="font-black text-indigo-950 text-lg flex items-center gap-2.5"><span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span> ${section.cat}</h4><div class="space-y-3">${section.items.map(q => { const isDone = localStorage.getItem(`conf_${q.id}`) === 'true'; return `<div onclick="toggleExamCheck(this, '${q.id}', '${q.q.split('？')[0]}')" class="exam-item flex items-start gap-4 p-4 rounded-[1.5rem] border ${isDone ? 'is-checked border-indigo-300' : 'border-gray-100 bg-gray-50/30'} cursor-pointer transition-all"><div class="exam-check-box w-6 h-6 rounded-[8px] border-2 border-indigo-200 shrink-0 mt-0.5 flex items-center justify-center bg-white"><i data-lucide="check" class="exam-check-svg w-3.5 h-3.5 text-white ${isDone ? '' : 'hidden'}"></i></div><p class="text-[13px] text-gray-700 leading-[1.8] font-medium">${q.q}</p></div>`; }).join('')}</div></div>`).join('');
+            document.getElementById('exam-list-container').innerHTML = confessionContentData.examItems.map(section => `
+                <div class="space-y-5">
+                    <h4 class="font-black text-indigo-950 text-lg flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span> ${section.cat}
+                    </h4>
+                    <div class="space-y-3">
+                        ${section.items.map(q => {
+                            const isDone = localStorage.getItem(`conf_${q.id}`) === 'true';
+                            return `
+                                <div onclick="toggleExamCheck(this, '${q.id}', '${q.q.split('？')[0]}')" class="exam-item flex items-start gap-4 p-4 rounded-[1.5rem] border ${isDone ? 'is-checked border-indigo-300' : 'border-gray-100 bg-gray-50/30'} cursor-pointer transition-all">
+                                    <div class="exam-check-box w-6 h-6 rounded-[8px] border-2 border-indigo-200 shrink-0 mt-0.5 flex items-center justify-center bg-white">
+                                        <i data-lucide="check" class="exam-check-svg w-3.5 h-3.5 text-white ${isDone ? '' : 'hidden'}"></i>
+                                    </div>
+                                    <p class="text-[13px] text-gray-700 leading-[1.8] font-medium">${q.q}</p>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+            `).join('');
             
-            document.getElementById('confession-script').innerHTML = confessionContentData.steps.map((s, i) => `<div class="relative pl-10 border-l-2 border-dashed border-indigo-100 pb-8 last:pb-0"><div class="absolute -left-[15px] top-0 w-7 h-7 rounded-[8px] bg-indigo-600 text-white flex items-center justify-center text-xs font-black border-[3px] border-white">${i+1}</div><h5 class="font-black text-indigo-950 text-sm mb-2 tracking-tight">${s.t}</h5><div class="bg-gray-50 p-4 rounded-2xl text-[12px] text-gray-600 font-medium leading-relaxed">${s.d}</div></div>`).join('');
+            document.getElementById('confession-script').innerHTML = confessionContentData.steps.map((s, i) => `
+                <div class="relative pl-10 border-l-2 border-dashed border-indigo-100 pb-8 last:pb-0">
+                    <div class="absolute -left-[15px] top-0 w-7 h-7 rounded-[8px] bg-indigo-600 text-white flex items-center justify-center text-xs font-black border-[3px] border-white">${i+1}</div>
+                    <h5 class="font-black text-indigo-950 text-sm mb-2 tracking-tight">${s.t}</h5>
+                    <div class="bg-gray-50 p-4 rounded-2xl text-[12px] text-gray-600 font-medium leading-relaxed">${s.d}</div>
+                </div>
+            `).join('');
             
-            document.getElementById('prayers-container').innerHTML = `<div class="space-y-4"><h4 class="text-lg font-black text-indigo-950 border-l-4 border-indigo-600 pl-3">白话版痛悔经</h4><p class="text-[13px] leading-relaxed text-gray-700 bg-indigo-50/50 p-5 rounded-2xl">天主，为了我所犯的一切罪过...我全心痛悔。我决志藉着祢的恩宠，再不敢得罪祢，并躲避犯罪的机会。阿们。</p></div><div class="space-y-4 mt-6"><h4 class="text-lg font-black text-indigo-400 border-l-4 border-indigo-400 pl-3">文言版痛悔经</h4><p class="text-[13px] leading-relaxed text-gray-600 bg-gray-50 p-5 rounded-2xl font-serif-church italic">吾主耶稣，基利斯督...我重罪人，得罪天主。今特为爱天主在万有之上，专心痛悔...宁死再不敢得罪天主。阿们。</p></div>`;
+            document.getElementById('prayers-container').innerHTML = `
+                <div class="space-y-4">
+                    <h4 class="text-lg font-black text-indigo-950 border-l-4 border-indigo-600 pl-3">白话版痛悔经</h4>
+                    <p class="text-[13px] leading-relaxed text-gray-700 bg-indigo-50/50 p-5 rounded-2xl">天主，为了我所犯的一切罪过，并为了我失职的罪，我全心痛悔。因为我得罪了祢——极仁慈、极美善的天主。我决志藉着祢的恩宠，再不敢得罪祢，并躲避犯罪的机会。阿们。</p>
+                </div>
+                <div class="space-y-4 mt-6">
+                    <h4 class="text-lg font-black text-indigo-400 border-l-4 border-indigo-400 pl-3">文言版痛悔经</h4>
+                    <p class="text-[13px] leading-relaxed text-gray-600 bg-gray-50 p-5 rounded-2xl font-serif-church italic">吾主耶稣，基利斯督，造我养我，救我之主。我重罪人，得罪天主。今特为爱天主在万有之上，专心痛悔，恼恨我罪，决意定改，宁死再不敢得罪天主。望主看你圣苦难之功，可怜我等。阿们。</p>
+                </div>
+            `;
             updateExamBadge();
         }
 
         function toggleExamCheck(el, id, text) {
             const isChecked = el.classList.toggle('is-checked');
             el.querySelector('.exam-check-svg').classList.toggle('hidden');
-            if (isChecked) { localStorage.setItem(`conf_${id}`, 'true'); localStorage.setItem(`conf_text_${id}`, text); } 
-            else { localStorage.removeItem(`conf_${id}`); localStorage.removeItem(`conf_text_${id}`); }
+            if (isChecked) { 
+                localStorage.setItem(`conf_${id}`, 'true'); 
+                localStorage.setItem(`conf_text_${id}`, text); 
+            } else { 
+                localStorage.removeItem(`conf_${id}`); 
+                localStorage.removeItem(`conf_text_${id}`); 
+            }
             updateExamBadge();
         }
+
         function updateExamBadge() { document.getElementById('exam-badge').innerText = document.querySelectorAll('.exam-item.is-checked').length; }
         
         function copyConfessionList() {
             let listText = "【告解备忘录】\n", hasItems = false;
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i);
-                if (key.startsWith('conf_text_')) { listText += "• " + localStorage.getItem(key) + "...\n"; hasItems = true; }
+                if (key.startsWith('conf_text_')) { 
+                    listText += "• " + localStorage.getItem(key) + "...\n"; 
+                    hasItems = true; 
+                }
             }
             if (!hasItems) return alert("您还没有勾选任何条目。");
             navigator.clipboard.writeText(listText).then(() => alert("已复制！排队办告解时可粘贴到备忘录中查看。"));
@@ -485,12 +809,16 @@
         function resetExam() {
             if(confirm("确定要清空告解记录吗？")) {
                 let keys = [];
-                for(let i=0; i<localStorage.length; i++) { if(localStorage.key(i).startsWith('conf_')) keys.push(localStorage.key(i)); }
+                for(let i=0; i<localStorage.length; i++) { 
+                    if(localStorage.key(i).startsWith('conf_')) keys.push(localStorage.key(i)); 
+                }
                 keys.forEach(k => localStorage.removeItem(k));
                 renderConfData();
             }
         }
 
+        // ================= 初始化与事件 =================
+        
         window.onload = () => {
             try {
                 initProgressSystem();
@@ -502,10 +830,11 @@
 
                 if(typeof lucide !== 'undefined') lucide.createIcons();
                 
+                // 隐藏加载动画
                 document.getElementById('loading-screen').style.opacity = '0';
                 setTimeout(() => document.getElementById('loading-screen').style.display = 'none', 500);
 
-                // 随机名言轮播
+                // 随机名言轮播逻辑
                 setInterval(() => {
                     const el = document.getElementById('daily-quote');
                     const card = document.getElementById('quote-card');
@@ -518,10 +847,12 @@
                     }
                 }, 10000);
 
+                // Service Worker 注册 (PWA支持)
                 if ('serviceWorker' in navigator) {
                     navigator.serviceWorker.register('./sw.js').catch(console.error);
                 }
             } catch (error) {
+                // 如果发生致命错误，解除 loading 遮罩以显示上方注入的 error 信息
                 document.getElementById('loading-screen').style.display = 'none';
                 throw error;
             }
